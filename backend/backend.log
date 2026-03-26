@@ -1,0 +1,1370 @@
+2026-02-18 04:21:11,954 - main - INFO - Backend starting...
+2026-02-18 04:21:11,955 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-18 04:21:11,955 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-18 04:21:11,955 - main - INFO - Path: ['', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-18 04:22:26,540 - __main__ - INFO - Backend starting...
+2026-02-18 04:22:26,551 - __main__ - INFO - Python executable: C:\Python313\python.exe
+2026-02-18 04:22:26,556 - __main__ - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-18 04:22:26,561 - __main__ - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-18 04:24:16,792 - main - INFO - Backend starting...
+2026-02-18 04:24:16,793 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-18 04:24:16,793 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-18 04:24:16,793 - main - INFO - Path: ['', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-18 04:24:25,193 - main - INFO - Initializing FX Engine...
+2026-02-18 04:24:25,193 - main - INFO - FX Engine initialized.
+2026-02-18 04:30:24,607 - main - INFO - Backend starting...
+2026-02-18 04:30:24,607 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-18 04:30:24,608 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-18 04:30:24,608 - main - INFO - Path: ['', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-18 04:30:35,728 - main - INFO - Initializing FX Engine...
+2026-02-18 04:30:35,730 - main - INFO - FX Engine initialized.
+2026-02-19 02:39:55,879 - main - INFO - Backend starting...
+2026-02-19 02:39:55,879 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 02:39:55,880 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 02:39:55,880 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 02:40:13,597 - main - INFO - Initializing FX Engine...
+2026-02-19 02:40:13,598 - main - INFO - FX Engine initialized.
+2026-02-19 02:41:09,945 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: processed\3ba7ef4a-7a98-4261-b856-2a45dc6aa79a, output_format: mp3
+2026-02-19 02:41:09,945 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 02:41:09,947 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-02-19 02:41:10,031 - audio_separator.separator.separator - INFO - System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 02:41:10,032 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-02-19 02:41:10,032 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-02-19 02:41:10,105 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 02:41:10,146 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 02:41:10,189 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 02:41:10,192 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-02-19 02:41:10,192 - separator - INFO - Separating stems for uploads\3ba7ef4a-7a98-4261-b856-2a45dc6aa79a_trimmed.mp3 using Hybrid (MDX + Demucs)
+2026-02-19 02:41:10,192 - separator - INFO - Loading MDX model: UVR-MDX-NET-Inst_HQ_3
+2026-02-19 02:41:10,193 - audio_separator.separator.separator - INFO - Loading model UVR-MDX-NET-Inst_HQ_3...
+2026-02-19 02:41:10,324 - separator - ERROR - Hybrid separation failed: Model file UVR-MDX-NET-Inst_HQ_3 not found in supported model files
+2026-02-19 02:41:10,325 - main - ERROR - Error processing 3ba7ef4a-7a98-4261-b856-2a45dc6aa79a: Model file UVR-MDX-NET-Inst_HQ_3 not found in supported model files
+2026-02-19 02:43:17,059 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: processed\e7d1de4d-3ef9-4da8-a867-2de712d86354, output_format: mp3
+2026-02-19 02:43:17,060 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 02:43:17,061 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-02-19 02:43:17,062 - audio_separator.separator.separator - INFO - System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 02:43:17,062 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-02-19 02:43:17,062 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-02-19 02:43:17,167 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 02:43:17,174 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 02:43:17,175 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 02:43:17,177 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-02-19 02:43:17,177 - separator - INFO - Separating stems for uploads\e7d1de4d-3ef9-4da8-a867-2de712d86354_trimmed.mp3 using Hybrid (MDX + Demucs)
+2026-02-19 02:43:17,178 - separator - INFO - Loading MDX model: UVR-MDX-NET-Inst_HQ_3
+2026-02-19 02:43:17,178 - audio_separator.separator.separator - INFO - Loading model UVR-MDX-NET-Inst_HQ_3...
+2026-02-19 02:43:17,216 - separator - ERROR - Hybrid separation failed: Model file UVR-MDX-NET-Inst_HQ_3 not found in supported model files
+2026-02-19 02:43:17,217 - main - ERROR - Error processing e7d1de4d-3ef9-4da8-a867-2de712d86354: Model file UVR-MDX-NET-Inst_HQ_3 not found in supported model files
+2026-02-19 02:45:21,330 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: processed\68bdf2a5-fc4d-4cba-a43b-07949b0708ae, output_format: mp3
+2026-02-19 02:45:21,331 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 02:45:21,332 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-02-19 02:45:21,332 - audio_separator.separator.separator - INFO - System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 02:45:21,332 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-02-19 02:45:21,332 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-02-19 02:45:21,408 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 02:45:21,413 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 02:45:21,415 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 02:45:21,417 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-02-19 02:45:21,417 - separator - INFO - Separating stems for uploads\68bdf2a5-fc4d-4cba-a43b-07949b0708ae_trimmed.mp3 using Hybrid (MDX + Demucs)
+2026-02-19 02:45:21,417 - separator - INFO - Loading MDX model: UVR-MDX-NET-Inst_HQ_3
+2026-02-19 02:45:21,417 - audio_separator.separator.separator - INFO - Loading model UVR-MDX-NET-Inst_HQ_3...
+2026-02-19 02:45:21,451 - separator - ERROR - Hybrid separation failed: Model file UVR-MDX-NET-Inst_HQ_3 not found in supported model files
+2026-02-19 02:45:21,452 - main - ERROR - Error processing 68bdf2a5-fc4d-4cba-a43b-07949b0708ae: Model file UVR-MDX-NET-Inst_HQ_3 not found in supported model files
+2026-02-19 04:21:52,819 - main - INFO - Backend starting...
+2026-02-19 04:21:52,820 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 04:21:52,820 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 04:21:52,820 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 04:22:01,030 - main - INFO - Initializing FX Engine...
+2026-02-19 04:22:01,030 - main - INFO - FX Engine initialized.
+2026-02-19 04:23:22,735 - main - INFO - Backend starting...
+2026-02-19 04:23:22,736 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 04:23:22,736 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 04:23:22,736 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 04:23:30,389 - main - INFO - Initializing FX Engine...
+2026-02-19 04:23:30,390 - main - INFO - FX Engine initialized.
+2026-02-19 04:25:46,606 - main - INFO - Backend starting...
+2026-02-19 04:25:46,608 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 04:25:46,608 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 04:25:46,608 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 04:25:54,294 - main - INFO - Initializing FX Engine...
+2026-02-19 04:25:54,294 - main - INFO - FX Engine initialized.
+2026-02-19 04:26:03,766 - main - INFO - Backend starting...
+2026-02-19 04:26:03,767 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 04:26:03,767 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 04:26:03,767 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 04:26:09,584 - main - INFO - Initializing FX Engine...
+2026-02-19 04:26:09,584 - main - INFO - FX Engine initialized.
+2026-02-19 04:30:08,083 - main - INFO - Backend starting...
+2026-02-19 04:30:08,084 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 04:30:08,084 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 04:30:08,085 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 04:30:15,265 - main - INFO - Initializing FX Engine...
+2026-02-19 04:30:15,265 - main - INFO - FX Engine initialized.
+2026-02-19 04:33:52,684 - main - INFO - Backend starting...
+2026-02-19 04:33:52,684 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 04:33:52,684 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 04:33:52,685 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'c:\\Users\\15024\\projects\\DeepSplit', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 04:34:01,214 - main - INFO - Initializing FX Engine...
+2026-02-19 04:34:01,214 - main - INFO - FX Engine initialized.
+2026-02-19 04:41:11,479 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: processed\4d7d8a93-fae8-43f7-96c4-0981f2fc1820, output_format: mp3
+2026-02-19 04:41:11,480 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 04:41:11,481 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-02-19 04:41:11,654 - audio_separator.separator.separator - INFO - System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 04:41:11,656 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-02-19 04:41:11,658 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-02-19 04:41:11,721 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 04:41:11,728 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 04:41:11,732 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 04:41:11,741 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-02-19 04:41:11,742 - separator - INFO - Separating stems for uploads\4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed.mp3 using Hybrid (MDX + Demucs)
+2026-02-19 04:41:11,742 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-02-19 04:41:11,742 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-02-19 04:41:11,813 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 04:41:20,113 - audio_separator.separator.separator - INFO - Load model duration: 00:00:08
+2026-02-19 04:41:20,114 - separator - INFO - Running MDX separation on uploads\4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed.mp3
+2026-02-19 04:41:20,114 - audio_separator.separator.separator - INFO - Processing file: uploads\4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed.mp3
+2026-02-19 04:41:20,114 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: uploads\4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed.mp3
+2026-02-19 04:41:20,122 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 04:41:20,122 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 04:41:20,122 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 04:42:09,567 - audio_separator.separator.separator - INFO - Saving Instrumental stem to 4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2.mp3...
+2026-02-19 04:42:13,753 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:13,754 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:13,801 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:14,510 - audio_separator.separator.separator - INFO - Saving Vocals stem to 4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Vocals)_Kim_Vocal_2.mp3...
+2026-02-19 04:42:14,538 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:14,539 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:14,542 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:19,091 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 04:42:19,093 - audio_separator.separator.separator - INFO - Separation duration: 00:00:58
+2026-02-19 04:42:19,093 - separator - INFO - MDX Output: ['4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2.mp3', '4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Vocals)_Kim_Vocal_2.mp3']
+2026-02-19 04:42:19,093 - separator - INFO - Vocals stem: 4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Vocals)_Kim_Vocal_2.mp3, Instrumental stem: 4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:42:19,098 - separator - INFO - Vocals saved to processed\4d7d8a93-fae8-43f7-96c4-0981f2fc1820\test_wav_vocals.mp3
+2026-02-19 04:42:19,100 - separator - INFO - Loading Demucs model: htdemucs_6s.yaml
+2026-02-19 04:42:19,100 - audio_separator.separator.separator - INFO - Loading model htdemucs_6s.yaml...
+2026-02-19 04:42:19,326 - audio_separator.separator.separator - INFO - Demucs Separator initialisation complete
+2026-02-19 04:42:21,665 - audio_separator.separator.separator - INFO - Load model duration: 00:00:02
+2026-02-19 04:42:21,665 - separator - INFO - Running Demucs separation on 4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:42:21,666 - audio_separator.separator.separator - INFO - Processing file: processed\4d7d8a93-fae8-43f7-96c4-0981f2fc1820\4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:42:21,666 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: processed\4d7d8a93-fae8-43f7-96c4-0981f2fc1820\4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:42:21,668 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 04:42:21,668 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 04:42:21,669 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 04:42:48,051 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:48,052 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:48,053 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:48,321 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:48,321 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:48,322 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:48,558 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:48,558 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:48,560 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:48,790 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:48,791 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:48,792 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:49,016 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:49,016 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:49,017 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:49,259 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:42:49,260 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 04:42:49,261 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 04:42:49,694 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 04:42:49,694 - audio_separator.separator.separator - INFO - Separation duration: 00:00:28
+2026-02-19 04:42:49,694 - separator - INFO - Demucs Output: ['4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', '4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', '4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', '4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', '4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', '4d7d8a93-fae8-43f7-96c4-0981f2fc1820_trimmed_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-02-19 05:40:03,854 - main - INFO - Backend starting...
+2026-02-19 05:40:03,857 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 05:40:03,858 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 05:40:03,864 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 05:40:15,698 - main - INFO - Initializing FX Engine...
+2026-02-19 05:40:15,699 - main - INFO - FX Engine initialized.
+2026-02-19 05:40:25,947 - main - INFO - Backend starting...
+2026-02-19 05:40:25,948 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 05:40:25,948 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 05:40:25,949 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 05:40:33,950 - main - INFO - Initializing FX Engine...
+2026-02-19 05:40:33,951 - main - INFO - FX Engine initialized.
+2026-02-19 06:42:11,781 - main - INFO - Backend starting...
+2026-02-19 06:42:11,781 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 06:42:11,781 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 06:42:11,782 - main - INFO - Path: ['', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 06:42:27,894 - main - INFO - Initializing FX Engine...
+2026-02-19 06:42:27,894 - main - INFO - FX Engine initialized.
+2026-02-19 06:52:19,868 - main - INFO - Backend starting...
+2026-02-19 06:52:19,869 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 06:52:19,869 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 06:52:19,869 - main - INFO - Path: ['', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 06:52:27,722 - main - INFO - Initializing FX Engine...
+2026-02-19 06:52:27,722 - main - INFO - FX Engine initialized.
+2026-02-19 06:54:44,271 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: processed\9f8ccc42-d0cd-4778-97a5-11b5fdb09553, output_format: mp3
+2026-02-19 06:54:44,271 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 06:54:44,276 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-02-19 06:54:44,446 - audio_separator.separator.separator - INFO - System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 06:54:44,447 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-02-19 06:54:44,447 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-02-19 06:54:44,524 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 06:54:44,535 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 06:54:44,541 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 06:54:44,545 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-02-19 06:54:44,546 - separator - INFO - Separating stems for uploads\9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed.mp3 using Hybrid (MDX + Demucs)
+2026-02-19 06:54:44,546 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-02-19 06:54:44,546 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-02-19 06:54:44,922 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 06:55:00,806 - audio_separator.separator.separator - INFO - Load model duration: 00:00:16
+2026-02-19 06:55:00,807 - separator - INFO - Running MDX separation on uploads\9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed.mp3
+2026-02-19 06:55:00,808 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-02-19 06:55:00,897 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 06:55:01,410 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-02-19 06:55:01,410 - audio_separator.separator.separator - INFO - Processing file: uploads\9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed.mp3
+2026-02-19 06:55:01,411 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: uploads\9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed.mp3
+2026-02-19 06:55:01,434 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 06:55:01,434 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 06:55:01,434 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 06:55:57,050 - audio_separator.separator.separator - INFO - Saving Instrumental stem to 9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2.mp3...
+2026-02-19 06:56:01,005 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:01,006 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:01,031 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:01,849 - audio_separator.separator.separator - INFO - Saving Vocals stem to 9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Vocals)_Kim_Vocal_2.mp3...
+2026-02-19 06:56:01,854 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:01,855 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:01,859 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:06,118 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 06:56:06,119 - audio_separator.separator.separator - INFO - Separation duration: 00:01:04
+2026-02-19 06:56:06,126 - separator - INFO - MDX Output: ['9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2.mp3', '9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Vocals)_Kim_Vocal_2.mp3']
+2026-02-19 06:56:06,126 - separator - INFO - Vocals stem: 9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Vocals)_Kim_Vocal_2.mp3, Instrumental stem: 9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:56:06,147 - separator - INFO - Vocals saved to processed\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\test_wav_vocals.mp3
+2026-02-19 06:56:06,148 - separator - INFO - Loading Demucs model: htdemucs_6s.yaml
+2026-02-19 06:56:06,148 - audio_separator.separator.separator - INFO - Loading model htdemucs_6s.yaml...
+2026-02-19 06:56:06,616 - audio_separator.separator.separator - INFO - Demucs Separator initialisation complete
+2026-02-19 06:56:06,883 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-02-19 06:56:06,883 - separator - INFO - Running Demucs separation on 9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:56:06,884 - audio_separator.separator.separator - INFO - Processing file: processed\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:56:06,884 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: processed\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:56:06,886 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 06:56:06,886 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 06:56:06,886 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 06:56:32,826 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:32,826 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:32,830 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:33,139 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:33,140 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:33,144 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:33,536 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:33,536 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:33,539 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:33,854 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:33,854 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:33,857 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:34,547 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:34,547 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:34,551 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:34,886 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:56:34,886 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:56:34,890 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:56:34,964 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: processed\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a, output_format: mp3
+2026-02-19 06:56:34,965 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 06:56:34,966 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-02-19 06:56:34,966 - audio_separator.separator.separator - INFO - System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 06:56:34,966 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-02-19 06:56:34,967 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-02-19 06:56:35,044 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 06:56:35,052 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 06:56:35,055 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 06:56:35,057 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-02-19 06:56:35,057 - separator - INFO - Separating stems for uploads\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed.mp3 using Hybrid (MDX + Demucs)
+2026-02-19 06:56:35,057 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-02-19 06:56:35,057 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-02-19 06:56:35,137 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 06:56:35,692 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-02-19 06:56:35,693 - separator - INFO - Running MDX separation on uploads\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed.mp3
+2026-02-19 06:56:35,694 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-02-19 06:56:35,958 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 06:56:35,986 - audio_separator.separator.separator - INFO - Separation duration: 00:00:29
+2026-02-19 06:56:35,987 - separator - INFO - Demucs Output: ['9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', '9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', '9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', '9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', '9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', '9f8ccc42-d0cd-4778-97a5-11b5fdb09553_trimmed_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-02-19 06:56:36,303 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 06:56:36,713 - audio_separator.separator.separator - INFO - Load model duration: 00:00:01
+2026-02-19 06:56:36,807 - separator - INFO - Hybrid separation complete. Files: ['test_wav_vocals.mp3', 'test_wav_bass.mp3', 'test_wav_drums.mp3', 'test_wav_other.mp3', 'test_wav_guitar.mp3', 'test_wav_piano.mp3']
+2026-02-19 06:56:36,808 - separator - INFO - Starting advanced drum separation for processed\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\test_wav_drums.mp3
+2026-02-19 06:56:39,003 - separator - INFO - Drum separation complete. Output files: ['processed\\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\\kick.mp3', 'processed\\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\\snare.mp3', 'processed\\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\\hihat.mp3', 'processed\\9f8ccc42-d0cd-4778-97a5-11b5fdb09553\\percussion.mp3']
+2026-02-19 06:56:39,006 - audio_separator.separator.separator - INFO - Processing file: uploads\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed.mp3
+2026-02-19 06:56:39,007 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: uploads\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed.mp3
+2026-02-19 06:56:39,009 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 06:56:39,010 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 06:56:39,010 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 06:57:56,560 - audio_separator.separator.separator - INFO - Saving Instrumental stem to b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2.mp3...
+2026-02-19 06:57:57,947 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:57:57,948 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:57:57,974 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:57:58,549 - audio_separator.separator.separator - INFO - Saving Vocals stem to b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Vocals)_Kim_Vocal_2.mp3...
+2026-02-19 06:57:58,555 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:57:58,556 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:57:58,560 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:58:03,488 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 06:58:03,489 - audio_separator.separator.separator - INFO - Separation duration: 00:01:24
+2026-02-19 06:58:03,495 - separator - INFO - MDX Output: ['b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2.mp3', 'b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Vocals)_Kim_Vocal_2.mp3']
+2026-02-19 06:58:03,501 - separator - INFO - Vocals stem: b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Vocals)_Kim_Vocal_2.mp3, Instrumental stem: b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:58:03,521 - separator - INFO - Vocals saved to processed\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\test_mp3_vocals.mp3
+2026-02-19 06:58:03,522 - separator - INFO - Loading Demucs model: htdemucs_6s.yaml
+2026-02-19 06:58:03,525 - audio_separator.separator.separator - INFO - Loading model htdemucs_6s.yaml...
+2026-02-19 06:58:03,602 - audio_separator.separator.separator - INFO - Demucs Separator initialisation complete
+2026-02-19 06:58:03,979 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-02-19 06:58:03,980 - separator - INFO - Running Demucs separation on b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:58:03,981 - audio_separator.separator.separator - INFO - Processing file: processed\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:58:03,981 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: processed\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 06:58:03,983 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 06:58:03,984 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 06:58:03,984 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 06:58:30,098 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: processed\900a831c-130e-4eb3-a10e-ac88b34643af, output_format: mp3
+2026-02-19 06:58:30,099 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 06:58:30,103 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-02-19 06:58:30,103 - audio_separator.separator.separator - INFO - System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 06:58:30,103 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-02-19 06:58:30,104 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-02-19 06:58:30,252 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 06:58:30,262 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 06:58:30,267 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 06:58:30,278 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-02-19 06:58:30,279 - separator - INFO - Separating stems for uploads\900a831c-130e-4eb3-a10e-ac88b34643af_trimmed.mp3 using Hybrid (MDX + Demucs)
+2026-02-19 06:58:30,279 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-02-19 06:58:30,279 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-02-19 06:58:30,372 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 06:58:31,277 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-02-19 06:58:31,278 - separator - INFO - Running MDX separation on uploads\900a831c-130e-4eb3-a10e-ac88b34643af_trimmed.mp3
+2026-02-19 06:58:31,279 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-02-19 06:58:31,380 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 06:58:32,205 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-02-19 06:58:32,209 - audio_separator.separator.separator - INFO - Processing file: uploads\900a831c-130e-4eb3-a10e-ac88b34643af_trimmed.mp3
+2026-02-19 06:58:32,209 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: uploads\900a831c-130e-4eb3-a10e-ac88b34643af_trimmed.mp3
+2026-02-19 06:58:32,212 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 06:58:32,212 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 06:58:32,212 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 06:58:55,888 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:58:55,902 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:58:56,008 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:59:00,139 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:59:00,140 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:59:00,144 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:59:00,588 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:59:00,588 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:59:00,593 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:59:01,079 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:59:01,080 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:59:01,084 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:59:01,582 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:59:01,582 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:59:01,586 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:59:02,485 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 06:59:02,486 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 06:59:02,491 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 06:59:03,216 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 06:59:03,218 - audio_separator.separator.separator - INFO - Separation duration: 00:00:59
+2026-02-19 06:59:03,223 - separator - INFO - Demucs Output: ['b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', 'b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', 'b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', 'b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', 'b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', 'b6b3fdd2-09f4-4abf-8e7a-22f631031a6a_trimmed_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-02-19 06:59:04,253 - separator - INFO - Hybrid separation complete. Files: ['test_mp3_vocals.mp3', 'test_mp3_bass.mp3', 'test_mp3_drums.mp3', 'test_mp3_other.mp3', 'test_mp3_guitar.mp3', 'test_mp3_piano.mp3']
+2026-02-19 06:59:04,256 - separator - INFO - Starting advanced drum separation for processed\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\test_mp3_drums.mp3
+2026-02-19 06:59:13,502 - separator - INFO - Drum separation complete. Output files: ['processed\\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\\kick.mp3', 'processed\\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\\snare.mp3', 'processed\\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\\hihat.mp3', 'processed\\b6b3fdd2-09f4-4abf-8e7a-22f631031a6a\\percussion.mp3']
+2026-02-19 07:00:02,039 - audio_separator.separator.separator - INFO - Saving Instrumental stem to 900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2.mp3...
+2026-02-19 07:00:02,384 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:00:02,385 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:00:02,411 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:00:13,082 - audio_separator.separator.separator - INFO - Saving Vocals stem to 900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Vocals)_Kim_Vocal_2.mp3...
+2026-02-19 07:00:13,088 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:00:13,089 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:00:13,093 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:00:24,311 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 07:00:24,312 - audio_separator.separator.separator - INFO - Separation duration: 00:01:52
+2026-02-19 07:00:24,315 - separator - INFO - MDX Output: ['900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2.mp3', '900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Vocals)_Kim_Vocal_2.mp3']
+2026-02-19 07:00:24,316 - separator - INFO - Vocals stem: 900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Vocals)_Kim_Vocal_2.mp3, Instrumental stem: 900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 07:00:24,324 - separator - INFO - Vocals saved to processed\900a831c-130e-4eb3-a10e-ac88b34643af\test_flac_vocals.mp3
+2026-02-19 07:00:24,325 - separator - INFO - Loading Demucs model: htdemucs_6s.yaml
+2026-02-19 07:00:24,327 - audio_separator.separator.separator - INFO - Loading model htdemucs_6s.yaml...
+2026-02-19 07:00:24,403 - audio_separator.separator.separator - INFO - Demucs Separator initialisation complete
+2026-02-19 07:00:24,785 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-02-19 07:00:24,786 - separator - INFO - Running Demucs separation on 900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 07:00:24,787 - audio_separator.separator.separator - INFO - Processing file: processed\900a831c-130e-4eb3-a10e-ac88b34643af\900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 07:00:24,788 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: processed\900a831c-130e-4eb3-a10e-ac88b34643af\900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 07:00:24,790 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-02-19 07:00:24,790 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 07:00:24,790 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-02-19 07:00:59,953 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:00:59,954 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:00:59,958 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:01:00,455 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:01:00,455 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:01:00,459 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:01:00,760 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:01:00,761 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:01:00,764 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:01:01,047 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:01:01,048 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:01:01,051 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:01:01,380 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:01:01,381 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:01:01,385 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:01:01,836 - audio_separator.separator.separator - INFO - Audio duration is 0.00 hours (3.00 seconds).
+2026-02-19 07:01:01,837 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-02-19 07:01:01,840 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-02-19 07:01:02,348 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-02-19 07:01:02,348 - audio_separator.separator.separator - INFO - Separation duration: 00:00:37
+2026-02-19 07:01:02,350 - separator - INFO - Demucs Output: ['900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', '900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', '900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', '900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', '900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', '900a831c-130e-4eb3-a10e-ac88b34643af_trimmed_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-02-19 07:01:03,133 - separator - INFO - Hybrid separation complete. Files: ['test_flac_vocals.mp3', 'test_flac_bass.mp3', 'test_flac_drums.mp3', 'test_flac_other.mp3', 'test_flac_guitar.mp3', 'test_flac_piano.mp3']
+2026-02-19 07:01:03,134 - separator - INFO - Starting advanced drum separation for processed\900a831c-130e-4eb3-a10e-ac88b34643af\test_flac_drums.mp3
+2026-02-19 07:01:06,989 - separator - INFO - Drum separation complete. Output files: ['processed\\900a831c-130e-4eb3-a10e-ac88b34643af\\kick.mp3', 'processed\\900a831c-130e-4eb3-a10e-ac88b34643af\\snare.mp3', 'processed\\900a831c-130e-4eb3-a10e-ac88b34643af\\hihat.mp3', 'processed\\900a831c-130e-4eb3-a10e-ac88b34643af\\percussion.mp3']
+2026-02-19 07:34:36,932 - main - INFO - Backend starting...
+2026-02-19 07:34:36,932 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 07:34:36,932 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 07:34:36,933 - main - INFO - Path: ['C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+2026-02-19 07:34:48,760 - main - INFO - Initializing FX Engine...
+2026-02-19 07:34:48,760 - main - INFO - FX Engine initialized.
+2026-02-19 22:52:42,243 - main - INFO - Backend starting...
+2026-02-19 22:52:42,245 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 22:52:42,245 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 22:52:42,245 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 22:52:45,432 - main - CRITICAL - Import error: No module named 'magic'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 34, in <module>
+    import magic
+ModuleNotFoundError: No module named 'magic'
+2026-02-19 23:04:43,815 - main - INFO - Backend starting...
+2026-02-19 23:04:43,816 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-19 23:04:43,816 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:04:43,816 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:04:47,824 - main - CRITICAL - Import error: No module named 'magic'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 34, in <module>
+    import magic
+ModuleNotFoundError: No module named 'magic'
+2026-02-19 23:24:04,214 - main - INFO - Backend starting...
+2026-02-19 23:24:04,215 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-02-19 23:24:04,215 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:24:04,216 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:24:06,186 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-02-19 23:26:52,768 - main - INFO - Backend starting...
+2026-02-19 23:26:52,768 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-02-19 23:26:52,768 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:26:52,769 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:26:54,763 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-02-19 23:27:55,766 - main - INFO - Backend starting...
+2026-02-19 23:27:55,766 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-02-19 23:27:55,767 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:27:55,767 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-02-19 23:27:56,784 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 20:32:55,263 - main - INFO - Backend starting...
+2026-03-18 20:32:55,263 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 20:32:55,265 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 20:32:55,265 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 20:32:55,267 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 20:39:46,044 - main - INFO - Backend starting...
+2026-03-18 20:39:46,061 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 20:39:46,062 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 20:39:46,068 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 20:39:50,321 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 21:05:37,080 - main - INFO - Backend starting...
+2026-03-18 21:05:37,090 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:05:37,095 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:05:37,097 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:05:42,524 - main - CRITICAL - Import error: No module named 'magic'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 34, in <module>
+    import magic
+ModuleNotFoundError: No module named 'magic'
+2026-03-18 21:16:07,454 - main - INFO - Backend starting...
+2026-03-18 21:16:07,467 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:16:07,472 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:16:07,479 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:16:39,230 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 21:16:39,698 - main - INFO - FX Engine initialized.
+2026-03-18 21:16:39,708 - main - INFO - TTL cleanup scheduler started.
+2026-03-18 21:26:05,090 - main - INFO - MIME detected for 'fake.mp3': text/plain
+2026-03-18 21:26:09,634 - slowapi - WARNING - ratelimit 2 per 1 minute (127.0.0.1) exceeded at endpoint: /upload/
+2026-03-18 21:26:11,782 - slowapi - WARNING - ratelimit 2 per 1 minute (127.0.0.1) exceeded at endpoint: /upload/
+2026-03-18 21:26:13,834 - slowapi - WARNING - ratelimit 2 per 1 minute (127.0.0.1) exceeded at endpoint: /upload/
+2026-03-18 21:26:15,993 - slowapi - WARNING - ratelimit 2 per 1 minute (127.0.0.1) exceeded at endpoint: /upload/
+2026-03-18 21:31:10,235 - main - INFO - Backend starting...
+2026-03-18 21:31:10,278 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:31:10,332 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:31:10,377 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:31:15,152 - main - INFO - Backend starting...
+2026-03-18 21:31:15,281 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 21:31:15,365 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:31:15,718 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:31:18,585 - main - INFO - Backend starting...
+2026-03-18 21:31:18,586 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 21:31:18,587 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:31:18,588 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:31:18,592 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 21:31:25,047 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 21:31:46,850 - main - INFO - Backend starting...
+2026-03-18 21:31:47,063 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:31:47,341 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:31:47,608 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:32:17,571 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 21:32:17,933 - main - INFO - FX Engine initialized.
+2026-03-18 21:32:17,953 - main - INFO - TTL cleanup scheduler started.
+2026-03-18 21:32:46,111 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 21:32:46,624 - main - INFO - FX Engine initialized.
+2026-03-18 21:32:46,767 - main - INFO - TTL cleanup scheduler started.
+2026-03-18 21:32:47,277 - main - INFO - MIME detected for 'test_trim.mp3': text/plain
+2026-03-18 21:32:52,692 - slowapi - WARNING - ratelimit 1 per 1 minute (127.0.0.1) exceeded at endpoint: /process/
+2026-03-18 21:44:34,911 - main - INFO - Backend starting...
+2026-03-18 21:44:34,915 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 21:44:34,917 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:44:34,917 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:44:34,919 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 21:44:41,801 - main - INFO - Backend starting...
+2026-03-18 21:44:41,805 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 21:44:41,810 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:44:41,811 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:44:44,929 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 21:44:53,782 - main - INFO - Backend starting...
+2026-03-18 21:44:53,786 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:44:53,791 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:44:53,800 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:44:56,171 - main - INFO - Backend starting...
+2026-03-18 21:44:56,178 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:44:56,185 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:44:56,186 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:44,122 - main - INFO - Backend starting...
+2026-03-18 21:45:44,123 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 21:45:44,124 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:44,127 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:44,946 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 21:45:45,049 - main - INFO - FX Engine initialized.
+2026-03-18 21:45:45,052 - main - INFO - FX Engine initialized.
+2026-03-18 21:45:45,059 - main - INFO - TTL cleanup scheduler started.
+2026-03-18 21:45:45,061 - main - INFO - TTL cleanup scheduler started.
+2026-03-18 21:45:46,218 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 21:45:48,132 - main - INFO - Backend starting...
+2026-03-18 21:45:48,134 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 21:45:48,134 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:48,134 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:48,136 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 21:45:49,945 - main - INFO - Backend starting...
+2026-03-18 21:45:49,951 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:45:49,954 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:49,958 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:50,119 - main - INFO - Backend starting...
+2026-03-18 21:45:50,125 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:45:50,130 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:45:50,134 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:12,011 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 21:46:12,078 - main - INFO - FX Engine initialized.
+2026-03-18 21:46:12,082 - main - INFO - TTL cleanup scheduler started.
+2026-03-18 21:46:12,353 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 21:46:12,450 - main - INFO - FX Engine initialized.
+2026-03-18 21:46:12,460 - main - INFO - TTL cleanup scheduler started.
+2026-03-18 21:46:12,567 - main - INFO - Backend starting...
+2026-03-18 21:46:12,567 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 21:46:12,567 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:12,569 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:12,570 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 21:46:16,449 - main - INFO - Backend starting...
+2026-03-18 21:46:16,454 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:46:16,455 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:16,461 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:16,670 - main - INFO - Backend starting...
+2026-03-18 21:46:16,676 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 21:46:16,683 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:16,690 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:16,778 - main - INFO - Backend starting...
+2026-03-18 21:46:16,785 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 21:46:16,792 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:16,799 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 21:46:19,956 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 21:46:37,201 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 21:46:37,326 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 22:49:33,545 - main - INFO - Backend starting...
+2026-03-18 22:49:33,547 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 22:49:33,549 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:33,549 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:33,551 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 22:49:43,602 - main - INFO - Backend starting...
+2026-03-18 22:49:43,662 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 22:49:43,719 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:43,800 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:44,181 - main - INFO - Backend starting...
+2026-03-18 22:49:44,306 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 22:49:44,392 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:44,525 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:45,668 - main - INFO - Backend starting...
+2026-03-18 22:49:45,898 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 22:49:45,910 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:45,911 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:49:55,940 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 22:51:43,504 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 22:51:48,644 - main - INFO - Backend starting...
+2026-03-18 22:51:48,767 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 22:51:48,975 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:51:49,039 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:51:59,891 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 22:52:02,650 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 22:52:07,208 - main - INFO - Backend starting...
+2026-03-18 22:52:07,209 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 22:52:07,210 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:52:07,210 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:52:07,391 - main - INFO - Backend starting...
+2026-03-18 22:52:07,492 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 22:52:07,647 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:52:07,706 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:52:07,758 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 22:52:30,946 - main - INFO - Backend starting...
+2026-03-18 22:52:30,950 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 22:52:30,957 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:52:30,958 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:53:05,536 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 22:53:20,031 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 22:57:35,758 - main - INFO - Backend starting...
+2026-03-18 22:57:35,759 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 22:57:35,760 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:35,763 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:39,187 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 22:57:43,319 - main - INFO - Backend starting...
+2026-03-18 22:57:43,320 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 22:57:43,320 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:43,321 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:44,281 - main - INFO - Backend starting...
+2026-03-18 22:57:44,282 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 22:57:44,283 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:44,284 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:46,289 - main - INFO - Backend starting...
+2026-03-18 22:57:46,290 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 22:57:46,291 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:46,294 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 22:57:46,296 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 22:58:31,360 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 22:59:03,295 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 23:24:49,276 - main - INFO - Backend starting...
+2026-03-18 23:24:49,286 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 23:24:49,290 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:24:49,290 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:24:52,373 - main - INFO - Backend starting...
+2026-03-18 23:24:52,374 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-18 23:24:52,375 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:24:52,375 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:24:56,433 - main - INFO - Backend starting...
+2026-03-18 23:24:56,434 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\.venv\Scripts\python.exe
+2026-03-18 23:24:56,435 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:24:56,436 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:24:59,242 - main - CRITICAL - Import error: No module named 'audio_separator'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 42, in <module>
+    from separator import AudioSeparator
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 8, in <module>
+    from audio_separator.separator import Separator
+ModuleNotFoundError: No module named 'audio_separator'
+2026-03-18 23:25:11,019 - main - INFO - Backend starting...
+2026-03-18 23:25:11,021 - main - INFO - Python executable: C:\Users\15024\projects\DeepSplit\backend\portable_python\python.exe
+2026-03-18 23:25:11,022 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:25:11,023 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-18 23:25:11,025 - main - CRITICAL - Import error: No module named 'fastapi'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 29, in <module>
+    from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException, Request
+ModuleNotFoundError: No module named 'fastapi'
+2026-03-18 23:25:23,426 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-18 23:25:23,490 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 13:56:20,639 - __main__ - INFO - Backend starting...
+2026-03-24 13:56:20,641 - __main__ - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 13:56:20,642 - __main__ - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 13:56:20,642 - __main__ - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 13:56:47,583 - __main__ - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:04:42,094 - main - INFO - Backend starting...
+2026-03-24 14:04:42,095 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:04:42,096 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:04:42,096 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:04:58,949 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:14:05,752 - main - INFO - Backend starting...
+2026-03-24 14:14:05,752 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:14:05,752 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:14:05,753 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:14:19,325 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:14:41,721 - main - INFO - Backend starting...
+2026-03-24 14:14:41,722 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:14:41,722 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:14:41,722 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:14:50,435 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:40:29,869 - __main__ - INFO - Backend starting...
+2026-03-24 14:40:29,870 - __main__ - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:40:29,871 - __main__ - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:40:29,871 - __main__ - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:40:47,806 - __main__ - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:41:17,778 - __main__ - INFO - Backend starting...
+2026-03-24 14:41:17,779 - __main__ - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:41:17,779 - __main__ - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:41:17,779 - __main__ - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:41:26,627 - __main__ - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:41:36,001 - main - INFO - Backend starting...
+2026-03-24 14:41:36,039 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:41:36,040 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:41:36,041 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:41:45,132 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:42:03,491 - main - INFO - Backend starting...
+2026-03-24 14:42:03,494 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:42:03,497 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:42:03,500 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:42:26,611 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:42:48,772 - main - INFO - Backend starting...
+2026-03-24 14:42:48,785 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:42:48,787 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:42:48,794 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:43:03,580 - main - INFO - Backend starting...
+2026-03-24 14:43:03,588 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:43:03,590 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:43:03,592 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:43:20,129 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:43:35,183 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:43:44,129 - main - INFO - Backend starting...
+2026-03-24 14:43:44,130 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:43:44,131 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:43:44,132 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:44:10,332 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:44:23,659 - main - INFO - Backend starting...
+2026-03-24 14:44:23,660 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:44:23,660 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:44:23,661 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:44:38,247 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:52:57,801 - main - INFO - Backend starting...
+2026-03-24 14:52:57,802 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 14:52:57,803 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:52:57,803 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 14:53:20,785 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 14:53:20,913 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-24 14:53:20,915 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-24 14:53:20,916 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-24 14:53:20,972 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-24 14:53:21,117 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-24 14:53:21,192 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-24 14:53:21,195 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-24 14:53:35,840 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-24 14:53:35,910 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-24 14:53:35,989 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-24 14:53:36,220 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-24 14:53:36,362 - main - INFO - FFMPEG detected.
+2026-03-24 14:53:36,365 - main - INFO - FX Engine initialized.
+2026-03-24 14:53:36,365 - main - INFO - TTL cleanup scheduler started.
+2026-03-24 15:07:04,189 - main - INFO - Downloading YouTube audio: https://www.youtube.com/watch?v=SIMcktul77c
+2026-03-24 15:07:14,911 - main - ERROR - YouTube process failed: 'FFMPEGExtractAudioPP'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 569, in process_youtube_task
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\15024\AppData\Roaming\Python\Python313\site-packages\yt_dlp\YoutubeDL.py", line 809, in __init__
+    get_postprocessor(pp_def.pop('key'))(self, **pp_def),
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\15024\AppData\Roaming\Python\Python313\site-packages\yt_dlp\postprocessor\__init__.py", line 52, in get_postprocessor
+    return postprocessors.value[key + 'PP']
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'FFMPEGExtractAudioPP'
+2026-03-24 15:09:32,402 - main - INFO - Backend starting...
+2026-03-24 15:09:32,403 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 15:09:32,404 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:09:32,404 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:10:04,784 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 15:10:05,442 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-24 15:10:05,513 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-24 15:10:05,566 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-24 15:10:05,644 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-24 15:10:05,695 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-24 15:10:05,813 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-24 15:10:05,825 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-24 15:10:06,277 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-24 15:10:06,288 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-24 15:10:06,291 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-24 15:10:06,298 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-24 15:10:06,309 - main - INFO - FFMPEG detected.
+2026-03-24 15:10:06,312 - main - INFO - FX Engine initialized.
+2026-03-24 15:10:06,313 - main - INFO - TTL cleanup scheduler started.
+2026-03-24 15:27:58,488 - main - INFO - Downloading YouTube audio: https://www.youtube.com/watch?v=SIMcktul77c
+2026-03-24 15:27:59,004 - main - ERROR - YouTube process failed: 'FFMPEGExtractAudioPP'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 569, in process_youtube_task
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\15024\AppData\Roaming\Python\Python313\site-packages\yt_dlp\YoutubeDL.py", line 809, in __init__
+    get_postprocessor(pp_def.pop('key'))(self, **pp_def),
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\15024\AppData\Roaming\Python\Python313\site-packages\yt_dlp\postprocessor\__init__.py", line 52, in get_postprocessor
+    return postprocessors.value[key + 'PP']
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'FFMPEGExtractAudioPP'
+2026-03-24 15:28:58,815 - main - INFO - Backend starting...
+2026-03-24 15:28:58,816 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 15:28:58,816 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:28:58,817 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:29:11,988 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 15:29:12,024 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-24 15:29:12,032 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-24 15:29:12,033 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-24 15:29:12,038 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-24 15:29:12,039 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-24 15:29:12,040 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-24 15:29:12,040 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-24 15:29:12,201 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-24 15:29:12,213 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-24 15:29:12,218 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-24 15:29:12,222 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-24 15:29:12,232 - main - INFO - FFMPEG detected.
+2026-03-24 15:29:12,232 - main - INFO - FX Engine initialized.
+2026-03-24 15:29:12,233 - main - INFO - TTL cleanup scheduler started.
+2026-03-24 15:34:40,285 - main - INFO - Backend starting...
+2026-03-24 15:34:40,286 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 15:34:40,286 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:34:40,287 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:34:48,830 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 15:34:48,860 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-24 15:34:48,860 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-24 15:34:48,860 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-24 15:34:48,862 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-24 15:34:48,909 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-24 15:34:48,910 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-24 15:34:48,911 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-24 15:34:48,990 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-24 15:34:48,997 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-24 15:34:48,998 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-24 15:34:49,000 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-24 15:34:49,006 - main - INFO - FFMPEG detected.
+2026-03-24 15:34:49,007 - main - INFO - FX Engine initialized.
+2026-03-24 15:34:49,007 - main - INFO - TTL cleanup scheduler started.
+2026-03-24 15:36:33,304 - main - INFO - Backend starting...
+2026-03-24 15:36:33,310 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 15:36:33,311 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:36:33,312 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:36:42,861 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 15:36:42,902 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-24 15:36:42,902 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-24 15:36:42,902 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-24 15:36:42,904 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-24 15:36:42,950 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-24 15:36:42,951 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-24 15:36:42,951 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-24 15:36:43,068 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-24 15:36:43,076 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-24 15:36:43,077 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-24 15:36:43,082 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-24 15:36:43,090 - main - INFO - FFMPEG detected.
+2026-03-24 15:36:43,090 - main - INFO - FX Engine initialized.
+2026-03-24 15:36:43,091 - main - INFO - TTL cleanup scheduler started.
+2026-03-24 15:36:43,094 - main - INFO - Lifespan shutting down.
+2026-03-24 15:40:30,896 - main - INFO - Backend starting...
+2026-03-24 15:40:30,897 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-24 15:40:30,897 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:40:30,897 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-24 15:40:40,784 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-24 15:40:40,810 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-24 15:40:40,810 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-24 15:40:40,811 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-24 15:40:40,813 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-24 15:40:40,854 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-24 15:40:40,855 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-24 15:40:40,855 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-24 15:40:40,971 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-24 15:40:40,976 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-24 15:40:40,979 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-24 15:40:40,981 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-24 15:40:40,987 - main - INFO - FFMPEG detected.
+2026-03-24 15:40:40,987 - main - INFO - FX Engine initialized.
+2026-03-24 15:40:40,988 - main - INFO - TTL cleanup scheduler started.
+2026-03-24 15:40:40,990 - main - INFO - Lifespan shutting down.
+2026-03-24 15:45:20,989 - main - INFO - Downloading YouTube audio: https://www.youtube.com/watch?v=SIMcktul77c
+2026-03-24 15:45:21,313 - main - ERROR - YouTube process failed: 'FFMPEGExtractAudioPP'
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 569, in process_youtube_task
+    'quiet': True,
+         ^^^^^^^^^
+  File "C:\Users\15024\AppData\Roaming\Python\Python313\site-packages\yt_dlp\YoutubeDL.py", line 809, in __init__
+    get_postprocessor(pp_def.pop('key'))(self, **pp_def),
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\15024\AppData\Roaming\Python\Python313\site-packages\yt_dlp\postprocessor\__init__.py", line 52, in get_postprocessor
+    return postprocessors.value[key + 'PP']
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'FFMPEGExtractAudioPP'
+2026-03-24 15:53:36,789 - main - INFO - TTL cleanup removed 32 item(s).
+2026-03-25 03:10:52,153 - __main__ - INFO - Backend starting...
+2026-03-25 03:10:52,156 - __main__ - INFO - Python executable: C:\Python313\python.exe
+2026-03-25 03:10:52,156 - __main__ - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 03:10:52,162 - __main__ - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 03:11:18,404 - __main__ - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-25 03:37:44,254 - __main__ - INFO - Backend starting...
+2026-03-25 03:37:44,255 - __main__ - INFO - Python executable: C:\Python313\python.exe
+2026-03-25 03:37:44,255 - __main__ - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 03:37:44,255 - __main__ - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 03:37:54,993 - __main__ - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-25 03:38:37,511 - main - INFO - Backend starting...
+2026-03-25 03:38:37,513 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-25 03:38:37,514 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 03:38:37,514 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 03:38:56,424 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-25 03:38:56,593 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-25 03:38:56,594 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-25 03:38:56,597 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-25 03:38:56,601 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-25 03:38:56,669 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-25 03:38:56,671 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-25 03:38:56,678 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-25 03:39:04,724 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-25 03:39:04,933 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-25 03:39:05,090 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-25 03:39:05,130 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-25 03:39:05,215 - main - INFO - FFMPEG detected.
+2026-03-25 03:39:05,219 - main - INFO - FX Engine initialized.
+2026-03-25 03:39:05,230 - main - INFO - TTL cleanup scheduler started.
+2026-03-25 03:41:58,450 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=jNQXAC9IVRw
+2026-03-25 03:42:18,667 - main - ERROR - YouTube process failed: YouTube download failed - no mp3 files produced.
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 602, in process_youtube_task
+    raise RuntimeError("YouTube download failed - no mp3 files produced.")
+RuntimeError: YouTube download failed - no mp3 files produced.
+2026-03-25 03:43:55,115 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=9y7XWfE8m7k
+2026-03-25 03:43:59,606 - main - ERROR - YouTube process failed: YouTube download failed - no info returned.
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 586, in process_youtube_task
+    raise RuntimeError("YouTube download failed - no info returned.")
+RuntimeError: YouTube download failed - no info returned.
+2026-03-25 04:13:02,307 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=aqz-KE-bpKQ
+2026-03-25 04:13:27,766 - main - ERROR - YouTube process failed: YouTube download failed - no mp3 files produced.
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 602, in process_youtube_task
+    raise RuntimeError("YouTube download failed - no mp3 files produced.")
+RuntimeError: YouTube download failed - no mp3 files produced.
+2026-03-25 04:15:56,335 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=aqz-KE-bpKQ
+2026-03-25 04:16:05,470 - main - ERROR - YouTube process failed: YouTube download failed - no mp3 files produced.
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 602, in process_youtube_task
+    raise RuntimeError("YouTube download failed - no mp3 files produced.")
+RuntimeError: YouTube download failed - no mp3 files produced.
+2026-03-25 04:16:54,859 - slowapi - WARNING - ratelimit 1 per 1 minute (127.0.0.1) exceeded at endpoint: /process_youtube/
+2026-03-25 10:18:11,827 - main - INFO - Lifespan shutting down.
+2026-03-25 10:18:42,123 - main - INFO - Backend starting...
+2026-03-25 10:18:42,124 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-25 10:18:42,125 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 10:18:42,126 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 10:18:59,727 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-25 10:19:01,063 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-25 10:19:01,063 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-25 10:19:01,064 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-25 10:19:01,075 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-25 10:19:01,170 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-25 10:19:01,171 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-25 10:19:01,172 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-25 10:19:01,466 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-25 10:19:01,532 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-25 10:19:01,598 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-25 10:19:01,603 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-25 10:19:01,637 - main - INFO - FFMPEG detected.
+2026-03-25 10:19:01,639 - main - INFO - FX Engine initialized.
+2026-03-25 10:19:01,646 - main - INFO - TTL cleanup scheduler started.
+2026-03-25 10:38:38,545 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=jNQXAC9IVRw
+2026-03-25 10:38:48,257 - main - INFO - Separating file 1/1: 7ba081b2-f59c-4107-aecc-531acd5cc500_00001_Me at the zoo.mp3
+2026-03-25 10:38:48,260 - separator - INFO - Starting separation: mode=6, file=7ba081b2-f59c-4107-aecc-531acd5cc500_00001_Me at the zoo.mp3
+2026-03-25 10:38:48,261 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-03-25 10:38:48,262 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-03-25 10:38:48,572 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-03-25 10:39:37,753 - audio_separator.separator.separator - INFO - Load model duration: 00:00:49
+2026-03-25 10:39:37,755 - separator - INFO - MDX separating 7ba081b2-f59c-4107-aecc-531acd5cc500_00001_Me at the zoo.mp3
+2026-03-25 10:39:37,756 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\uploads\7ba081b2-f59c-4107-aecc-531acd5cc500_00001_Me at the zoo.mp3
+2026-03-25 10:39:37,758 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\uploads\7ba081b2-f59c-4107-aecc-531acd5cc500_00001_Me at the zoo.mp3
+2026-03-25 10:39:37,788 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 10:39:37,789 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 10:39:37,789 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-25 10:39:50,067 - audio_separator.separator.separator - ERROR - Failed to process file C:\Users\15024\projects\DeepSplit\backend\uploads\7ba081b2-f59c-4107-aecc-531acd5cc500_00001_Me at the zoo.mp3: Torch not compiled with CUDA enabled
+2026-03-25 10:39:50,077 - separator - INFO - MDX output: []
+2026-03-25 10:39:50,078 - main - ERROR - YouTube process failed: MDX did not produce expected stems. Got: []
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 630, in process_youtube_task
+    await gpu_separator.separate_stems(
+    ...<5 lines>...
+    )
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 84, in separate_stems
+    return await self._mode_6stem(audio_path, safe)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 172, in _mode_6stem
+    vocal_name, inst_path = await self._mdx_vocals(audio_path, safe)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 104, in _mdx_vocals
+    raise RuntimeError(f"MDX did not produce expected stems. Got: {mdx_output}")
+RuntimeError: MDX did not produce expected stems. Got: []
+2026-03-25 10:50:01,508 - main - INFO - Lifespan shutting down.
+2026-03-25 10:50:17,670 - main - INFO - Backend starting...
+2026-03-25 10:50:17,671 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-25 10:50:17,671 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 10:50:17,672 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 10:50:29,247 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-25 10:50:29,281 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-25 10:50:29,281 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-25 10:50:29,282 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-25 10:50:29,286 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-25 10:50:29,287 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-25 10:50:29,289 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-25 10:50:29,289 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-25 10:50:29,412 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-25 10:50:29,422 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-25 10:50:29,425 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-25 10:50:29,428 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-25 10:50:29,440 - main - INFO - FFMPEG detected.
+2026-03-25 10:50:29,441 - main - INFO - FX Engine initialized.
+2026-03-25 10:50:29,441 - main - INFO - TTL cleanup scheduler started.
+2026-03-25 10:52:57,274 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=jNQXAC9IVRw
+2026-03-25 10:53:09,233 - main - INFO - Separating file 1/1: 92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo.mp3
+2026-03-25 10:53:09,236 - separator - INFO - Starting separation: mode=6, file=92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo.mp3
+2026-03-25 10:53:09,237 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-03-25 10:53:09,238 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-03-25 10:53:09,369 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-03-25 10:53:30,133 - audio_separator.separator.separator - INFO - Load model duration: 00:00:20
+2026-03-25 10:53:30,136 - separator - INFO - MDX separating 92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo.mp3
+2026-03-25 10:53:30,140 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\uploads\92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo.mp3
+2026-03-25 10:53:30,143 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\uploads\92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo.mp3
+2026-03-25 10:53:30,226 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 10:53:30,227 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 10:53:30,228 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-25 10:58:14,008 - audio_separator.separator.separator - INFO - Saving Instrumental stem to 92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3...
+2026-03-25 10:58:19,536 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 10:58:19,538 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 10:58:19,576 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 10:58:21,294 - audio_separator.separator.separator - INFO - Saving Vocals stem to 92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Vocals)_Kim_Vocal_2.mp3...
+2026-03-25 10:58:21,302 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 10:58:21,303 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 10:58:21,325 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 10:58:28,706 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-03-25 10:58:28,713 - audio_separator.separator.separator - INFO - Separation duration: 00:04:58
+2026-03-25 10:58:28,718 - separator - INFO - MDX output: ['92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3', '92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Vocals)_Kim_Vocal_2.mp3']
+2026-03-25 10:58:30,743 - separator - INFO - Loading Demucs model: htdemucs_6s.yaml
+2026-03-25 10:58:30,744 - audio_separator.separator.separator - INFO - Loading model htdemucs_6s.yaml...
+2026-03-25 10:58:32,074 - audio_separator.separator.separator - INFO - Demucs Separator initialisation complete
+2026-03-25 10:58:32,997 - audio_separator.separator.separator - INFO - Load model duration: 00:00:02
+2026-03-25 10:58:32,998 - separator - INFO - Demucs separating 92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 10:58:32,999 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\processed\92b097f5-e439-4773-9983-f0ab1ba5b31a\92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 10:58:33,000 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\processed\92b097f5-e439-4773-9983-f0ab1ba5b31a\92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 10:58:33,026 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 10:58:33,026 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 10:58:33,027 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-25 11:01:15,572 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:01:15,573 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:01:15,609 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:01:16,891 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:01:16,894 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:01:16,919 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:01:18,052 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:01:18,054 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:01:18,097 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:01:19,619 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:01:19,619 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:01:19,649 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:01:21,186 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:01:21,187 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:01:21,216 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:01:22,395 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:01:22,396 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:01:22,417 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:01:23,936 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-03-25 11:01:23,936 - audio_separator.separator.separator - INFO - Separation duration: 00:02:50
+2026-03-25 11:01:23,940 - separator - INFO - Demucs output: ['92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', '92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', '92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', '92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', '92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', '92b097f5-e439-4773-9983-f0ab1ba5b31a_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-03-25 11:01:24,788 - main - INFO - YouTube separation complete for 92b097f5-e439-4773-9983-f0ab1ba5b31a
+2026-03-25 11:12:59,892 - main - INFO - Lifespan shutting down.
+2026-03-25 11:14:41,813 - main - INFO - Backend starting...
+2026-03-25 11:14:41,814 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-25 11:14:41,815 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 11:14:41,816 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 11:15:03,595 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-25 11:15:03,649 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-25 11:15:03,650 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-25 11:15:03,651 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-25 11:15:03,653 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-25 11:15:03,714 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-25 11:15:03,718 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-25 11:15:03,723 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-25 11:15:03,889 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-25 11:15:03,901 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-25 11:15:03,903 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-25 11:15:03,908 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-25 11:15:03,930 - main - INFO - FFMPEG detected.
+2026-03-25 11:15:03,931 - main - INFO - FX Engine initialized.
+2026-03-25 11:15:03,931 - main - INFO - TTL cleanup scheduler started.
+2026-03-25 11:25:08,233 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=jNQXAC9IVRw
+2026-03-25 11:25:19,369 - main - INFO - Separating file 1/1: 5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo.mp3
+2026-03-25 11:25:19,372 - separator - INFO - Starting separation: mode=6, file=5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo.mp3
+2026-03-25 11:25:19,373 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-03-25 11:25:19,375 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-03-25 11:25:19,494 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-03-25 11:25:36,781 - audio_separator.separator.separator - INFO - Load model duration: 00:00:17
+2026-03-25 11:25:36,782 - separator - INFO - MDX separating 5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo.mp3
+2026-03-25 11:25:36,783 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\uploads\5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo.mp3
+2026-03-25 11:25:36,786 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\uploads\5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo.mp3
+2026-03-25 11:25:36,829 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 11:25:36,831 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 11:25:36,832 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-25 11:29:30,860 - audio_separator.separator.separator - INFO - Saving Instrumental stem to 5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3...
+2026-03-25 11:29:34,134 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:29:34,135 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:29:34,191 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:29:35,746 - audio_separator.separator.separator - INFO - Saving Vocals stem to 5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Vocals)_Kim_Vocal_2.mp3...
+2026-03-25 11:29:35,751 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:29:35,752 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:29:35,790 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:29:43,219 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-03-25 11:29:43,227 - audio_separator.separator.separator - INFO - Separation duration: 00:04:06
+2026-03-25 11:29:43,234 - separator - INFO - MDX output: ['5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3', '5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Vocals)_Kim_Vocal_2.mp3']
+2026-03-25 11:29:44,542 - separator - INFO - Loading Demucs model: htdemucs_6s.yaml
+2026-03-25 11:29:44,543 - audio_separator.separator.separator - INFO - Loading model htdemucs_6s.yaml...
+2026-03-25 11:29:44,935 - audio_separator.separator.separator - INFO - Demucs Separator initialisation complete
+2026-03-25 11:29:45,402 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-03-25 11:29:45,406 - separator - INFO - Demucs separating 5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 11:29:45,409 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\processed\5cce1671-15cb-473a-bc10-9415e8e82dee\5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 11:29:45,411 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\processed\5cce1671-15cb-473a-bc10-9415e8e82dee\5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 11:29:45,440 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 11:29:45,449 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 11:29:45,453 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-25 11:32:14,849 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:32:14,850 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:32:14,878 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:32:16,360 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:32:16,364 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:32:16,393 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:32:17,745 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:32:17,746 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:32:17,793 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:32:18,879 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:32:18,880 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:32:18,905 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:32:20,156 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:32:20,158 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:32:20,187 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:32:21,605 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:32:21,610 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:32:21,644 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:32:23,522 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-03-25 11:32:23,525 - audio_separator.separator.separator - INFO - Separation duration: 00:02:38
+2026-03-25 11:32:23,532 - separator - INFO - Demucs output: ['5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', '5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', '5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', '5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', '5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', '5cce1671-15cb-473a-bc10-9415e8e82dee_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-03-25 11:32:24,329 - main - INFO - YouTube separation complete for 5cce1671-15cb-473a-bc10-9415e8e82dee
+2026-03-25 11:40:15,894 - main - INFO - Lifespan shutting down.
+2026-03-25 11:41:36,628 - main - INFO - Backend starting...
+2026-03-25 11:41:36,629 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-25 11:41:36,629 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 11:41:36,630 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-25 11:41:50,317 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-25 11:41:50,359 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-25 11:41:50,359 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-25 11:41:50,360 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-25 11:41:50,362 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-25 11:41:50,362 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-25 11:41:50,364 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-25 11:41:50,365 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-25 11:41:50,541 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-25 11:41:50,549 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-25 11:41:50,552 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-25 11:41:50,558 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-25 11:41:50,568 - main - INFO - FFMPEG detected.
+2026-03-25 11:41:50,568 - main - INFO - FX Engine initialized.
+2026-03-25 11:41:50,569 - main - INFO - TTL cleanup scheduler started.
+2026-03-25 11:48:30,876 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=jNQXAC9IVRw
+2026-03-25 11:48:39,626 - main - INFO - Separating file 1/1: ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo.mp3
+2026-03-25 11:48:39,632 - separator - INFO - Starting separation: mode=6, file=ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo.mp3
+2026-03-25 11:48:39,636 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-03-25 11:48:39,640 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-03-25 11:48:40,308 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-03-25 11:49:04,703 - audio_separator.separator.separator - INFO - Load model duration: 00:00:25
+2026-03-25 11:49:04,705 - separator - INFO - MDX separating ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo.mp3
+2026-03-25 11:49:04,710 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\uploads\ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo.mp3
+2026-03-25 11:49:04,712 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\uploads\ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo.mp3
+2026-03-25 11:49:04,745 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 11:49:04,746 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 11:49:04,746 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-25 11:53:00,990 - audio_separator.separator.separator - INFO - Saving Instrumental stem to ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3...
+2026-03-25 11:53:04,687 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:53:04,689 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:53:04,730 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:53:06,462 - audio_separator.separator.separator - INFO - Saving Vocals stem to ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Vocals)_Kim_Vocal_2.mp3...
+2026-03-25 11:53:06,468 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:53:06,468 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:53:06,490 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:53:12,373 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-03-25 11:53:12,386 - audio_separator.separator.separator - INFO - Separation duration: 00:04:07
+2026-03-25 11:53:12,396 - separator - INFO - MDX output: ['ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3', 'ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Vocals)_Kim_Vocal_2.mp3']
+2026-03-25 11:53:13,867 - separator - INFO - Loading Demucs model: htdemucs_6s.yaml
+2026-03-25 11:53:13,868 - audio_separator.separator.separator - INFO - Loading model htdemucs_6s.yaml...
+2026-03-25 11:53:14,267 - audio_separator.separator.separator - INFO - Demucs Separator initialisation complete
+2026-03-25 11:53:14,564 - audio_separator.separator.separator - INFO - Load model duration: 00:00:00
+2026-03-25 11:53:14,571 - separator - INFO - Demucs separating ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 11:53:14,575 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\processed\ff319179-9c88-431a-9e5e-e9b249006ce0\ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 11:53:14,579 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\processed\ff319179-9c88-431a-9e5e-e9b249006ce0\ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2.mp3
+2026-03-25 11:53:14,605 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 11:53:14,606 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 11:53:14,606 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-25 11:56:02,876 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:56:02,877 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:56:02,937 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:56:05,068 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:56:05,069 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:56:05,087 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:56:06,184 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:56:06,187 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:56:06,213 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:56:07,453 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:56:07,494 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:56:07,709 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:56:08,902 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:56:08,902 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:56:08,928 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:56:09,887 - audio_separator.separator.separator - INFO - Audio duration is 0.01 hours (19.01 seconds).
+2026-03-25 11:56:09,887 - audio_separator.separator.separator - INFO - Using pydub for writing.
+2026-03-25 11:56:09,910 - audio_separator.separator.separator - INFO - Writing output with 16-bit depth
+2026-03-25 11:56:11,234 - audio_separator.separator.separator - INFO - Clearing input audio file paths, sources and stems...
+2026-03-25 11:56:11,235 - audio_separator.separator.separator - INFO - Separation duration: 00:02:56
+2026-03-25 11:56:11,236 - separator - INFO - Demucs output: ['ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', 'ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', 'ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', 'ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', 'ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', 'ff319179-9c88-431a-9e5e-e9b249006ce0_00001_Me at the zoo_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-03-25 11:56:11,792 - main - INFO - YouTube separation complete for ff319179-9c88-431a-9e5e-e9b249006ce0
+2026-03-25 11:57:22,125 - fx_engine - INFO - Applying FX vocal_lush_verb to C:\Users\15024\projects\DeepSplit\backend\processed\ff319179-9c88-431a-9e5e-e9b249006ce0\00001_Me at the zoo_vocals.mp3 (1 passes, mix=1.0, preview=False)
+2026-03-25 11:57:22,383 - fx_engine - INFO - Pass 1/1...
+2026-03-25 12:23:08,946 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=3TOvQM64xS0
+2026-03-25 12:23:36,488 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-03-25 12:23:36,490 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-03-25 12:23:36,866 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-03-25 12:23:38,748 - audio_separator.separator.separator - INFO - Load model duration: 00:00:02
+2026-03-25 12:23:38,885 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-25 12:23:38,887 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-25 12:23:38,888 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-26 10:04:37,751 - main - INFO - Backend starting...
+2026-03-26 10:04:37,751 - main - INFO - Python executable: C:\Python313\python.exe
+2026-03-26 10:04:37,751 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-03-26 10:04:37,752 - main - INFO - Base dir: C:\Users\15024\projects\DeepSplit\backend
+2026-03-26 10:04:46,646 - main - WARNING - ClamAV daemon not reachable (Could not reach clamd using network (127.0.0.1, 3310)). Virus scanning DISABLED. Install ClamAV and start clamd to enable.
+2026-03-26 10:04:46,680 - audio_separator.separator.separator - INFO - Separator version 0.41.1 instantiating with output_dir: None, output_format: mp3
+2026-03-26 10:04:46,680 - audio_separator.separator.separator - INFO - Output directory not specified. Using current working directory.
+2026-03-26 10:04:46,680 - audio_separator.separator.separator - INFO - Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-03-26 10:04:46,683 - audio_separator.separator.separator - INFO - Operating System: Windows 10.0.26100
+2026-03-26 10:04:46,750 - audio_separator.separator.separator - INFO - System: Windows Node: Laptop-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-03-26 10:04:46,751 - audio_separator.separator.separator - INFO - Python Version: 3.13.3
+2026-03-26 10:04:46,751 - audio_separator.separator.separator - INFO - PyTorch Version: 2.10.0+cpu
+2026-03-26 10:04:48,135 - audio_separator.separator.separator - INFO - FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-03-26 10:04:48,142 - audio_separator.separator.separator - INFO - ONNX Runtime GPU package installed with version: 1.24.1
+2026-03-26 10:04:48,145 - audio_separator.separator.separator - INFO - ONNX Runtime CPU package installed with version: 1.22.1
+2026-03-26 10:04:48,149 - audio_separator.separator.separator - INFO - No hardware acceleration could be configured, running in CPU mode
+2026-03-26 10:04:48,157 - main - INFO - FFMPEG detected.
+2026-03-26 10:04:48,157 - main - INFO - FX Engine initialized.
+2026-03-26 10:04:48,157 - main - INFO - TTL cleanup scheduler started.
+2026-03-26 10:06:46,855 - main - INFO - Downloading YouTube audio (or playlist): https://www.youtube.com/watch?v=jNQXAC9IVRw
+2026-03-26 10:07:04,611 - main - INFO - Separating file 1/1: 5a2364c3-0b0f-4383-befe-040acc23d180_00001_Me at the zoo.mp3
+2026-03-26 10:07:04,613 - separator - INFO - Starting separation: mode=6, file=5a2364c3-0b0f-4383-befe-040acc23d180_00001_Me at the zoo.mp3
+2026-03-26 10:07:04,614 - separator - INFO - Loading MDX model: Kim_Vocal_2.onnx
+2026-03-26 10:07:04,615 - audio_separator.separator.separator - INFO - Loading model Kim_Vocal_2.onnx...
+2026-03-26 10:07:05,458 - audio_separator.separator.separator - INFO - Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-03-26 10:08:03,894 - audio_separator.separator.separator - INFO - Load model duration: 00:00:59
+2026-03-26 10:08:03,898 - separator - INFO - MDX separating 5a2364c3-0b0f-4383-befe-040acc23d180_00001_Me at the zoo.mp3
+2026-03-26 10:08:03,899 - audio_separator.separator.separator - INFO - Processing file: C:\Users\15024\projects\DeepSplit\backend\uploads\5a2364c3-0b0f-4383-befe-040acc23d180_00001_Me at the zoo.mp3
+2026-03-26 10:08:03,899 - audio_separator.separator.separator - INFO - Starting separation process for audio_file_path: C:\Users\15024\projects\DeepSplit\backend\uploads\5a2364c3-0b0f-4383-befe-040acc23d180_00001_Me at the zoo.mp3
+2026-03-26 10:08:04,684 - audio_separator.separator.separator - INFO - Input audio subtype: n/a
+2026-03-26 10:08:04,816 - audio_separator.separator.separator - WARNING - Unknown audio subtype n/a, defaulting to 16-bit output
+2026-03-26 10:08:04,845 - audio_separator.separator.separator - INFO - Detected input bit depth: 16-bit
+2026-03-26 10:10:31,578 - audio_separator.separator.separator - ERROR - Failed to process file C:\Users\15024\projects\DeepSplit\backend\uploads\5a2364c3-0b0f-4383-befe-040acc23d180_00001_Me at the zoo.mp3: [enforce fail at alloc_cpu.cpp:117] data. DefaultCPUAllocator: not enough memory: you tried to allocate 15732736 bytes.
+2026-03-26 10:10:32,339 - separator - INFO - MDX output: []
+2026-03-26 10:10:32,959 - main - ERROR - YouTube process failed: MDX did not produce expected stems. Got: []
+Traceback (most recent call last):
+  File "C:\Users\15024\projects\DeepSplit\backend\main.py", line 638, in process_youtube_task
+    await gpu_separator.separate_stems(
+    ...<5 lines>...
+    )
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 88, in separate_stems
+    return await self._mode_6stem(audio_path, safe)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 176, in _mode_6stem
+    vocal_name, inst_path = await self._mdx_vocals(audio_path, safe)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\15024\projects\DeepSplit\backend\separator.py", line 108, in _mdx_vocals
+    raise RuntimeError(f"MDX did not produce expected stems. Got: {mdx_output}")
+RuntimeError: MDX did not produce expected stems. Got: []
+2026-03-26 11:04:49,309 - main - INFO - TTL cleanup removed 4 item(s).
+2026-03-26 12:04:49,494 - main - INFO - TTL cleanup removed 4 item(s).
+2026-03-26 13:04:49,545 - main - INFO - TTL cleanup removed 2 item(s).

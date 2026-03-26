@@ -1,0 +1,1166 @@
+﻿2026-02-19 04:34:02,841 DEBUG Using proactor: IocpProactor
+Creating AudioSeparator...
+2026-02-19 04:34:07,980 INFO Separator version 0.41.1 instantiating with output_dir: test_sep_output, output_format: mp3
+2026-02-19 04:34:07,981 INFO Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 04:34:07,982 INFO Operating System: Windows 10.0.26100
+2026-02-19 04:34:08,029 INFO System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 04:34:08,030 INFO Python Version: 3.13.3
+2026-02-19 04:34:08,030 INFO PyTorch Version: 2.10.0+cpu
+2026-02-19 04:34:08,107 INFO FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 04:34:08,113 INFO ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 04:34:08,115 INFO ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 04:34:08,116 INFO No hardware acceleration could be configured, running in CPU mode
+Running separate_stems...
+2026-02-19 04:34:08,116 INFO Separating stems for test_wav.wav using Hybrid (MDX + Demucs)
+2026-02-19 04:34:08,116 INFO Loading MDX model: Kim_Vocal_2.onnx
+2026-02-19 04:34:08,116 INFO Loading model Kim_Vocal_2.onnx...
+2026-02-19 04:34:08,185 INFO Hash of model file /tmp/audio-separator-models/Kim_Vocal_2.onnx is 970b3f9492014d18fefeedfe4773cb42
+2026-02-19 04:34:08,651 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Erf', version=13)
+2026-02-19 04:34:08,651 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Erf', version=9)
+2026-02-19 04:34:08,651 DEBUG Operation converter registered OperationDescription(domain='', operation_type='HardSigmoid', version=6)
+2026-02-19 04:34:08,651 DEBUG Operation converter registered OperationDescription(domain='', operation_type='HardSigmoid', version=1)
+2026-02-19 04:34:08,651 DEBUG Operation converter registered OperationDescription(domain='', operation_type='HardSwish', version=14)
+2026-02-19 04:34:08,652 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LeakyRelu', version=16)
+2026-02-19 04:34:08,652 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LeakyRelu', version=6)
+2026-02-19 04:34:08,652 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LeakyRelu', version=1)
+2026-02-19 04:34:08,652 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LogSoftmax', version=13)
+2026-02-19 04:34:08,652 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LogSoftmax', version=11)
+2026-02-19 04:34:08,652 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LogSoftmax', version=1)
+2026-02-19 04:34:08,652 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Relu', version=14)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Relu', version=13)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Relu', version=6)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='PRelu', version=16)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='PRelu', version=9)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='PRelu', version=7)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Elu', version=6)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Celu', version=12)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Selu', version=6)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sigmoid', version=13)
+2026-02-19 04:34:08,653 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sigmoid', version=6)
+2026-02-19 04:34:08,654 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sigmoid', version=1)
+2026-02-19 04:34:08,654 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Softmax', version=11)
+2026-02-19 04:34:08,654 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Softmax', version=1)
+2026-02-19 04:34:08,654 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Softmax', version=13)
+2026-02-19 04:34:08,654 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Softsign', version=1)
+2026-02-19 04:34:08,654 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Softplus', version=1)
+2026-02-19 04:34:08,656 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ArgMin', version=13)
+2026-02-19 04:34:08,657 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ArgMin', version=12)
+2026-02-19 04:34:08,657 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ArgMax', version=13)
+2026-02-19 04:34:08,657 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ArgMax', version=12)
+2026-02-19 04:34:08,657 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ArgMin', version=11)
+2026-02-19 04:34:08,657 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ArgMax', version=11)
+2026-02-19 04:34:08,664 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pad', version=13)
+2026-02-19 04:34:08,664 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pad', version=11)
+2026-02-19 04:34:08,665 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pad', version=2)
+2026-02-19 04:34:08,665 DEBUG Operation converter registered OperationDescription(domain='', operation_type='AveragePool', version=11)
+2026-02-19 04:34:08,665 DEBUG Operation converter registered OperationDescription(domain='', operation_type='AveragePool', version=10)
+2026-02-19 04:34:08,665 DEBUG Operation converter registered OperationDescription(domain='', operation_type='AveragePool', version=7)
+2026-02-19 04:34:08,667 DEBUG Operation converter registered OperationDescription(domain='', operation_type='BatchNormalization', version=9)
+2026-02-19 04:34:08,667 DEBUG Operation converter registered OperationDescription(domain='', operation_type='BatchNormalization', version=14)
+2026-02-19 04:34:08,668 DEBUG Operation converter registered OperationDescription(domain='', operation_type='BatchNormalization', version=15)
+2026-02-19 04:34:08,671 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Div', version=14)
+2026-02-19 04:34:08,671 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Div', version=13)
+2026-02-19 04:34:08,671 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Div', version=7)
+2026-02-19 04:34:08,671 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Div', version=6)
+2026-02-19 04:34:08,671 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Div', version=1)
+2026-02-19 04:34:08,671 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mul', version=14)
+2026-02-19 04:34:08,671 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mul', version=13)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mul', version=7)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mul', version=6)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mul', version=1)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sub', version=14)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sub', version=13)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sub', version=7)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sub', version=6)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sub', version=1)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Add', version=14)
+2026-02-19 04:34:08,672 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Add', version=13)
+2026-02-19 04:34:08,673 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Add', version=7)
+2026-02-19 04:34:08,673 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Add', version=6)
+2026-02-19 04:34:08,673 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Add', version=1)
+2026-02-19 04:34:08,676 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Cast', version=13)
+2026-02-19 04:34:08,676 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Cast', version=9)
+2026-02-19 04:34:08,679 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Clip', version=13)
+2026-02-19 04:34:08,679 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Clip', version=12)
+2026-02-19 04:34:08,679 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Clip', version=11)
+2026-02-19 04:34:08,679 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Clip', version=6)
+2026-02-19 04:34:08,681 DEBUG Operation converter registered OperationDescription(domain='', operation_type='GreaterOrEqual', version=12)
+2026-02-19 04:34:08,681 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LessOrEqual', version=12)
+2026-02-19 04:34:08,681 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Greater', version=13)
+2026-02-19 04:34:08,681 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Greater', version=9)
+2026-02-19 04:34:08,681 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Greater', version=7)
+2026-02-19 04:34:08,681 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Less', version=13)
+2026-02-19 04:34:08,682 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Less', version=9)
+2026-02-19 04:34:08,682 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Less', version=7)
+2026-02-19 04:34:08,682 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Equal', version=13)
+2026-02-19 04:34:08,682 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Equal', version=11)
+2026-02-19 04:34:08,682 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Equal', version=7)
+2026-02-19 04:34:08,684 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Concat', version=13)
+2026-02-19 04:34:08,684 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Concat', version=11)
+2026-02-19 04:34:08,685 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Concat', version=4)
+2026-02-19 04:34:08,687 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Constant', version=13)
+2026-02-19 04:34:08,687 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Constant', version=12)
+2026-02-19 04:34:08,687 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Constant', version=11)
+2026-02-19 04:34:08,688 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Constant', version=9)
+2026-02-19 04:34:08,692 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ConstantOfShape', version=9)
+2026-02-19 04:34:08,694 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ConvTranspose', version=11)
+2026-02-19 04:34:08,694 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ConvTranspose', version=1)
+2026-02-19 04:34:08,694 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Conv', version=11)
+2026-02-19 04:34:08,695 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Conv', version=1)
+2026-02-19 04:34:08,697 DEBUG Operation converter registered OperationDescription(domain='', operation_type='CumSum', version=14)
+2026-02-19 04:34:08,698 DEBUG Operation converter registered OperationDescription(domain='', operation_type='CumSum', version=11)
+2026-02-19 04:34:08,700 DEBUG Operation converter registered OperationDescription(domain='', operation_type='DepthToSpace', version=13)
+2026-02-19 04:34:08,700 DEBUG Operation converter registered OperationDescription(domain='', operation_type='DepthToSpace', version=11)
+2026-02-19 04:34:08,702 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Dropout', version=10)
+2026-02-19 04:34:08,703 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Dropout', version=13)
+2026-02-19 04:34:08,703 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Dropout', version=12)
+2026-02-19 04:34:08,705 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Einsum', version=12)
+2026-02-19 04:34:08,708 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Expand', version=13)
+2026-02-19 04:34:08,709 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Expand', version=8)
+2026-02-19 04:34:08,713 DEBUG Operation converter registered OperationDescription(domain='', operation_type='EyeLike', version=9)
+2026-02-19 04:34:08,715 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Flatten', version=9)
+2026-02-19 04:34:08,715 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Flatten', version=11)
+2026-02-19 04:34:08,716 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Flatten', version=13)
+2026-02-19 04:34:08,717 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Tanh', version=6)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Tanh', version=13)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Tan', version=7)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sin', version=7)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sign', version=9)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sign', version=13)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Log', version=6)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Log', version=13)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Exp', version=13)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Exp', version=6)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Cos', version=7)
+2026-02-19 04:34:08,718 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Atan', version=7)
+2026-02-19 04:34:08,719 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Asin', version=7)
+2026-02-19 04:34:08,719 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Acos', version=7)
+2026-02-19 04:34:08,719 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Abs', version=6)
+2026-02-19 04:34:08,719 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Abs', version=13)
+2026-02-19 04:34:08,723 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Gather', version=13)
+2026-02-19 04:34:08,723 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Gather', version=11)
+2026-02-19 04:34:08,723 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Gather', version=1)
+2026-02-19 04:34:08,724 DEBUG Operation converter registered OperationDescription(domain='', operation_type='GatherElements', version=13)
+2026-02-19 04:34:08,724 DEBUG Operation converter registered OperationDescription(domain='', operation_type='GatherElements', version=11)
+2026-02-19 04:34:08,724 DEBUG Operation converter registered OperationDescription(domain='', operation_type='GatherND', version=13)
+2026-02-19 04:34:08,724 DEBUG Operation converter registered OperationDescription(domain='', operation_type='GatherND', version=12)
+2026-02-19 04:34:08,725 DEBUG Operation converter registered OperationDescription(domain='', operation_type='GatherND', version=11)
+2026-02-19 04:34:08,727 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Gemm', version=13)
+2026-02-19 04:34:08,727 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Gemm', version=11)
+2026-02-19 04:34:08,727 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Gemm', version=9)
+2026-02-19 04:34:08,730 DEBUG Operation converter registered OperationDescription(domain='', operation_type='GlobalAveragePool', version=1)
+2026-02-19 04:34:08,732 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Identity', version=1)
+2026-02-19 04:34:08,732 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Identity', version=13)
+2026-02-19 04:34:08,733 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Identity', version=14)
+2026-02-19 04:34:08,733 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Identity', version=16)
+2026-02-19 04:34:08,735 DEBUG Operation converter registered OperationDescription(domain='', operation_type='InstanceNormalization', version=6)
+2026-02-19 04:34:08,735 DEBUG Operation converter registered OperationDescription(domain='', operation_type='InstanceNormalization', version=1)
+2026-02-19 04:34:08,737 DEBUG Operation converter registered OperationDescription(domain='', operation_type='IsInf', version=10)
+2026-02-19 04:34:08,739 DEBUG Operation converter registered OperationDescription(domain='', operation_type='IsNaN', version=13)
+2026-02-19 04:34:08,743 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LayerNormalization', version=17)
+2026-02-19 04:34:08,745 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Or', version=7)
+2026-02-19 04:34:08,745 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Or', version=1)
+2026-02-19 04:34:08,746 DEBUG Operation converter registered OperationDescription(domain='', operation_type='And', version=7)
+2026-02-19 04:34:08,746 DEBUG Operation converter registered OperationDescription(domain='', operation_type='And', version=1)
+2026-02-19 04:34:08,746 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Xor', version=7)
+2026-02-19 04:34:08,746 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Xor', version=1)
+2026-02-19 04:34:08,746 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Not', version=1)
+2026-02-19 04:34:08,749 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LRN', version=1)
+2026-02-19 04:34:08,749 DEBUG Operation converter registered OperationDescription(domain='', operation_type='LRN', version=13)
+2026-02-19 04:34:08,751 DEBUG Operation converter registered OperationDescription(domain='', operation_type='MatMul', version=13)
+2026-02-19 04:34:08,751 DEBUG Operation converter registered OperationDescription(domain='', operation_type='MatMul', version=9)
+2026-02-19 04:34:08,751 DEBUG Operation converter registered OperationDescription(domain='', operation_type='MatMul', version=1)
+2026-02-19 04:34:08,753 DEBUG Operation converter registered OperationDescription(domain='', operation_type='MaxPool', version=8)
+2026-02-19 04:34:08,754 DEBUG Operation converter registered OperationDescription(domain='', operation_type='MaxPool', version=10)
+2026-02-19 04:34:08,754 DEBUG Operation converter registered OperationDescription(domain='', operation_type='MaxPool', version=11)
+2026-02-19 04:34:08,754 DEBUG Operation converter registered OperationDescription(domain='', operation_type='MaxPool', version=12)
+2026-02-19 04:34:08,759 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mean', version=13)
+2026-02-19 04:34:08,759 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mean', version=8)
+2026-02-19 04:34:08,761 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Max', version=13)
+2026-02-19 04:34:08,761 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Max', version=12)
+2026-02-19 04:34:08,761 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Max', version=8)
+2026-02-19 04:34:08,762 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Min', version=13)
+2026-02-19 04:34:08,762 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Min', version=12)
+2026-02-19 04:34:08,762 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Min', version=8)
+2026-02-19 04:34:08,764 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mod', version=13)
+2026-02-19 04:34:08,764 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Mod', version=10)
+2026-02-19 04:34:08,767 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Neg', version=13)
+2026-02-19 04:34:08,767 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Neg', version=6)
+2026-02-19 04:34:08,767 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Neg', version=1)
+2026-02-19 04:34:12,872 DEBUG Operation converter registered OperationDescription(domain='', operation_type='NonMaxSuppression', version=11)
+2026-02-19 04:34:12,872 DEBUG Operation converter registered OperationDescription(domain='', operation_type='NonMaxSuppression', version=10)
+2026-02-19 04:34:12,874 DEBUG Operation converter registered OperationDescription(domain='', operation_type='NonZero', version=13)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pow', version=15)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pow', version=13)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pow', version=12)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pow', version=7)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Pow', version=1)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sqrt', version=13)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sqrt', version=6)
+2026-02-19 04:34:12,876 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sqrt', version=1)
+2026-02-19 04:34:12,878 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Range', version=11)
+2026-02-19 04:34:12,880 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Reciprocal', version=13)
+2026-02-19 04:34:12,880 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Reciprocal', version=6)
+2026-02-19 04:34:12,880 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Reciprocal', version=1)
+2026-02-19 04:34:12,882 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceSumSquare', version=13)
+2026-02-19 04:34:12,882 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceSumSquare', version=11)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceSumSquare', version=1)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceSum', version=11)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceSum', version=1)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceProd', version=13)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceProd', version=11)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceProd', version=1)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMin', version=13)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMin', version=12)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMin', version=11)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMin', version=1)
+2026-02-19 04:34:12,883 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMean', version=13)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMean', version=11)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMean', version=1)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMax', version=13)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMax', version=12)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMax', version=11)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceMax', version=1)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceLogSumExp', version=13)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceLogSumExp', version=11)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceLogSumExp', version=1)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceLogSum', version=13)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceLogSum', version=11)
+2026-02-19 04:34:12,884 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceLogSum', version=1)
+2026-02-19 04:34:12,885 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceL2', version=13)
+2026-02-19 04:34:12,885 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceL2', version=11)
+2026-02-19 04:34:12,885 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceL2', version=1)
+2026-02-19 04:34:12,885 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceL1', version=13)
+2026-02-19 04:34:12,885 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceL1', version=11)
+2026-02-19 04:34:12,885 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceL1', version=1)
+2026-02-19 04:34:12,885 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ReduceSum', version=13)
+2026-02-19 04:34:12,887 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Reshape', version=14)
+2026-02-19 04:34:12,887 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Reshape', version=13)
+2026-02-19 04:34:12,887 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Reshape', version=5)
+2026-02-19 04:34:12,890 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Resize', version=10)
+2026-02-19 04:34:12,890 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Resize', version=13)
+2026-02-19 04:34:12,890 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Resize', version=11)
+2026-02-19 04:34:12,892 DEBUG Operation converter registered OperationDescription(domain='', operation_type='RoiAlign', version=10)
+2026-02-19 04:34:12,892 DEBUG Operation converter registered OperationDescription(domain='', operation_type='RoiAlign', version=16)
+2026-02-19 04:34:12,894 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Round', version=11)
+2026-02-19 04:34:12,894 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Floor', version=6)
+2026-02-19 04:34:12,894 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Floor', version=13)
+2026-02-19 04:34:12,894 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Ceil', version=6)
+2026-02-19 04:34:12,894 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Ceil', version=13)
+2026-02-19 04:34:12,896 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ScatterND', version=16)
+2026-02-19 04:34:12,897 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ScatterND', version=13)
+2026-02-19 04:34:12,897 DEBUG Operation converter registered OperationDescription(domain='', operation_type='ScatterND', version=11)
+2026-02-19 04:34:12,898 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Shape', version=15)
+2026-02-19 04:34:12,899 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Shape', version=13)
+2026-02-19 04:34:12,899 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Shape', version=1)
+2026-02-19 04:34:12,901 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Slice', version=9)
+2026-02-19 04:34:12,901 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Slice', version=13)
+2026-02-19 04:34:12,901 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Slice', version=11)
+2026-02-19 04:34:12,901 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Slice', version=10)
+2026-02-19 04:34:12,903 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Split', version=13)
+2026-02-19 04:34:12,903 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Split', version=2)
+2026-02-19 04:34:12,903 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Split', version=11)
+2026-02-19 04:34:12,905 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Squeeze', version=11)
+2026-02-19 04:34:12,905 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Squeeze', version=1)
+2026-02-19 04:34:12,906 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Squeeze', version=21)
+2026-02-19 04:34:12,906 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Squeeze', version=13)
+2026-02-19 04:34:12,908 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sum', version=13)
+2026-02-19 04:34:12,908 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Sum', version=8)
+2026-02-19 04:34:12,909 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Tile', version=13)
+2026-02-19 04:34:12,909 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Tile', version=6)
+2026-02-19 04:34:12,911 DEBUG Operation converter registered OperationDescription(domain='', operation_type='TopK', version=11)
+2026-02-19 04:34:12,912 DEBUG Operation converter registered OperationDescription(domain='', operation_type='TopK', version=10)
+2026-02-19 04:34:12,912 DEBUG Operation converter registered OperationDescription(domain='', operation_type='TopK', version=1)
+2026-02-19 04:34:12,914 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Transpose', version=13)
+2026-02-19 04:34:12,914 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Transpose', version=1)
+2026-02-19 04:34:12,916 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Unsqueeze', version=11)
+2026-02-19 04:34:12,916 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Unsqueeze', version=1)
+2026-02-19 04:34:12,916 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Unsqueeze', version=13)
+2026-02-19 04:34:12,918 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Where', version=16)
+2026-02-19 04:34:12,918 DEBUG Operation converter registered OperationDescription(domain='', operation_type='Where', version=9)
+2026-02-19 04:34:16,220 INFO Load model duration: 00:00:08
+2026-02-19 04:34:16,220 INFO Running MDX separation on test_wav.wav
+2026-02-19 04:34:16,220 INFO Processing file: test_wav.wav
+2026-02-19 04:34:16,221 INFO Starting separation process for audio_file_path: test_wav.wav
+2026-02-19 04:34:16,230 INFO Input audio subtype: PCM_16
+2026-02-19 04:34:16,230 INFO Detected input bit depth: 16-bit
+2026-02-19 04:34:17,290 DEBUG bytecode dump:
+>          0	NOP(arg=None, lineno=1137)
+           2	RESUME(arg=0, lineno=1137)
+           4	LOAD_FAST(arg=0, lineno=1140)
+           6	LOAD_CONST(arg=1, lineno=1140)
+           8	BINARY_SUBSCR(arg=None, lineno=1140)
+          12	STORE_FAST(arg=3, lineno=1140)
+          14	LOAD_FAST(arg=1, lineno=1141)
+          16	UNARY_NEGATIVE(arg=None, lineno=1141)
+          18	LOAD_FAST(arg=3, lineno=1141)
+          20	SWAP(arg=2, lineno=1141)
+          22	COPY(arg=2, lineno=1141)
+          24	COMPARE_OP(arg=58, lineno=1141)
+          28	POP_JUMP_IF_FALSE(arg=6, lineno=1141)
+          32	LOAD_FAST(arg=1, lineno=1141)
+          34	COMPARE_OP(arg=58, lineno=1141)
+          38	POP_JUMP_IF_FALSE(arg=5, lineno=1141)
+          42	JUMP_FORWARD(arg=2, lineno=1141)
+>         44	POP_TOP(arg=None, lineno=1141)
+          46	JUMP_FORWARD(arg=2, lineno=1141)
+>         48	LOAD_CONST(arg=1, lineno=1142)
+          50	STORE_FAST(arg=3, lineno=1142)
+>         52	LOAD_FAST(arg=0, lineno=1144)
+          54	LOAD_CONST(arg=2, lineno=1144)
+          56	BINARY_SUBSCR(arg=None, lineno=1144)
+          60	STORE_FAST(arg=4, lineno=1144)
+          62	LOAD_FAST(arg=1, lineno=1145)
+          64	UNARY_NEGATIVE(arg=None, lineno=1145)
+          66	LOAD_FAST(arg=4, lineno=1145)
+          68	SWAP(arg=2, lineno=1145)
+          70	COPY(arg=2, lineno=1145)
+          72	COMPARE_OP(arg=58, lineno=1145)
+          76	POP_JUMP_IF_FALSE(arg=6, lineno=1145)
+          80	LOAD_FAST(arg=1, lineno=1145)
+          82	COMPARE_OP(arg=58, lineno=1145)
+          86	POP_JUMP_IF_FALSE(arg=5, lineno=1145)
+          90	JUMP_FORWARD(arg=2, lineno=1145)
+>         92	POP_TOP(arg=None, lineno=1145)
+          94	JUMP_FORWARD(arg=2, lineno=1145)
+>         96	LOAD_CONST(arg=1, lineno=1146)
+          98	STORE_FAST(arg=4, lineno=1146)
+>        100	LOAD_FAST(arg=2, lineno=1148)
+         102	TO_BOOL(arg=None, lineno=1148)
+         110	POP_JUMP_IF_FALSE(arg=45, lineno=1148)
+         114	LOAD_GLOBAL(arg=0, lineno=1149)
+         124	LOAD_ATTR(arg=2, lineno=1149)
+         144	PUSH_NULL(arg=None, lineno=1149)
+         146	LOAD_FAST(arg=3, lineno=1149)
+         148	CALL(arg=1, lineno=1149)
+         156	LOAD_GLOBAL(arg=0, lineno=1149)
+         166	LOAD_ATTR(arg=2, lineno=1149)
+         186	PUSH_NULL(arg=None, lineno=1149)
+         188	LOAD_FAST(arg=4, lineno=1149)
+         190	CALL(arg=1, lineno=1149)
+         198	COMPARE_OP(arg=103, lineno=1149)
+         202	RETURN_VALUE(arg=None, lineno=1149)
+>        204	LOAD_GLOBAL(arg=0, lineno=1151)
+         214	LOAD_ATTR(arg=4, lineno=1151)
+         234	PUSH_NULL(arg=None, lineno=1151)
+         236	LOAD_FAST(arg=3, lineno=1151)
+         238	CALL(arg=1, lineno=1151)
+         246	LOAD_GLOBAL(arg=0, lineno=1151)
+         256	LOAD_ATTR(arg=4, lineno=1151)
+         276	PUSH_NULL(arg=None, lineno=1151)
+         278	LOAD_FAST(arg=4, lineno=1151)
+         280	CALL(arg=1, lineno=1151)
+         288	COMPARE_OP(arg=103, lineno=1151)
+         292	RETURN_VALUE(arg=None, lineno=1151)
+2026-02-19 04:34:17,291 DEBUG pending: deque([State(pc_initial=0 nstack_initial=0)])
+2026-02-19 04:34:17,291 DEBUG stack: []
+2026-02-19 04:34:17,291 DEBUG state.pc_initial: State(pc_initial=0 nstack_initial=0)
+2026-02-19 04:34:17,291 DEBUG dispatch pc=0, inst=NOP(arg=None, lineno=1137)
+2026-02-19 04:34:17,292 DEBUG stack []
+2026-02-19 04:34:17,292 DEBUG dispatch pc=2, inst=RESUME(arg=0, lineno=1137)
+2026-02-19 04:34:17,292 DEBUG stack []
+2026-02-19 04:34:17,292 DEBUG dispatch pc=4, inst=LOAD_FAST(arg=0, lineno=1140)
+2026-02-19 04:34:17,292 DEBUG stack []
+2026-02-19 04:34:17,292 DEBUG dispatch pc=6, inst=LOAD_CONST(arg=1, lineno=1140)
+2026-02-19 04:34:17,292 DEBUG stack ['$x4.0']
+2026-02-19 04:34:17,292 DEBUG dispatch pc=8, inst=BINARY_SUBSCR(arg=None, lineno=1140)
+2026-02-19 04:34:17,292 DEBUG stack ['$x4.0', '$const6.1.1']
+2026-02-19 04:34:17,292 DEBUG dispatch pc=12, inst=STORE_FAST(arg=3, lineno=1140)
+2026-02-19 04:34:17,292 DEBUG stack ['$8binary_subscr.2']
+2026-02-19 04:34:17,293 DEBUG dispatch pc=14, inst=LOAD_FAST(arg=1, lineno=1141)
+2026-02-19 04:34:17,293 DEBUG stack []
+2026-02-19 04:34:17,293 DEBUG dispatch pc=16, inst=UNARY_NEGATIVE(arg=None, lineno=1141)
+2026-02-19 04:34:17,293 DEBUG stack ['$threshold14.3']
+2026-02-19 04:34:17,293 DEBUG dispatch pc=18, inst=LOAD_FAST(arg=3, lineno=1141)
+2026-02-19 04:34:17,293 DEBUG stack ['$16unary_negative.4']
+2026-02-19 04:34:17,293 DEBUG dispatch pc=20, inst=SWAP(arg=2, lineno=1141)
+2026-02-19 04:34:17,293 DEBUG stack ['$16unary_negative.4', '$x018.5']
+2026-02-19 04:34:17,293 DEBUG dispatch pc=22, inst=COPY(arg=2, lineno=1141)
+2026-02-19 04:34:17,294 DEBUG stack ['$x018.5', '$16unary_negative.4']
+2026-02-19 04:34:17,294 DEBUG dispatch pc=24, inst=COMPARE_OP(arg=58, lineno=1141)
+2026-02-19 04:34:17,294 DEBUG stack ['$x018.5', '$16unary_negative.4', '$x018.5']
+2026-02-19 04:34:17,294 DEBUG dispatch pc=28, inst=POP_JUMP_IF_FALSE(arg=6, lineno=1141)
+2026-02-19 04:34:17,294 DEBUG stack ['$x018.5', '$24compare_op.6']
+2026-02-19 04:34:17,294 DEBUG end state. edges=[Edge(pc=32, stack=('$x018.5',), blockstack=(), npush=0), Edge(pc=44, stack=('$x018.5',), blockstack=(), npush=0)]
+2026-02-19 04:34:17,294 DEBUG pending: deque([State(pc_initial=32 nstack_initial=1), State(pc_initial=44 nstack_initial=1)])
+2026-02-19 04:34:17,295 DEBUG stack: ['$phi32.0']
+2026-02-19 04:34:17,295 DEBUG state.pc_initial: State(pc_initial=32 nstack_initial=1)
+2026-02-19 04:34:17,295 DEBUG dispatch pc=32, inst=LOAD_FAST(arg=1, lineno=1141)
+2026-02-19 04:34:17,295 DEBUG stack ['$phi32.0']
+2026-02-19 04:34:17,295 DEBUG dispatch pc=34, inst=COMPARE_OP(arg=58, lineno=1141)
+2026-02-19 04:34:17,296 DEBUG stack ['$phi32.0', '$threshold32.1']
+2026-02-19 04:34:17,296 DEBUG dispatch pc=38, inst=POP_JUMP_IF_FALSE(arg=5, lineno=1141)
+2026-02-19 04:34:17,296 DEBUG stack ['$34compare_op.2']
+2026-02-19 04:34:17,296 DEBUG end state. edges=[Edge(pc=42, stack=(), blockstack=(), npush=0), Edge(pc=52, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,296 DEBUG pending: deque([State(pc_initial=44 nstack_initial=1), State(pc_initial=42 nstack_initial=0), State(pc_initial=52 nstack_initial=0)])
+2026-02-19 04:34:17,296 DEBUG stack: ['$phi44.0']
+2026-02-19 04:34:17,296 DEBUG state.pc_initial: State(pc_initial=44 nstack_initial=1)
+2026-02-19 04:34:17,296 DEBUG dispatch pc=44, inst=POP_TOP(arg=None, lineno=1141)
+2026-02-19 04:34:17,296 DEBUG stack ['$phi44.0']
+2026-02-19 04:34:17,297 DEBUG dispatch pc=46, inst=JUMP_FORWARD(arg=2, lineno=1141)
+2026-02-19 04:34:17,297 DEBUG stack []
+2026-02-19 04:34:17,297 DEBUG end state. edges=[Edge(pc=52, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,297 DEBUG pending: deque([State(pc_initial=42 nstack_initial=0), State(pc_initial=52 nstack_initial=0), State(pc_initial=52 nstack_initial=0)])
+2026-02-19 04:34:17,297 DEBUG stack: []
+2026-02-19 04:34:17,297 DEBUG state.pc_initial: State(pc_initial=42 nstack_initial=0)
+2026-02-19 04:34:17,297 DEBUG dispatch pc=42, inst=JUMP_FORWARD(arg=2, lineno=1141)
+2026-02-19 04:34:17,297 DEBUG stack []
+2026-02-19 04:34:17,297 DEBUG end state. edges=[Edge(pc=48, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,298 DEBUG pending: deque([State(pc_initial=52 nstack_initial=0), State(pc_initial=52 nstack_initial=0), State(pc_initial=48 nstack_initial=0)])
+2026-02-19 04:34:17,298 DEBUG stack: []
+2026-02-19 04:34:17,298 DEBUG state.pc_initial: State(pc_initial=52 nstack_initial=0)
+2026-02-19 04:34:17,298 DEBUG dispatch pc=52, inst=LOAD_FAST(arg=0, lineno=1144)
+2026-02-19 04:34:17,298 DEBUG stack []
+2026-02-19 04:34:17,298 DEBUG dispatch pc=54, inst=LOAD_CONST(arg=2, lineno=1144)
+2026-02-19 04:34:17,298 DEBUG stack ['$x52.0']
+2026-02-19 04:34:17,298 DEBUG dispatch pc=56, inst=BINARY_SUBSCR(arg=None, lineno=1144)
+2026-02-19 04:34:17,298 DEBUG stack ['$x52.0', '$const54.1.2']
+2026-02-19 04:34:17,299 DEBUG dispatch pc=60, inst=STORE_FAST(arg=4, lineno=1144)
+2026-02-19 04:34:17,299 DEBUG stack ['$56binary_subscr.2']
+2026-02-19 04:34:17,299 DEBUG dispatch pc=62, inst=LOAD_FAST(arg=1, lineno=1145)
+2026-02-19 04:34:17,299 DEBUG stack []
+2026-02-19 04:34:17,300 DEBUG dispatch pc=64, inst=UNARY_NEGATIVE(arg=None, lineno=1145)
+2026-02-19 04:34:17,301 DEBUG stack ['$threshold62.3']
+2026-02-19 04:34:17,301 DEBUG dispatch pc=66, inst=LOAD_FAST(arg=4, lineno=1145)
+2026-02-19 04:34:17,301 DEBUG stack ['$64unary_negative.4']
+2026-02-19 04:34:17,301 DEBUG dispatch pc=68, inst=SWAP(arg=2, lineno=1145)
+2026-02-19 04:34:17,302 DEBUG stack ['$64unary_negative.4', '$x166.5']
+2026-02-19 04:34:17,302 DEBUG dispatch pc=70, inst=COPY(arg=2, lineno=1145)
+2026-02-19 04:34:17,302 DEBUG stack ['$x166.5', '$64unary_negative.4']
+2026-02-19 04:34:17,302 DEBUG dispatch pc=72, inst=COMPARE_OP(arg=58, lineno=1145)
+2026-02-19 04:34:17,302 DEBUG stack ['$x166.5', '$64unary_negative.4', '$x166.5']
+2026-02-19 04:34:17,302 DEBUG dispatch pc=76, inst=POP_JUMP_IF_FALSE(arg=6, lineno=1145)
+2026-02-19 04:34:17,303 DEBUG stack ['$x166.5', '$72compare_op.6']
+2026-02-19 04:34:17,303 DEBUG end state. edges=[Edge(pc=80, stack=('$x166.5',), blockstack=(), npush=0), Edge(pc=92, stack=('$x166.5',), blockstack=(), npush=0)]
+2026-02-19 04:34:17,303 DEBUG pending: deque([State(pc_initial=52 nstack_initial=0), State(pc_initial=48 nstack_initial=0), State(pc_initial=80 nstack_initial=1), State(pc_initial=92 nstack_initial=1)])
+2026-02-19 04:34:17,303 DEBUG pending: deque([State(pc_initial=48 nstack_initial=0), State(pc_initial=80 nstack_initial=1), State(pc_initial=92 nstack_initial=1)])
+2026-02-19 04:34:17,303 DEBUG stack: []
+2026-02-19 04:34:17,303 DEBUG state.pc_initial: State(pc_initial=48 nstack_initial=0)
+2026-02-19 04:34:17,303 DEBUG dispatch pc=48, inst=LOAD_CONST(arg=1, lineno=1142)
+2026-02-19 04:34:17,303 DEBUG stack []
+2026-02-19 04:34:17,303 DEBUG dispatch pc=50, inst=STORE_FAST(arg=3, lineno=1142)
+2026-02-19 04:34:17,304 DEBUG stack ['$const48.0.1']
+2026-02-19 04:34:17,304 DEBUG end state. edges=[Edge(pc=52, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,304 DEBUG pending: deque([State(pc_initial=80 nstack_initial=1), State(pc_initial=92 nstack_initial=1), State(pc_initial=52 nstack_initial=0)])
+2026-02-19 04:34:17,304 DEBUG stack: ['$phi80.0']
+2026-02-19 04:34:17,304 DEBUG state.pc_initial: State(pc_initial=80 nstack_initial=1)
+2026-02-19 04:34:17,304 DEBUG dispatch pc=80, inst=LOAD_FAST(arg=1, lineno=1145)
+2026-02-19 04:34:17,304 DEBUG stack ['$phi80.0']
+2026-02-19 04:34:17,304 DEBUG dispatch pc=82, inst=COMPARE_OP(arg=58, lineno=1145)
+2026-02-19 04:34:17,304 DEBUG stack ['$phi80.0', '$threshold80.1']
+2026-02-19 04:34:17,305 DEBUG dispatch pc=86, inst=POP_JUMP_IF_FALSE(arg=5, lineno=1145)
+2026-02-19 04:34:17,305 DEBUG stack ['$82compare_op.2']
+2026-02-19 04:34:17,305 DEBUG end state. edges=[Edge(pc=90, stack=(), blockstack=(), npush=0), Edge(pc=100, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,305 DEBUG pending: deque([State(pc_initial=92 nstack_initial=1), State(pc_initial=52 nstack_initial=0), State(pc_initial=90 nstack_initial=0), State(pc_initial=100 nstack_initial=0)])
+2026-02-19 04:34:17,305 DEBUG stack: ['$phi92.0']
+2026-02-19 04:34:17,305 DEBUG state.pc_initial: State(pc_initial=92 nstack_initial=1)
+2026-02-19 04:34:17,305 DEBUG dispatch pc=92, inst=POP_TOP(arg=None, lineno=1145)
+2026-02-19 04:34:17,305 DEBUG stack ['$phi92.0']
+2026-02-19 04:34:17,305 DEBUG dispatch pc=94, inst=JUMP_FORWARD(arg=2, lineno=1145)
+2026-02-19 04:34:17,305 DEBUG stack []
+2026-02-19 04:34:17,306 DEBUG end state. edges=[Edge(pc=100, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,306 DEBUG pending: deque([State(pc_initial=52 nstack_initial=0), State(pc_initial=90 nstack_initial=0), State(pc_initial=100 nstack_initial=0), State(pc_initial=100 nstack_initial=0)])
+2026-02-19 04:34:17,306 DEBUG pending: deque([State(pc_initial=90 nstack_initial=0), State(pc_initial=100 nstack_initial=0), State(pc_initial=100 nstack_initial=0)])
+2026-02-19 04:34:17,306 DEBUG stack: []
+2026-02-19 04:34:17,306 DEBUG state.pc_initial: State(pc_initial=90 nstack_initial=0)
+2026-02-19 04:34:17,306 DEBUG dispatch pc=90, inst=JUMP_FORWARD(arg=2, lineno=1145)
+2026-02-19 04:34:17,306 DEBUG stack []
+2026-02-19 04:34:17,306 DEBUG end state. edges=[Edge(pc=96, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,306 DEBUG pending: deque([State(pc_initial=100 nstack_initial=0), State(pc_initial=100 nstack_initial=0), State(pc_initial=96 nstack_initial=0)])
+2026-02-19 04:34:17,307 DEBUG stack: []
+2026-02-19 04:34:17,307 DEBUG state.pc_initial: State(pc_initial=100 nstack_initial=0)
+2026-02-19 04:34:17,307 DEBUG dispatch pc=100, inst=LOAD_FAST(arg=2, lineno=1148)
+2026-02-19 04:34:17,307 DEBUG stack []
+2026-02-19 04:34:17,307 DEBUG dispatch pc=102, inst=TO_BOOL(arg=None, lineno=1148)
+2026-02-19 04:34:17,307 DEBUG stack ['$zero_pos100.0']
+2026-02-19 04:34:17,307 DEBUG dispatch pc=110, inst=POP_JUMP_IF_FALSE(arg=45, lineno=1148)
+2026-02-19 04:34:17,307 DEBUG stack ['$102to_bool.1']
+2026-02-19 04:34:17,307 DEBUG end state. edges=[Edge(pc=114, stack=(), blockstack=(), npush=0), Edge(pc=204, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,307 DEBUG pending: deque([State(pc_initial=100 nstack_initial=0), State(pc_initial=96 nstack_initial=0), State(pc_initial=114 nstack_initial=0), State(pc_initial=204 nstack_initial=0)])
+2026-02-19 04:34:17,308 DEBUG pending: deque([State(pc_initial=96 nstack_initial=0), State(pc_initial=114 nstack_initial=0), State(pc_initial=204 nstack_initial=0)])
+2026-02-19 04:34:17,308 DEBUG stack: []
+2026-02-19 04:34:17,308 DEBUG state.pc_initial: State(pc_initial=96 nstack_initial=0)
+2026-02-19 04:34:17,308 DEBUG dispatch pc=96, inst=LOAD_CONST(arg=1, lineno=1146)
+2026-02-19 04:34:17,308 DEBUG stack []
+2026-02-19 04:34:17,308 DEBUG dispatch pc=98, inst=STORE_FAST(arg=4, lineno=1146)
+2026-02-19 04:34:17,308 DEBUG stack ['$const96.0.1']
+2026-02-19 04:34:17,308 DEBUG end state. edges=[Edge(pc=100, stack=(), blockstack=(), npush=0)]
+2026-02-19 04:34:17,308 DEBUG pending: deque([State(pc_initial=114 nstack_initial=0), State(pc_initial=204 nstack_initial=0), State(pc_initial=100 nstack_initial=0)])
+2026-02-19 04:34:17,309 DEBUG stack: []
+2026-02-19 04:34:17,309 DEBUG state.pc_initial: State(pc_initial=114 nstack_initial=0)
+2026-02-19 04:34:17,309 DEBUG dispatch pc=114, inst=LOAD_GLOBAL(arg=0, lineno=1149)
+2026-02-19 04:34:17,309 DEBUG stack []
+2026-02-19 04:34:17,309 DEBUG dispatch pc=124, inst=LOAD_ATTR(arg=2, lineno=1149)
+2026-02-19 04:34:17,309 DEBUG stack ['$114load_global.0']
+2026-02-19 04:34:17,309 DEBUG dispatch pc=144, inst=PUSH_NULL(arg=None, lineno=1149)
+2026-02-19 04:34:17,309 DEBUG stack ['$124load_attr.1']
+2026-02-19 04:34:17,309 DEBUG dispatch pc=146, inst=LOAD_FAST(arg=3, lineno=1149)
+2026-02-19 04:34:17,309 DEBUG stack ['$124load_attr.1', '$null$144.2']
+2026-02-19 04:34:17,310 DEBUG dispatch pc=148, inst=CALL(arg=1, lineno=1149)
+2026-02-19 04:34:17,310 DEBUG stack ['$124load_attr.1', '$null$144.2', '$x0146.3']
+2026-02-19 04:34:17,310 DEBUG dispatch pc=156, inst=LOAD_GLOBAL(arg=0, lineno=1149)
+2026-02-19 04:34:17,310 DEBUG stack ['$148call.4']
+2026-02-19 04:34:17,310 DEBUG dispatch pc=166, inst=LOAD_ATTR(arg=2, lineno=1149)
+2026-02-19 04:34:17,310 DEBUG stack ['$148call.4', '$156load_global.5']
+2026-02-19 04:34:17,310 DEBUG dispatch pc=186, inst=PUSH_NULL(arg=None, lineno=1149)
+2026-02-19 04:34:17,310 DEBUG stack ['$148call.4', '$166load_attr.6']
+2026-02-19 04:34:17,310 DEBUG dispatch pc=188, inst=LOAD_FAST(arg=4, lineno=1149)
+2026-02-19 04:34:17,311 DEBUG stack ['$148call.4', '$166load_attr.6', '$null$186.7']
+2026-02-19 04:34:17,311 DEBUG dispatch pc=190, inst=CALL(arg=1, lineno=1149)
+2026-02-19 04:34:17,311 DEBUG stack ['$148call.4', '$166load_attr.6', '$null$186.7', '$x1188.8']
+2026-02-19 04:34:17,311 DEBUG dispatch pc=198, inst=COMPARE_OP(arg=103, lineno=1149)
+2026-02-19 04:34:17,311 DEBUG stack ['$148call.4', '$190call.9']
+2026-02-19 04:34:17,311 DEBUG dispatch pc=202, inst=RETURN_VALUE(arg=None, lineno=1149)
+2026-02-19 04:34:17,311 DEBUG stack ['$198compare_op.10']
+2026-02-19 04:34:17,311 DEBUG end state. edges=[]
+2026-02-19 04:34:17,311 DEBUG pending: deque([State(pc_initial=204 nstack_initial=0), State(pc_initial=100 nstack_initial=0)])
+2026-02-19 04:34:17,312 DEBUG stack: []
+2026-02-19 04:34:17,312 DEBUG state.pc_initial: State(pc_initial=204 nstack_initial=0)
+2026-02-19 04:34:17,312 DEBUG dispatch pc=204, inst=LOAD_GLOBAL(arg=0, lineno=1151)
+2026-02-19 04:34:17,312 DEBUG stack []
+2026-02-19 04:34:17,318 DEBUG dispatch pc=214, inst=LOAD_ATTR(arg=4, lineno=1151)
+2026-02-19 04:34:17,318 DEBUG stack ['$204load_global.0']
+2026-02-19 04:34:17,318 DEBUG dispatch pc=234, inst=PUSH_NULL(arg=None, lineno=1151)
+2026-02-19 04:34:17,318 DEBUG stack ['$214load_attr.1']
+2026-02-19 04:34:17,319 DEBUG dispatch pc=236, inst=LOAD_FAST(arg=3, lineno=1151)
+2026-02-19 04:34:17,319 DEBUG stack ['$214load_attr.1', '$null$234.2']
+2026-02-19 04:34:17,319 DEBUG dispatch pc=238, inst=CALL(arg=1, lineno=1151)
+2026-02-19 04:34:17,319 DEBUG stack ['$214load_attr.1', '$null$234.2', '$x0236.3']
+2026-02-19 04:34:17,319 DEBUG dispatch pc=246, inst=LOAD_GLOBAL(arg=0, lineno=1151)
+2026-02-19 04:34:17,320 DEBUG stack ['$238call.4']
+2026-02-19 04:34:17,320 DEBUG dispatch pc=256, inst=LOAD_ATTR(arg=4, lineno=1151)
+2026-02-19 04:34:17,320 DEBUG stack ['$238call.4', '$246load_global.5']
+2026-02-19 04:34:17,320 DEBUG dispatch pc=276, inst=PUSH_NULL(arg=None, lineno=1151)
+2026-02-19 04:34:17,320 DEBUG stack ['$238call.4', '$256load_attr.6']
+2026-02-19 04:34:17,320 DEBUG dispatch pc=278, inst=LOAD_FAST(arg=4, lineno=1151)
+2026-02-19 04:34:17,320 DEBUG stack ['$238call.4', '$256load_attr.6', '$null$276.7']
+2026-02-19 04:34:17,320 DEBUG dispatch pc=280, inst=CALL(arg=1, lineno=1151)
+2026-02-19 04:34:17,320 DEBUG stack ['$238call.4', '$256load_attr.6', '$null$276.7', '$x1278.8']
+2026-02-19 04:34:17,320 DEBUG dispatch pc=288, inst=COMPARE_OP(arg=103, lineno=1151)
+2026-02-19 04:34:17,321 DEBUG stack ['$238call.4', '$280call.9']
+2026-02-19 04:34:17,321 DEBUG dispatch pc=292, inst=RETURN_VALUE(arg=None, lineno=1151)
+2026-02-19 04:34:17,321 DEBUG stack ['$288compare_op.10']
+2026-02-19 04:34:17,321 DEBUG end state. edges=[]
+2026-02-19 04:34:17,321 DEBUG pending: deque([State(pc_initial=100 nstack_initial=0)])
+2026-02-19 04:34:17,321 DEBUG -------------------------Prune PHIs-------------------------
+2026-02-19 04:34:17,321 DEBUG Used_phis: defaultdict(<class 'set'>,
+            {State(pc_initial=0 nstack_initial=0): set(),
+             State(pc_initial=32 nstack_initial=1): {'$phi32.0'},
+             State(pc_initial=42 nstack_initial=0): set(),
+             State(pc_initial=44 nstack_initial=1): set(),
+             State(pc_initial=48 nstack_initial=0): set(),
+             State(pc_initial=52 nstack_initial=0): set(),
+             State(pc_initial=80 nstack_initial=1): {'$phi80.0'},
+             State(pc_initial=90 nstack_initial=0): set(),
+             State(pc_initial=92 nstack_initial=1): set(),
+             State(pc_initial=96 nstack_initial=0): set(),
+             State(pc_initial=100 nstack_initial=0): set(),
+             State(pc_initial=114 nstack_initial=0): set(),
+             State(pc_initial=204 nstack_initial=0): set()})
+2026-02-19 04:34:17,322 DEBUG defmap: {'$phi32.0': State(pc_initial=0 nstack_initial=0),
+ '$phi44.0': State(pc_initial=0 nstack_initial=0),
+ '$phi80.0': State(pc_initial=52 nstack_initial=0),
+ '$phi92.0': State(pc_initial=52 nstack_initial=0)}
+2026-02-19 04:34:17,323 DEBUG phismap: defaultdict(<class 'set'>,
+            {'$phi32.0': {('$x018.5', State(pc_initial=0 nstack_initial=0))},
+             '$phi44.0': {('$x018.5', State(pc_initial=0 nstack_initial=0))},
+             '$phi80.0': {('$x166.5', State(pc_initial=52 nstack_initial=0))},
+             '$phi92.0': {('$x166.5', State(pc_initial=52 nstack_initial=0))}})
+2026-02-19 04:34:17,323 DEBUG changing phismap: defaultdict(<class 'set'>,
+            {'$phi32.0': {('$x018.5', State(pc_initial=0 nstack_initial=0))},
+             '$phi44.0': {('$x018.5', State(pc_initial=0 nstack_initial=0))},
+             '$phi80.0': {('$x166.5', State(pc_initial=52 nstack_initial=0))},
+             '$phi92.0': {('$x166.5', State(pc_initial=52 nstack_initial=0))}})
+2026-02-19 04:34:17,323 DEBUG keep phismap: {'$phi32.0': {('$x018.5', State(pc_initial=0 nstack_initial=0))},
+ '$phi80.0': {('$x166.5', State(pc_initial=52 nstack_initial=0))}}
+2026-02-19 04:34:17,324 DEBUG new_out: defaultdict(<class 'dict'>,
+            {State(pc_initial=0 nstack_initial=0): {'$phi32.0': '$x018.5'},
+             State(pc_initial=52 nstack_initial=0): {'$phi80.0': '$x166.5'}})
+2026-02-19 04:34:17,324 DEBUG ----------------------DONE Prune PHIs-----------------------
+2026-02-19 04:34:17,324 DEBUG block_infos State(pc_initial=0 nstack_initial=0):
+AdaptBlockInfo(insts=((0, {}), (2, {}), (4, {'res': '$x4.0'}), (6, {'res': '$const6.1.1'}), (8, {'index': '$const6.1.1', 'target': '$x4.0', 'res': '$8binary_subscr.2'}), (12, {'value': '$8binary_subscr.2'}), (14, {'res': '$threshold14.3'}), (16, {'value': '$threshold14.3', 'res': '$16unary_negative.4'}), (18, {'res': '$x018.5'}), (24, {'lhs': '$16unary_negative.4', 'rhs': '$x018.5', 'res': '$24compare_op.6'}), (28, {'pred': '$24compare_op.6'})), outgoing_phis={'$phi32.0': '$x018.5'}, blockstack=(), active_try_block=None, outgoing_edgepushed={32: ('$x018.5',), 44: ('$x018.5',)})
+2026-02-19 04:34:17,324 DEBUG block_infos State(pc_initial=32 nstack_initial=1):
+AdaptBlockInfo(insts=((32, {'res': '$threshold32.1'}), (34, {'lhs': '$phi32.0', 'rhs': '$threshold32.1', 'res': '$34compare_op.2'}), (38, {'pred': '$34compare_op.2'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={42: (), 52: ()})
+2026-02-19 04:34:17,325 DEBUG block_infos State(pc_initial=42 nstack_initial=0):
+AdaptBlockInfo(insts=((42, {}),), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={48: ()})
+2026-02-19 04:34:17,325 DEBUG block_infos State(pc_initial=44 nstack_initial=1):
+AdaptBlockInfo(insts=((46, {}),), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={52: ()})
+2026-02-19 04:34:17,325 DEBUG block_infos State(pc_initial=48 nstack_initial=0):
+AdaptBlockInfo(insts=((48, {'res': '$const48.0.1'}), (50, {'value': '$const48.0.1'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={52: ()})
+2026-02-19 04:34:17,325 DEBUG block_infos State(pc_initial=52 nstack_initial=0):
+AdaptBlockInfo(insts=((52, {'res': '$x52.0'}), (54, {'res': '$const54.1.2'}), (56, {'index': '$const54.1.2', 'target': '$x52.0', 'res': '$56binary_subscr.2'}), (60, {'value': '$56binary_subscr.2'}), (62, {'res': '$threshold62.3'}), (64, {'value': '$threshold62.3', 'res': '$64unary_negative.4'}), (66, {'res': '$x166.5'}), (72, {'lhs': '$64unary_negative.4', 'rhs': '$x166.5', 'res': '$72compare_op.6'}), (76, {'pred': '$72compare_op.6'})), outgoing_phis={'$phi80.0': '$x166.5'}, blockstack=(), active_try_block=None, outgoing_edgepushed={80: ('$x166.5',), 92: ('$x166.5',)})
+2026-02-19 04:34:17,325 DEBUG block_infos State(pc_initial=80 nstack_initial=1):
+AdaptBlockInfo(insts=((80, {'res': '$threshold80.1'}), (82, {'lhs': '$phi80.0', 'rhs': '$threshold80.1', 'res': '$82compare_op.2'}), (86, {'pred': '$82compare_op.2'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={90: (), 100: ()})
+2026-02-19 04:34:17,326 DEBUG block_infos State(pc_initial=90 nstack_initial=0):
+AdaptBlockInfo(insts=((90, {}),), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={96: ()})
+2026-02-19 04:34:17,326 DEBUG block_infos State(pc_initial=92 nstack_initial=1):
+AdaptBlockInfo(insts=((94, {}),), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={100: ()})
+2026-02-19 04:34:17,326 DEBUG block_infos State(pc_initial=96 nstack_initial=0):
+AdaptBlockInfo(insts=((96, {'res': '$const96.0.1'}), (98, {'value': '$const96.0.1'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={100: ()})
+2026-02-19 04:34:17,326 DEBUG block_infos State(pc_initial=100 nstack_initial=0):
+AdaptBlockInfo(insts=((100, {'res': '$zero_pos100.0'}), (102, {'val': '$zero_pos100.0', 'res': '$102to_bool.1'}), (110, {'pred': '$102to_bool.1'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={114: (), 204: ()})
+2026-02-19 04:34:17,326 DEBUG block_infos State(pc_initial=114 nstack_initial=0):
+AdaptBlockInfo(insts=((114, {'idx': 0, 'res': '$114load_global.0'}), (124, {'item': '$114load_global.0', 'res': '$124load_attr.1'}), (144, {}), (146, {'res': '$x0146.3'}), (148, {'func': '$124load_attr.1', 'args': ['$x0146.3'], 'kw_names': None, 'res': '$148call.4'}), (156, {'idx': 0, 'res': '$156load_global.5'}), (166, {'item': '$156load_global.5', 'res': '$166load_attr.6'}), (186, {}), (188, {'res': '$x1188.8'}), (190, {'func': '$166load_attr.6', 'args': ['$x1188.8'], 'kw_names': None, 'res': '$190call.9'}), (198, {'lhs': '$148call.4', 'rhs': '$190call.9', 'res': '$198compare_op.10'}), (202, {'retval': '$198compare_op.10', 'castval': '$202return_value.11'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={})
+2026-02-19 04:34:17,327 DEBUG block_infos State(pc_initial=204 nstack_initial=0):
+AdaptBlockInfo(insts=((204, {'idx': 0, 'res': '$204load_global.0'}), (214, {'item': '$204load_global.0', 'res': '$214load_attr.1'}), (234, {}), (236, {'res': '$x0236.3'}), (238, {'func': '$214load_attr.1', 'args': ['$x0236.3'], 'kw_names': None, 'res': '$238call.4'}), (246, {'idx': 0, 'res': '$246load_global.5'}), (256, {'item': '$246load_global.5', 'res': '$256load_attr.6'}), (276, {}), (278, {'res': '$x1278.8'}), (280, {'func': '$256load_attr.6', 'args': ['$x1278.8'], 'kw_names': None, 'res': '$280call.9'}), (288, {'lhs': '$238call.4', 'rhs': '$280call.9', 'res': '$288compare_op.10'}), (292, {'retval': '$288compare_op.10', 'castval': '$292return_value.11'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={})
+2026-02-19 04:34:17,330 DEBUG label 0:
+    x = arg(0, name=x)                       ['x']
+    threshold = arg(1, name=threshold)       ['threshold']
+    zero_pos = arg(2, name=zero_pos)         ['zero_pos']
+    $const6.1.1 = const(int, 0)              ['$const6.1.1']
+    x0 = getitem(value=x, index=$const6.1.1, fn=<built-in function getitem>) ['$const6.1.1', 'x', 'x0']
+    $16unary_negative.4 = unary(fn=<built-in function neg>, value=threshold) ['$16unary_negative.4', 'threshold']
+    $24compare_op.6 = $16unary_negative.4 <= x0 ['$16unary_negative.4', '$24compare_op.6', 'x0']
+    bool28 = global(bool: <class 'bool'>)    ['bool28']
+    $28pred = call bool28($24compare_op.6, func=bool28, args=(Var($24compare_op.6, audio.py:1141),), kws=(), vararg=None, varkwarg=None, target=None) ['$24compare_op.6', '$28pred', 'bool28']
+    $phi32.0 = x0                            ['$phi32.0', 'x0']
+    branch $28pred, 32, 44                   ['$28pred']
+label 32:
+    $34compare_op.2 = $phi32.0 <= threshold  ['$34compare_op.2', '$phi32.0', 'threshold']
+    bool38 = global(bool: <class 'bool'>)    ['bool38']
+    $38pred = call bool38($34compare_op.2, func=bool38, args=(Var($34compare_op.2, audio.py:1141),), kws=(), vararg=None, varkwarg=None, target=None) ['$34compare_op.2', '$38pred', 'bool38']
+    branch $38pred, 42, 52                   ['$38pred']
+label 42:
+    jump 48                                  []
+label 44:
+    jump 52                                  []
+label 48:
+    x0 = const(int, 0)                       ['x0']
+    jump 52                                  []
+label 52:
+    $const54.1.2 = const(int, -1)            ['$const54.1.2']
+    x1 = getitem(value=x, index=$const54.1.2, fn=<built-in function getitem>) ['$const54.1.2', 'x', 'x1']
+    $64unary_negative.4 = unary(fn=<built-in function neg>, value=threshold) ['$64unary_negative.4', 'threshold']
+    $72compare_op.6 = $64unary_negative.4 <= x1 ['$64unary_negative.4', '$72compare_op.6', 'x1']
+    bool76 = global(bool: <class 'bool'>)    ['bool76']
+    $76pred = call bool76($72compare_op.6, func=bool76, args=(Var($72compare_op.6, audio.py:1145),), kws=(), vararg=None, varkwarg=None, target=None) ['$72compare_op.6', '$76pred', 'bool76']
+    $phi80.0 = x1                            ['$phi80.0', 'x1']
+    branch $76pred, 80, 92                   ['$76pred']
+label 80:
+    $82compare_op.2 = $phi80.0 <= threshold  ['$82compare_op.2', '$phi80.0', 'threshold']
+    bool86 = global(bool: <class 'bool'>)    ['bool86']
+    $86pred = call bool86($82compare_op.2, func=bool86, args=(Var($82compare_op.2, audio.py:1145),), kws=(), vararg=None, varkwarg=None, target=None) ['$82compare_op.2', '$86pred', 'bool86']
+    branch $86pred, 90, 100                  ['$86pred']
+label 90:
+    jump 96                                  []
+label 92:
+    jump 100                                 []
+label 96:
+    x1 = const(int, 0)                       ['x1']
+    jump 100                                 []
+label 100:
+    bool110 = global(bool: <class 'bool'>)   ['bool110']
+    $110pred = call bool110(zero_pos, func=bool110, args=(Var(zero_pos, audio.py:1137),), kws=(), vararg=None, varkwarg=None, target=None) ['$110pred', 'bool110', 'zero_pos']
+    branch $110pred, 114, 204                ['$110pred']
+label 114:
+    $114load_global.0 = global(np: <module 'numpy' from 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\numpy\\__init__.py'>) ['$114load_global.0']
+    $124load_attr.1 = getattr(value=$114load_global.0, attr=signbit) ['$114load_global.0', '$124load_attr.1']
+    $148call.4 = call $124load_attr.1(x0, func=$124load_attr.1, args=[Var(x0, audio.py:1140)], kws=(), vararg=None, varkwarg=None, target=None) ['$124load_attr.1', '$148call.4', 'x0']
+    $156load_global.5 = global(np: <module 'numpy' from 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\numpy\\__init__.py'>) ['$156load_global.5']
+    $166load_attr.6 = getattr(value=$156load_global.5, attr=signbit) ['$156load_global.5', '$166load_attr.6']
+    $190call.9 = call $166load_attr.6(x1, func=$166load_attr.6, args=[Var(x1, audio.py:1144)], kws=(), vararg=None, varkwarg=None, target=None) ['$166load_attr.6', '$190call.9', 'x1']
+    $198compare_op.10 = $148call.4 != $190call.9 ['$148call.4', '$190call.9', '$198compare_op.10']
+    $202return_value.11 = cast(value=$198compare_op.10) ['$198compare_op.10', '$202return_value.11']
+    return $202return_value.11               ['$202return_value.11']
+label 204:
+    $204load_global.0 = global(np: <module 'numpy' from 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\numpy\\__init__.py'>) ['$204load_global.0']
+    $214load_attr.1 = getattr(value=$204load_global.0, attr=sign) ['$204load_global.0', '$214load_attr.1']
+    $238call.4 = call $214load_attr.1(x0, func=$214load_attr.1, args=[Var(x0, audio.py:1140)], kws=(), vararg=None, varkwarg=None, target=None) ['$214load_attr.1', '$238call.4', 'x0']
+    $246load_global.5 = global(np: <module 'numpy' from 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\numpy\\__init__.py'>) ['$246load_global.5']
+    $256load_attr.6 = getattr(value=$246load_global.5, attr=sign) ['$246load_global.5', '$256load_attr.6']
+    $280call.9 = call $256load_attr.6(x1, func=$256load_attr.6, args=[Var(x1, audio.py:1144)], kws=(), vararg=None, varkwarg=None, target=None) ['$256load_attr.6', '$280call.9', 'x1']
+    $288compare_op.10 = $238call.4 != $280call.9 ['$238call.4', '$280call.9', '$288compare_op.10']
+    $292return_value.11 = cast(value=$288compare_op.10) ['$288compare_op.10', '$292return_value.11']
+    return $292return_value.11               ['$292return_value.11']
+
+2026-02-19 04:34:18,377 DEBUG bytecode dump:
+>          0	NOP(arg=None, lineno=1023)
+           2	RESUME(arg=0, lineno=1023)
+           4	LOAD_FAST(arg=0, lineno=1026)
+           6	LOAD_CONST(arg=1, lineno=1026)
+           8	BINARY_SUBSCR(arg=None, lineno=1026)
+          12	LOAD_FAST(arg=0, lineno=1026)
+          14	LOAD_CONST(arg=2, lineno=1026)
+          16	BINARY_SUBSCR(arg=None, lineno=1026)
+          20	COMPARE_OP(arg=132, lineno=1026)
+          24	LOAD_FAST(arg=0, lineno=1026)
+          26	LOAD_CONST(arg=1, lineno=1026)
+          28	BINARY_SUBSCR(arg=None, lineno=1026)
+          32	LOAD_FAST(arg=0, lineno=1026)
+          34	LOAD_CONST(arg=3, lineno=1026)
+          36	BINARY_SUBSCR(arg=None, lineno=1026)
+          40	COMPARE_OP(arg=172, lineno=1026)
+          44	BINARY_OP(arg=1, lineno=1026)
+          48	RETURN_VALUE(arg=None, lineno=1026)
+2026-02-19 04:34:18,377 DEBUG pending: deque([State(pc_initial=0 nstack_initial=0)])
+2026-02-19 04:34:18,377 DEBUG stack: []
+2026-02-19 04:34:18,377 DEBUG state.pc_initial: State(pc_initial=0 nstack_initial=0)
+2026-02-19 04:34:18,377 DEBUG dispatch pc=0, inst=NOP(arg=None, lineno=1023)
+2026-02-19 04:34:18,377 DEBUG stack []
+2026-02-19 04:34:18,377 DEBUG dispatch pc=2, inst=RESUME(arg=0, lineno=1023)
+2026-02-19 04:34:18,377 DEBUG stack []
+2026-02-19 04:34:18,378 DEBUG dispatch pc=4, inst=LOAD_FAST(arg=0, lineno=1026)
+2026-02-19 04:34:18,378 DEBUG stack []
+2026-02-19 04:34:18,378 DEBUG dispatch pc=6, inst=LOAD_CONST(arg=1, lineno=1026)
+2026-02-19 04:34:18,378 DEBUG stack ['$x4.0']
+2026-02-19 04:34:18,378 DEBUG dispatch pc=8, inst=BINARY_SUBSCR(arg=None, lineno=1026)
+2026-02-19 04:34:18,378 DEBUG stack ['$x4.0', '$const6.1.1']
+2026-02-19 04:34:18,378 DEBUG dispatch pc=12, inst=LOAD_FAST(arg=0, lineno=1026)
+2026-02-19 04:34:18,378 DEBUG stack ['$8binary_subscr.2']
+2026-02-19 04:34:18,378 DEBUG dispatch pc=14, inst=LOAD_CONST(arg=2, lineno=1026)
+2026-02-19 04:34:18,378 DEBUG stack ['$8binary_subscr.2', '$x12.3']
+2026-02-19 04:34:18,378 DEBUG dispatch pc=16, inst=BINARY_SUBSCR(arg=None, lineno=1026)
+2026-02-19 04:34:18,379 DEBUG stack ['$8binary_subscr.2', '$x12.3', '$const14.4.2']
+2026-02-19 04:34:18,379 DEBUG dispatch pc=20, inst=COMPARE_OP(arg=132, lineno=1026)
+2026-02-19 04:34:18,379 DEBUG stack ['$8binary_subscr.2', '$16binary_subscr.5']
+2026-02-19 04:34:18,379 DEBUG dispatch pc=24, inst=LOAD_FAST(arg=0, lineno=1026)
+2026-02-19 04:34:18,379 DEBUG stack ['$20compare_op.6']
+2026-02-19 04:34:18,379 DEBUG dispatch pc=26, inst=LOAD_CONST(arg=1, lineno=1026)
+2026-02-19 04:34:18,379 DEBUG stack ['$20compare_op.6', '$x24.7']
+2026-02-19 04:34:18,379 DEBUG dispatch pc=28, inst=BINARY_SUBSCR(arg=None, lineno=1026)
+2026-02-19 04:34:18,379 DEBUG stack ['$20compare_op.6', '$x24.7', '$const26.8.1']
+2026-02-19 04:34:18,379 DEBUG dispatch pc=32, inst=LOAD_FAST(arg=0, lineno=1026)
+2026-02-19 04:34:18,379 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9']
+2026-02-19 04:34:18,380 DEBUG dispatch pc=34, inst=LOAD_CONST(arg=3, lineno=1026)
+2026-02-19 04:34:18,380 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9', '$x32.10']
+2026-02-19 04:34:18,380 DEBUG dispatch pc=36, inst=BINARY_SUBSCR(arg=None, lineno=1026)
+2026-02-19 04:34:18,380 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9', '$x32.10', '$const34.11.3']
+2026-02-19 04:34:18,380 DEBUG dispatch pc=40, inst=COMPARE_OP(arg=172, lineno=1026)
+2026-02-19 04:34:18,380 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9', '$36binary_subscr.12']
+2026-02-19 04:34:18,380 DEBUG dispatch pc=44, inst=BINARY_OP(arg=1, lineno=1026)
+2026-02-19 04:34:18,380 DEBUG stack ['$20compare_op.6', '$40compare_op.13']
+2026-02-19 04:34:18,380 DEBUG dispatch pc=48, inst=RETURN_VALUE(arg=None, lineno=1026)
+2026-02-19 04:34:18,380 DEBUG stack ['$binop_and_44.14']
+2026-02-19 04:34:18,381 DEBUG end state. edges=[]
+2026-02-19 04:34:18,381 DEBUG -------------------------Prune PHIs-------------------------
+2026-02-19 04:34:18,381 DEBUG Used_phis: defaultdict(<class 'set'>, {State(pc_initial=0 nstack_initial=0): set()})
+2026-02-19 04:34:18,381 DEBUG defmap: {}
+2026-02-19 04:34:18,381 DEBUG phismap: defaultdict(<class 'set'>, {})
+2026-02-19 04:34:18,381 DEBUG changing phismap: defaultdict(<class 'set'>, {})
+2026-02-19 04:34:18,381 DEBUG keep phismap: {}
+2026-02-19 04:34:18,382 DEBUG new_out: defaultdict(<class 'dict'>, {})
+2026-02-19 04:34:18,382 DEBUG ----------------------DONE Prune PHIs-----------------------
+2026-02-19 04:34:18,383 DEBUG block_infos State(pc_initial=0 nstack_initial=0):
+AdaptBlockInfo(insts=((0, {}), (2, {}), (4, {'res': '$x4.0'}), (6, {'res': '$const6.1.1'}), (8, {'index': '$const6.1.1', 'target': '$x4.0', 'res': '$8binary_subscr.2'}), (12, {'res': '$x12.3'}), (14, {'res': '$const14.4.2'}), (16, {'index': '$const14.4.2', 'target': '$x12.3', 'res': '$16binary_subscr.5'}), (20, {'lhs': '$8binary_subscr.2', 'rhs': '$16binary_subscr.5', 'res': '$20compare_op.6'}), (24, {'res': '$x24.7'}), (26, {'res': '$const26.8.1'}), (28, {'index': '$const26.8.1', 'target': '$x24.7', 'res': '$28binary_subscr.9'}), (32, {'res': '$x32.10'}), (34, {'res': '$const34.11.3'}), (36, {'index': '$const34.11.3', 'target': '$x32.10', 'res': '$36binary_subscr.12'}), (40, {'lhs': '$28binary_subscr.9', 'rhs': '$36binary_subscr.12', 'res': '$40compare_op.13'}), (44, {'op': '&', 'lhs': '$20compare_op.6', 'rhs': '$40compare_op.13', 'res': '$binop_and_44.14'}), (48, {'retval': '$binop_and_44.14', 'castval': '$48return_value.15'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={})
+2026-02-19 04:34:18,384 DEBUG label 0:
+    x = arg(0, name=x)                       ['x']
+    $const6.1.1 = const(int, 0)              ['$const6.1.1']
+    $8binary_subscr.2 = getitem(value=x, index=$const6.1.1, fn=<built-in function getitem>) ['$8binary_subscr.2', '$const6.1.1', 'x']
+    $const14.4.2 = const(int, -1)            ['$const14.4.2']
+    $16binary_subscr.5 = getitem(value=x, index=$const14.4.2, fn=<built-in function getitem>) ['$16binary_subscr.5', '$const14.4.2', 'x']
+    $20compare_op.6 = $8binary_subscr.2 > $16binary_subscr.5 ['$16binary_subscr.5', '$20compare_op.6', '$8binary_subscr.2']
+    $const26.8.1 = const(int, 0)             ['$const26.8.1']
+    $28binary_subscr.9 = getitem(value=x, index=$const26.8.1, fn=<built-in function getitem>) ['$28binary_subscr.9', '$const26.8.1', 'x']
+    $const34.11.3 = const(int, 1)            ['$const34.11.3']
+    $36binary_subscr.12 = getitem(value=x, index=$const34.11.3, fn=<built-in function getitem>) ['$36binary_subscr.12', '$const34.11.3', 'x']
+    $40compare_op.13 = $28binary_subscr.9 >= $36binary_subscr.12 ['$28binary_subscr.9', '$36binary_subscr.12', '$40compare_op.13']
+    $binop_and_44.14 = $20compare_op.6 & $40compare_op.13 ['$20compare_op.6', '$40compare_op.13', '$binop_and_44.14']
+    $48return_value.15 = cast(value=$binop_and_44.14) ['$48return_value.15', '$binop_and_44.14']
+    return $48return_value.15                ['$48return_value.15']
+
+2026-02-19 04:34:18,386 DEBUG bytecode dump:
+>          0	NOP(arg=None, lineno=1029)
+           2	RESUME(arg=0, lineno=1029)
+           4	LOAD_FAST(arg=0, lineno=1032)
+           6	LOAD_CONST(arg=1, lineno=1032)
+           8	BINARY_SUBSCR(arg=None, lineno=1032)
+          12	LOAD_FAST(arg=0, lineno=1032)
+          14	LOAD_CONST(arg=2, lineno=1032)
+          16	BINARY_SUBSCR(arg=None, lineno=1032)
+          20	COMPARE_OP(arg=2, lineno=1032)
+          24	LOAD_FAST(arg=0, lineno=1032)
+          26	LOAD_CONST(arg=1, lineno=1032)
+          28	BINARY_SUBSCR(arg=None, lineno=1032)
+          32	LOAD_FAST(arg=0, lineno=1032)
+          34	LOAD_CONST(arg=3, lineno=1032)
+          36	BINARY_SUBSCR(arg=None, lineno=1032)
+          40	COMPARE_OP(arg=42, lineno=1032)
+          44	BINARY_OP(arg=1, lineno=1032)
+          48	RETURN_VALUE(arg=None, lineno=1032)
+2026-02-19 04:34:18,386 DEBUG pending: deque([State(pc_initial=0 nstack_initial=0)])
+2026-02-19 04:34:18,386 DEBUG stack: []
+2026-02-19 04:34:18,386 DEBUG state.pc_initial: State(pc_initial=0 nstack_initial=0)
+2026-02-19 04:34:18,386 DEBUG dispatch pc=0, inst=NOP(arg=None, lineno=1029)
+2026-02-19 04:34:18,386 DEBUG stack []
+2026-02-19 04:34:18,387 DEBUG dispatch pc=2, inst=RESUME(arg=0, lineno=1029)
+2026-02-19 04:34:18,387 DEBUG stack []
+2026-02-19 04:34:18,387 DEBUG dispatch pc=4, inst=LOAD_FAST(arg=0, lineno=1032)
+2026-02-19 04:34:18,387 DEBUG stack []
+2026-02-19 04:34:18,387 DEBUG dispatch pc=6, inst=LOAD_CONST(arg=1, lineno=1032)
+2026-02-19 04:34:18,387 DEBUG stack ['$x4.0']
+2026-02-19 04:34:18,387 DEBUG dispatch pc=8, inst=BINARY_SUBSCR(arg=None, lineno=1032)
+2026-02-19 04:34:18,387 DEBUG stack ['$x4.0', '$const6.1.1']
+2026-02-19 04:34:18,387 DEBUG dispatch pc=12, inst=LOAD_FAST(arg=0, lineno=1032)
+2026-02-19 04:34:18,387 DEBUG stack ['$8binary_subscr.2']
+2026-02-19 04:34:18,388 DEBUG dispatch pc=14, inst=LOAD_CONST(arg=2, lineno=1032)
+2026-02-19 04:34:18,388 DEBUG stack ['$8binary_subscr.2', '$x12.3']
+2026-02-19 04:34:18,388 DEBUG dispatch pc=16, inst=BINARY_SUBSCR(arg=None, lineno=1032)
+2026-02-19 04:34:18,388 DEBUG stack ['$8binary_subscr.2', '$x12.3', '$const14.4.2']
+2026-02-19 04:34:18,388 DEBUG dispatch pc=20, inst=COMPARE_OP(arg=2, lineno=1032)
+2026-02-19 04:34:18,388 DEBUG stack ['$8binary_subscr.2', '$16binary_subscr.5']
+2026-02-19 04:34:18,388 DEBUG dispatch pc=24, inst=LOAD_FAST(arg=0, lineno=1032)
+2026-02-19 04:34:18,388 DEBUG stack ['$20compare_op.6']
+2026-02-19 04:34:18,388 DEBUG dispatch pc=26, inst=LOAD_CONST(arg=1, lineno=1032)
+2026-02-19 04:34:18,388 DEBUG stack ['$20compare_op.6', '$x24.7']
+2026-02-19 04:34:18,389 DEBUG dispatch pc=28, inst=BINARY_SUBSCR(arg=None, lineno=1032)
+2026-02-19 04:34:18,389 DEBUG stack ['$20compare_op.6', '$x24.7', '$const26.8.1']
+2026-02-19 04:34:18,389 DEBUG dispatch pc=32, inst=LOAD_FAST(arg=0, lineno=1032)
+2026-02-19 04:34:18,389 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9']
+2026-02-19 04:34:18,389 DEBUG dispatch pc=34, inst=LOAD_CONST(arg=3, lineno=1032)
+2026-02-19 04:34:18,389 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9', '$x32.10']
+2026-02-19 04:34:18,389 DEBUG dispatch pc=36, inst=BINARY_SUBSCR(arg=None, lineno=1032)
+2026-02-19 04:34:18,389 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9', '$x32.10', '$const34.11.3']
+2026-02-19 04:34:18,389 DEBUG dispatch pc=40, inst=COMPARE_OP(arg=42, lineno=1032)
+2026-02-19 04:34:18,389 DEBUG stack ['$20compare_op.6', '$28binary_subscr.9', '$36binary_subscr.12']
+2026-02-19 04:34:18,390 DEBUG dispatch pc=44, inst=BINARY_OP(arg=1, lineno=1032)
+2026-02-19 04:34:18,390 DEBUG stack ['$20compare_op.6', '$40compare_op.13']
+2026-02-19 04:34:18,390 DEBUG dispatch pc=48, inst=RETURN_VALUE(arg=None, lineno=1032)
+2026-02-19 04:34:18,390 DEBUG stack ['$binop_and_44.14']
+2026-02-19 04:34:18,390 DEBUG end state. edges=[]
+2026-02-19 04:34:18,390 DEBUG -------------------------Prune PHIs-------------------------
+2026-02-19 04:34:18,390 DEBUG Used_phis: defaultdict(<class 'set'>, {State(pc_initial=0 nstack_initial=0): set()})
+2026-02-19 04:34:18,390 DEBUG defmap: {}
+2026-02-19 04:34:18,391 DEBUG phismap: defaultdict(<class 'set'>, {})
+2026-02-19 04:34:18,391 DEBUG changing phismap: defaultdict(<class 'set'>, {})
+2026-02-19 04:34:18,391 DEBUG keep phismap: {}
+2026-02-19 04:34:18,391 DEBUG new_out: defaultdict(<class 'dict'>, {})
+2026-02-19 04:34:18,391 DEBUG ----------------------DONE Prune PHIs-----------------------
+2026-02-19 04:34:18,391 DEBUG block_infos State(pc_initial=0 nstack_initial=0):
+AdaptBlockInfo(insts=((0, {}), (2, {}), (4, {'res': '$x4.0'}), (6, {'res': '$const6.1.1'}), (8, {'index': '$const6.1.1', 'target': '$x4.0', 'res': '$8binary_subscr.2'}), (12, {'res': '$x12.3'}), (14, {'res': '$const14.4.2'}), (16, {'index': '$const14.4.2', 'target': '$x12.3', 'res': '$16binary_subscr.5'}), (20, {'lhs': '$8binary_subscr.2', 'rhs': '$16binary_subscr.5', 'res': '$20compare_op.6'}), (24, {'res': '$x24.7'}), (26, {'res': '$const26.8.1'}), (28, {'index': '$const26.8.1', 'target': '$x24.7', 'res': '$28binary_subscr.9'}), (32, {'res': '$x32.10'}), (34, {'res': '$const34.11.3'}), (36, {'index': '$const34.11.3', 'target': '$x32.10', 'res': '$36binary_subscr.12'}), (40, {'lhs': '$28binary_subscr.9', 'rhs': '$36binary_subscr.12', 'res': '$40compare_op.13'}), (44, {'op': '&', 'lhs': '$20compare_op.6', 'rhs': '$40compare_op.13', 'res': '$binop_and_44.14'}), (48, {'retval': '$binop_and_44.14', 'castval': '$48return_value.15'})), outgoing_phis={}, blockstack=(), active_try_block=None, outgoing_edgepushed={})
+2026-02-19 04:34:18,392 DEBUG label 0:
+    x = arg(0, name=x)                       ['x']
+    $const6.1.1 = const(int, 0)              ['$const6.1.1']
+    $8binary_subscr.2 = getitem(value=x, index=$const6.1.1, fn=<built-in function getitem>) ['$8binary_subscr.2', '$const6.1.1', 'x']
+    $const14.4.2 = const(int, -1)            ['$const14.4.2']
+    $16binary_subscr.5 = getitem(value=x, index=$const14.4.2, fn=<built-in function getitem>) ['$16binary_subscr.5', '$const14.4.2', 'x']
+    $20compare_op.6 = $8binary_subscr.2 < $16binary_subscr.5 ['$16binary_subscr.5', '$20compare_op.6', '$8binary_subscr.2']
+    $const26.8.1 = const(int, 0)             ['$const26.8.1']
+    $28binary_subscr.9 = getitem(value=x, index=$const26.8.1, fn=<built-in function getitem>) ['$28binary_subscr.9', '$const26.8.1', 'x']
+    $const34.11.3 = const(int, 1)            ['$const34.11.3']
+    $36binary_subscr.12 = getitem(value=x, index=$const34.11.3, fn=<built-in function getitem>) ['$36binary_subscr.12', '$const34.11.3', 'x']
+    $40compare_op.13 = $28binary_subscr.9 <= $36binary_subscr.12 ['$28binary_subscr.9', '$36binary_subscr.12', '$40compare_op.13']
+    $binop_and_44.14 = $20compare_op.6 & $40compare_op.13 ['$20compare_op.6', '$40compare_op.13', '$binop_and_44.14']
+    $48return_value.15 = cast(value=$binop_and_44.14) ['$48return_value.15', '$binop_and_44.14']
+    return $48return_value.15                ['$48return_value.15']
+
+C:\Python313\python.e
+xe : 
+At line:1 char:1
++ C:\Python313\python
+.exe test_sep.py 
+2>&1 | Out-File 
+-FilePath test_se ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  0%|          | 0/2 
+[00:00<?, ?it/s]
+ 50%|#####     | 1/2 
+[00:22<00:22, 
+22.88s/it]
+100%|##########| 2/2 
+[00:48<00:00, 
+24.33s/it]
+100%|##########| 2/2 
+[00:48<00:00, 
+24.12s/it]
+
+  0%|          | 0/2 
+[00:00<?, ?it/s]
+ 50%|#####     | 1/2 
+[00:00<00:00,  
+2.27it/s]
+100%|##########| 2/2 
+[00:00<00:00,  
+2.49it/s]
+100%|##########| 2/2 
+[00:00<00:00,  
+2.45it/s]
+2026-02-19 04:35:08,662 INFO Saving Instrumental stem to test_wav_(Instrumental)_Kim_Vocal_2.mp3...
+2026-02-19 04:35:12,467 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:12,467 INFO Using pydub for writing.
+2026-02-19 04:35:12,484 INFO Writing output with 16-bit depth
+2026-02-19 04:35:12,521 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpahmvyto1', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpu7f1zu7p'])
+2026-02-19 04:35:13,123 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:13,159 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:13,159 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:13,160 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:13,160 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:13,160 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:13,160 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:13,160 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 0000026112c45900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpahmvyto1':"
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:13,161 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:13,162 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:13,162 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpu7f1zu7p':"
+2026-02-19 04:35:13,164 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:13,164 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:13,164 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:13,165 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:13,165 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:13,165 DEBUG subprocess output: b'[out#0/mp3 @ 0000026112bba800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:13,165 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=15.6x'
+2026-02-19 04:35:13,170 INFO Saving Vocals stem to test_wav_(Vocals)_Kim_Vocal_2.mp3...
+2026-02-19 04:35:13,174 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:13,174 INFO Using pydub for writing.
+2026-02-19 04:35:13,176 INFO Writing output with 16-bit depth
+2026-02-19 04:35:13,183 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmprw5hsthq', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpkgvfxtf5'])
+2026-02-19 04:35:13,426 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:13,426 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:13,426 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:13,427 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:13,427 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:13,427 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:13,427 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:13,427 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:13,428 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:13,428 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:13,428 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:13,428 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 000001a763f65900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:13,428 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmprw5hsthq':"
+2026-02-19 04:35:13,428 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:13,428 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:13,431 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:13,431 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:13,431 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:13,431 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpkgvfxtf5':"
+2026-02-19 04:35:13,432 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:13,432 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:13,432 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:13,432 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:13,432 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:13,432 DEBUG subprocess output: b'[out#0/mp3 @ 000001a763eda800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:13,432 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=25.9x'
+2026-02-19 04:35:16,867 INFO Clearing input audio file paths, sources and stems...
+2026-02-19 04:35:16,867 INFO Separation duration: 00:01:00
+2026-02-19 04:35:16,867 INFO MDX Output: ['test_wav_(Instrumental)_Kim_Vocal_2.mp3', 'test_wav_(Vocals)_Kim_Vocal_2.mp3']
+2026-02-19 04:35:16,868 INFO Vocals stem: test_wav_(Vocals)_Kim_Vocal_2.mp3, Instrumental stem: test_wav_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:35:16,881 INFO Vocals saved to test_sep_output\test_vocals.mp3
+2026-02-19 04:35:16,881 INFO Loading Demucs model: htdemucs_6s.yaml
+2026-02-19 04:35:16,881 INFO Loading model htdemucs_6s.yaml...
+2026-02-19 04:35:17,070 INFO Demucs Separator initialisation complete
+2026-02-19 04:35:17,428 INFO Load model duration: 00:00:00
+2026-02-19 04:35:17,428 INFO Running Demucs separation on test_wav_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:35:17,428 INFO Processing file: test_sep_output\test_wav_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:35:17,428 INFO Starting separation process for audio_file_path: test_sep_output\test_wav_(Instrumental)_Kim_Vocal_2.mp3
+2026-02-19 04:35:17,457 INFO Input audio subtype: n/a
+2026-02-19 04:35:17,457 WARNING Unknown audio subtype n/a, defaulting to 16-bit output
+2026-02-19 04:35:17,457 INFO Detected input bit depth: 16-bit
+
+  0%|          | 0/1 
+[00:00<?, ?it/s]
+100%|##########| 1/1 
+[00:12<00:00, 
+12.92s/it]
+100%|##########| 1/1 
+[00:12<00:00, 
+12.92s/it]
+
+  0%|          | 0/1 
+[00:00<?, ?it/s]
+100%|##########| 1/1 
+[00:12<00:00, 
+12.12s/it]
+100%|##########| 1/1 
+[00:12<00:00, 
+12.12s/it]
+2026-02-19 04:35:45,148 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:45,149 INFO Using pydub for writing.
+2026-02-19 04:35:45,151 INFO Writing output with 16-bit depth
+2026-02-19 04:35:45,156 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpo9jr4pxi', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpkcol42o5'])
+2026-02-19 04:35:45,397 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:45,397 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:45,399 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:45,400 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:45,400 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:45,400 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:45,400 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:45,400 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:45,400 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 0000026e98b95900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpo9jr4pxi':"
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:45,401 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpkcol42o5':"
+2026-02-19 04:35:45,402 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:45,402 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:45,402 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:45,402 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:45,402 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:45,402 DEBUG subprocess output: b'[out#0/mp3 @ 0000026e98b0a800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:45,402 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=  26x'
+2026-02-19 04:35:45,409 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:45,409 INFO Using pydub for writing.
+2026-02-19 04:35:45,410 INFO Writing output with 16-bit depth
+2026-02-19 04:35:45,416 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmp9ejt24pu', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpcpltdu4a'])
+2026-02-19 04:35:45,624 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:45,625 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 0000022c452e5900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmp9ejt24pu':"
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpcpltdu4a':"
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:45,626 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:45,627 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:45,627 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:45,627 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:45,627 DEBUG subprocess output: b'[out#0/mp3 @ 0000022c4525a800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:45,627 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=26.4x'
+2026-02-19 04:35:45,635 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:45,635 INFO Using pydub for writing.
+2026-02-19 04:35:45,636 INFO Writing output with 16-bit depth
+2026-02-19 04:35:45,640 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpsmja9ho6', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpcdt242ep'])
+2026-02-19 04:35:45,855 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:45,855 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:45,855 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:45,855 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:45,855 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 000002a6e7955900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:45,856 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpsmja9ho6':"
+2026-02-19 04:35:45,856 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpcdt242ep':"
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:45,857 DEBUG subprocess output: b'[out#0/mp3 @ 000002a6e78ca800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:45,858 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=30.1x'
+2026-02-19 04:35:45,865 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:45,866 INFO Using pydub for writing.
+2026-02-19 04:35:45,867 INFO Writing output with 16-bit depth
+2026-02-19 04:35:45,871 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpvsk5vn7r', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpqe3nooq4'])
+2026-02-19 04:35:46,076 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:46,076 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:46,076 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:46,076 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:46,077 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 00000203486b5900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpvsk5vn7r':"
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpqe3nooq4':"
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:46,078 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:46,079 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:46,079 DEBUG subprocess output: b'[out#0/mp3 @ 000002034862a800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:46,079 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=29.9x'
+2026-02-19 04:35:46,089 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:46,089 INFO Using pydub for writing.
+2026-02-19 04:35:46,090 INFO Writing output with 16-bit depth
+2026-02-19 04:35:46,095 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpuw8ea6xw', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpgj74j9hb'])
+2026-02-19 04:35:46,327 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:46,328 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:46,328 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:46,328 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:46,328 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:46,328 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 0000026af3a95900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpuw8ea6xw':"
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:46,329 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:46,330 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:46,330 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpgj74j9hb':"
+2026-02-19 04:35:46,330 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:46,330 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:46,330 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:46,332 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:46,332 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:46,332 DEBUG subprocess output: b'[out#0/mp3 @ 0000026af3a0a800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:46,332 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=  27x'
+2026-02-19 04:35:46,339 INFO Audio duration is 0.00 hours (2.00 seconds).
+2026-02-19 04:35:46,339 INFO Using pydub for writing.
+2026-02-19 04:35:46,340 INFO Writing output with 16-bit depth
+2026-02-19 04:35:46,344 DEBUG subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpde0nlhd6', '-b:a', '320k', '-f', 'mp3', 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpsvdygi0c'])
+2026-02-19 04:35:46,554 DEBUG subprocess output: b'ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers'
+2026-02-19 04:35:46,554 DEBUG subprocess output: b'  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)'
+2026-02-19 04:35:46,554 DEBUG subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libshaderc --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2026-02-19 04:35:46,554 DEBUG subprocess output: b'  libavutil      59. 39.100 / 59. 39.100'
+2026-02-19 04:35:46,554 DEBUG subprocess output: b'  libavcodec     61. 19.101 / 61. 19.101'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  libavformat    61.  7.100 / 61.  7.100'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  libavdevice    61.  3.100 / 61.  3.100'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  libavfilter    10.  4.100 / 10.  4.100'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  libswscale      8.  3.100 /  8.  3.100'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  libswresample   5.  3.100 /  5.  3.100'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  libpostproc    58.  3.100 / 58.  3.100'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'[aist#0:0/pcm_s16le @ 000001cbcb2a5900] Guessed Channel Layout: stereo'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b"Input #0, wav, from 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpde0nlhd6':"
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  Duration: 00:00:02.00, bitrate: 1411 kb/s'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2026-02-19 04:35:46,555 DEBUG subprocess output: b'Stream mapping:'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> mp3 (libmp3lame))'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'Press [q] to stop, [?] for help'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b"Output #0, mp3, to 'C:\\Users\\15024\\AppData\\Local\\Temp\\tmpsvdygi0c':"
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'  Metadata:'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'    TSSE            : Lavf61.7.100'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'  Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 320 kb/s'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'      Metadata:'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'        encoder         : Lavc61.19.101 libmp3lame'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'[out#0/mp3 @ 000001cbcb21a800] video:0KiB audio:80KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.334937%'
+2026-02-19 04:35:46,556 DEBUG subprocess output: b'size=      81KiB time=00:00:02.00 bitrate= 330.4kbits/s speed=29.6x'
+2026-02-19 04:35:46,789 INFO Clearing input audio file paths, sources and stems...
+2026-02-19 04:35:46,789 INFO Separation duration: 00:00:29
+2026-02-19 04:35:46,789 INFO Demucs Output: ['test_wav_(Instrumental)_Kim_Vocal_2_(Bass)_htdemucs_6s.mp3', 'test_wav_(Instrumental)_Kim_Vocal_2_(Drums)_htdemucs_6s.mp3', 'test_wav_(Instrumental)_Kim_Vocal_2_(Other)_htdemucs_6s.mp3', 'test_wav_(Instrumental)_Kim_Vocal_2_(Vocals)_htdemucs_6s.mp3', 'test_wav_(Instrumental)_Kim_Vocal_2_(Guitar)_htdemucs_6s.mp3', 'test_wav_(Instrumental)_Kim_Vocal_2_(Piano)_htdemucs_6s.mp3']
+2026-02-19 04:35:47,542 INFO Hybrid separation complete. Files: ['test_vocals.mp3', 'test_bass.mp3', 'test_drums.mp3', 'test_other.mp3', 'test_guitar.mp3', 'test_piano.mp3']
+SUCCESS: ['test_vocals.mp3', 'test_bass.mp3', 'test_drums.mp3', 'test_other.mp3', 'test_guitar.mp3', 'test_piano.mp3']

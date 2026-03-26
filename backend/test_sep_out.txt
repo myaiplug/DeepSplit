@@ -1,0 +1,110 @@
+﻿2026-02-19 04:22:01,914 DEBUG Using proactor: IocpProactor
+Creating AudioSeparator...
+2026-02-19 04:22:06,534 INFO Separator version 0.41.1 instantiating with output_dir: test_sep_output, output_format: mp3
+2026-02-19 04:22:06,534 INFO Using model directory from model_file_dir parameter: /tmp/audio-separator-models/
+2026-02-19 04:22:06,535 INFO Operating System: Windows 10.0.26100
+2026-02-19 04:22:06,568 INFO System: Windows Node: Lap-33 Release: 11 Machine: AMD64 Proc: AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+2026-02-19 04:22:06,569 INFO Python Version: 3.13.3
+2026-02-19 04:22:06,569 INFO PyTorch Version: 2.10.0+cpu
+2026-02-19 04:22:06,632 INFO FFmpeg installed: ffmpeg version 7.1.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+2026-02-19 04:22:06,635 INFO ONNX Runtime GPU package installed with version: 1.24.1
+2026-02-19 04:22:06,636 INFO ONNX Runtime CPU package installed with version: 1.22.1
+2026-02-19 04:22:06,637 INFO No hardware acceleration could be configured, running in CPU mode
+Running separate_stems...
+2026-02-19 04:22:06,637 INFO Separating stems for test_wav.wav using Hybrid (MDX + Demucs)
+2026-02-19 04:22:06,637 INFO Loading MDX model: UVR-MDX-NET Inst HQ 3
+2026-02-19 04:22:06,637 INFO Loading model UVR-MDX-NET Inst HQ 3...
+2026-02-19 04:22:06,672 ERROR Hybrid separation failed: Model file UVR-MDX-NET Inst HQ 3 not found in supported model files
+C:\Python313\python.e
+xe : Traceback (most 
+recent call last):
+At line:1 char:1
++ C:\Python313\python
+.exe test_sep.py 
+2>&1 | Out-File 
+-FilePath test_se ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (Traceba   
+ ck (most recent     
+call last)::Stri    
+ng) [], RemoteEx    
+ception
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  File "C:\Users\1502
+4\projects\DeepSplit\
+backend\test_sep.py",
+ line 33, in main
+    result = await se
+p.separate_stems(test
+_file, original_filen
+ame="test", 
+num_stems=4)
+             ^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^
+  File "C:\Users\1502
+4\projects\DeepSplit\
+backend\separator.py"
+, line 122, in 
+separate_stems
+    raise e
+  File "C:\Users\1502
+4\projects\DeepSplit\
+backend\separator.py"
+, line 38, in 
+separate_stems
+    self.separator.lo
+ad_model(model_filena
+me=mdx_model)
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~^^^^^^^^^^^^^
+^^^^^^^^^^^^^
+  File "C:\Users\1502
+4\AppData\Roaming\Pyt
+hon\Python313\site-pa
+ckages\audio_separato
+r\separator\separator
+.py", line 732, in 
+load_model
+    model_filename, 
+model_type, 
+model_friendly_name, 
+model_path, 
+yaml_config_filename 
+= self.download_model
+_files(model_filename
+)
+                     
+                     
+                     
+                     
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~^^^^^^^^^^^^^
+^^^
+  File "C:\Users\1502
+4\AppData\Roaming\Pyt
+hon\Python313\site-pa
+ckages\audio_separato
+r\separator\separator
+.py", line 648, in 
+download_model_files
+    raise 
+ValueError(f"Model 
+file 
+{model_filename} not 
+found in supported 
+model files")
+ValueError: Model 
+file UVR-MDX-NET 
+Inst HQ 3 not found 
+in supported model 
+files
+ERROR: Model file UVR-MDX-NET Inst HQ 3 not found in supported model files

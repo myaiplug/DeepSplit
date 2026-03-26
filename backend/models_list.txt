@@ -1,0 +1,152 @@
+﻿C:\Python313\python.e
+xe : 2026-02-19 
+04:21:01,564 - INFO 
+- separator - 
+Separator version 
+0.41.1 instantiating 
+with output_dir: 
+None, output_format: 
+WAV
+At line:1 char:1
++ C:\Python313\python
+.exe list_models.py 
+2>&1 | Out-File 
+-FilePath mode ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (2026-02   
+ -19 04:2...put_f    
+ormat: WAV:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+2026-02-19 
+04:21:01,565 - INFO 
+- separator - Output 
+directory not 
+specified. Using 
+current working 
+directory.
+2026-02-19 
+04:21:01,565 - INFO 
+- separator - Using 
+model directory from 
+model_file_dir 
+parameter: /tmp/audio
+-separator-models/
+2026-02-19 
+04:21:01,566 - INFO 
+- separator - 
+Operating System: 
+Windows 10.0.26100
+2026-02-19 
+04:21:01,612 - INFO 
+- separator - 
+System: Windows 
+Node: Lap-33 
+Release: 11 Machine: 
+AMD64 Proc: AMD64 
+Family 23 Model 24 
+Stepping 1, 
+AuthenticAMD
+2026-02-19 
+04:21:01,613 - INFO 
+- separator - Python 
+Version: 3.13.3
+2026-02-19 
+04:21:01,613 - INFO 
+- separator - 
+PyTorch Version: 
+2.10.0+cpu
+2026-02-19 
+04:21:01,712 - INFO 
+- separator - FFmpeg 
+installed: ffmpeg 
+version 7.1.1-full_bu
+ild-www.gyan.dev 
+Copyright (c) 
+2000-2025 the FFmpeg 
+developers
+2026-02-19 
+04:21:01,717 - INFO 
+- separator - ONNX 
+Runtime GPU package 
+installed with 
+version: 1.24.1
+2026-02-19 
+04:21:01,719 - INFO 
+- separator - ONNX 
+Runtime CPU package 
+installed with 
+version: 1.22.1
+2026-02-19 
+04:21:01,721 - INFO 
+- separator - No 
+hardware 
+acceleration could 
+be configured, 
+running in CPU mode
+Model categories: ['VR', 'MDX', 'Demucs', 'MDXC']
+
+=== VR ===
+  VR Arch Single Model v5: 1_HP-UVR
+  VR Arch Single Model v5: 2_HP-UVR
+  VR Arch Single Model v5: 3_HP-Vocal-UVR
+  VR Arch Single Model v5: 4_HP-Vocal-UVR
+  VR Arch Single Model v5: 5_HP-Karaoke-UVR
+  VR Arch Single Model v5: 6_HP-Karaoke-UVR
+  VR Arch Single Model v5: 7_HP2-UVR
+  VR Arch Single Model v5: 8_HP2-UVR
+  VR Arch Single Model v5: 9_HP2-UVR
+  VR Arch Single Model v5: 10_SP-UVR-2B-32000-1
+  VR Arch Single Model v5: 11_SP-UVR-2B-32000-2
+  VR Arch Single Model v5: 12_SP-UVR-3B-44100
+  VR Arch Single Model v5: 13_SP-UVR-4B-44100-1
+  VR Arch Single Model v5: 14_SP-UVR-4B-44100-2
+  VR Arch Single Model v5: 15_SP-UVR-MID-44100-1
+
+=== MDX ===
+  MDX-Net Model: UVR-MDX-NET Inst HQ 1
+  MDX-Net Model: UVR-MDX-NET Inst HQ 2
+  MDX-Net Model: UVR-MDX-NET Inst HQ 3
+  MDX-Net Model: UVR-MDX-NET Inst HQ 4
+  MDX-Net Model: UVR-MDX-NET Inst HQ 5
+  MDX-Net Model: UVR-MDX-NET Main
+  MDX-Net Model: UVR-MDX-NET Inst Main
+  MDX-Net Model: UVR-MDX-NET 1
+  MDX-Net Model: UVR-MDX-NET 2
+  MDX-Net Model: UVR-MDX-NET 3
+  MDX-Net Model: UVR-MDX-NET Inst 1
+  MDX-Net Model: UVR-MDX-NET Inst 2
+  MDX-Net Model: UVR-MDX-NET Inst 3
+  MDX-Net Model: UVR-MDX-NET Karaoke
+  MDX-Net Model: UVR-MDX-NET Karaoke 2
+
+=== Demucs ===
+  Demucs v4: htdemucs_ft
+  Demucs v4: htdemucs
+  Demucs v4: hdemucs_mmi
+  Demucs v4: htdemucs_6s
+
+=== MDXC ===
+  MDX23C Model: MDX23C-InstVoc HQ
+  MDX23C Model VIP: MDX23C_D1581
+  MDX23C Model VIP: MDX23C-InstVoc HQ 2
+  Roformer Model: BS-Roformer-Viperx-1297
+  Roformer Model: BS-Roformer-Viperx-1296
+  Roformer Model: BS-Roformer-Viperx-1053
+  Roformer Model: Mel-Roformer-Viperx-1143
+  Roformer Model: MelBand Roformer Kim | Inst V1 by Unwa
+  Roformer Model: MelBand Roformer Kim | Inst V2 by Unwa
+  Roformer Model: MelBand Roformer Kim | InstVoc Duality V1 by Unwa
+  Roformer Model: MelBand Roformer Kim | InstVoc Duality V2 by Unwa
+  MDX23C Model: MDX23C De-Reverb by aufr33-jarredou
+  MDX23C Model: MDX23C DrumSep by aufr33-jarredou
+  Roformer Model: Mel-Roformer-Karaoke-Aufr33-Viperx
+  Roformer Model: MelBand Roformer | Karaoke by Gabox

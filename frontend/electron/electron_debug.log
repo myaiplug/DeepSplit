@@ -1,0 +1,17 @@
+Using pythonCmd: C:\Python313\python.exe
+Backend path: C:\Users\15024\projects\DeepSplit\backend
+Backend stderr: 2026-02-18 04:30:24,607 - main - INFO - Backend starting...
+
+Backend stderr: 2026-02-18 04:30:24,607 - main - INFO - Python executable: C:\Python313\python.exe
+2026-02-18 04:30:24,608 - main - INFO - CWD: C:\Users\15024\projects\DeepSplit\backend
+2026-02-18 04:30:24,608 - main - INFO - Path: ['', 'C:\\Users\\15024\\projects\\DeepSplit\\backend', 'C:\\Python313\\python313.zip', 'C:\\Python313\\DLLs', 'C:\\Python313\\Lib', 'C:\\Python313', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\win32\\lib', 'C:\\Users\\15024\\AppData\\Roaming\\Python\\Python313\\site-packages\\Pythonwin', 'C:\\Python313\\Lib\\site-packages']
+
+Backend stderr: INFO:     Started server process [6080]
+INFO:     Waiting for application startup.
+
+Backend stderr: 2026-02-18 04:30:35,728 - main - INFO - Initializing FX Engine...
+2026-02-18 04:30:35,730 - main - INFO - FX Engine initialized.
+INFO:     Application startup complete.
+
+Backend stderr: INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+

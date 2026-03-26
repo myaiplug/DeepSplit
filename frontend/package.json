@@ -1,0 +1,86 @@
+{
+  "name": "stemsplit-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "author": "NoDAW Studio",
+  "type": "module",
+  "main": "electron/main.cjs",
+
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"wait-on http://localhost:5173 && cross-env ELECTRON_START_URL=http://localhost:5173 electron .\"",
+    "electron:build": "vite build && electron-builder",
+    "electron:build:full": "vite build && powershell -ExecutionPolicy Bypass -File ../build_backend_portable.ps1 && electron-builder"
+  },
+  "build": {
+    "appId": "studio.nodaw.stemsplit",
+    "productName": "StemSplit",
+    "copyright": "Copyright © 2025 NoDAW Studio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../backend/portable_python",
+        "to": "portable_python",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "../backend",
+        "to": "app",
+        "filter": ["*.py", "models/**", "!__pycache__/**", "!processed/**", "!uploads/**"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "electron/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "StemSplit"
+    }
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^15.0.0",
+    "tailwind-merge": "^1.14.0",
+    "wavesurfer.js": "^7.12.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^25.3.0",
+    "electron-builder": "^24.6.3",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.5",
+    "wait-on": "^7.0.1"
+  }
+}

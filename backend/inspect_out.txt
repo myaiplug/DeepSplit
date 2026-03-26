@@ -1,0 +1,213 @@
+﻿C:\Python313\python.e
+xe : 2026-02-19 
+04:22:57,048 - INFO 
+- separator - 
+Separator version 
+0.41.1 instantiating 
+with output_dir: 
+None, output_format: 
+WAV
+At line:1 char:1
++ C:\Python313\python
+.exe 
+inspect_models.py 
+2>&1 | Out-File 
+-FilePath i ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (2026-02   
+ -19 04:2...put_f    
+ormat: WAV:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+2026-02-19 
+04:22:57,048 - INFO 
+- separator - Output 
+directory not 
+specified. Using 
+current working 
+directory.
+2026-02-19 
+04:22:57,048 - INFO 
+- separator - Using 
+model directory from 
+model_file_dir 
+parameter: /tmp/audio
+-separator-models/
+2026-02-19 
+04:22:57,049 - INFO 
+- separator - 
+Operating System: 
+Windows 10.0.26100
+2026-02-19 
+04:22:57,092 - INFO 
+- separator - 
+System: Windows 
+Node: Lap-33 
+Release: 11 Machine: 
+AMD64 Proc: AMD64 
+Family 23 Model 24 
+Stepping 1, 
+AuthenticAMD
+2026-02-19 
+04:22:57,092 - INFO 
+- separator - Python 
+Version: 3.13.3
+2026-02-19 
+04:22:57,093 - INFO 
+- separator - 
+PyTorch Version: 
+2.10.0+cpu
+2026-02-19 
+04:22:57,157 - INFO 
+- separator - FFmpeg 
+installed: ffmpeg 
+version 7.1.1-full_bu
+ild-www.gyan.dev 
+Copyright (c) 
+2000-2025 the FFmpeg 
+developers
+2026-02-19 
+04:22:57,160 - INFO 
+- separator - ONNX 
+Runtime GPU package 
+installed with 
+version: 1.24.1
+2026-02-19 
+04:22:57,161 - INFO 
+- separator - ONNX 
+Runtime CPU package 
+installed with 
+version: 1.22.1
+2026-02-19 
+04:22:57,162 - INFO 
+- separator - No 
+hardware 
+acceleration could 
+be configured, 
+running in CPU mode
+Keys in MDX category (name->filename):
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst HQ 1'
+    Info: {'filename': 'UVR-MDX-NET-Inst_HQ_1.onnx', 'scores': {'vocals': {'SDR': 8.78618, 'SIR': 21.0465, 'SAR': 9.72104, 'ISR': 14.5452}, 'instrumental': {'SDR': 15.402, 'SIR': 24.6355, 'SAR': 17.2345, 'ISR': 18.5137}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_HQ_1.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst HQ 2'
+    Info: {'filename': 'UVR-MDX-NET-Inst_HQ_2.onnx', 'scores': {'vocals': {'SDR': 8.7616, 'SIR': 20.4494, 'SAR': 10.5037, 'ISR': 14.8873}, 'instrumental': {'SDR': 15.2523, 'SIR': 25.0631, 'SAR': 17.4237, 'ISR': 18.0557}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_HQ_2.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst HQ 3'
+    Info: {'filename': 'UVR-MDX-NET-Inst_HQ_3.onnx', 'scores': {'vocals': {'SDR': 8.80873, 'SIR': 20.364, 'SAR': 10.0193, 'ISR': 14.8444}, 'instrumental': {'SDR': 15.421, 'SIR': 25.3411, 'SAR': 17.3492, 'ISR': 17.9321}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_HQ_3.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst HQ 4'
+    Info: {'filename': 'UVR-MDX-NET-Inst_HQ_4.onnx', 'scores': {'vocals': {'SDR': 8.83195, 'SIR': 20.3999, 'SAR': 10.1353, 'ISR': 13.9686}, 'instrumental': {'SDR': 15.5122, 'SIR': 24.9895, 'SAR': 17.4231, 'ISR': 18.2209}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_HQ_4.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst HQ 5'
+    Info: {'filename': 'UVR-MDX-NET-Inst_HQ_5.onnx', 'scores': {'vocals': {'SDR': 8.69496, 'SIR': 20.2516, 'SAR': 10.3204, 'ISR': 14.0933}, 'instrumental': {'SDR': 15.2961, 'SIR': 25.1364, 'SAR': 17.475, 'ISR': 17.9954}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_HQ_5.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Main'
+    Info: {'filename': 'UVR_MDXNET_Main.onnx', 'scores': {'vocals': {'SDR': 10.1737, 'SIR': 21.0729, 'SAR': 10.9486, 'ISR': 14.8448}, 'instrumental': {'SDR': 15.4098, 'SIR': 25.4591, 'SAR': 17.4276, 'ISR': 17.9222}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR_MDXNET_Main.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst Main'
+    Info: {'filename': 'UVR-MDX-NET-Inst_Main.onnx', 'scores': {'vocals': {'SDR': 8.50306, 'SIR': 19.1955, 'SAR': 9.40437, 'ISR': 13.7732}, 'instrumental': {'SDR': 15.1248, 'SIR': 24.2116, 'SAR': 17.2159, 'ISR': 17.7721}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_Main.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET 1'
+    Info: {'filename': 'UVR_MDXNET_1_9703.onnx', 'scores': {'vocals': {'SDR': 9.56837, 'SIR': 19.7424, 'SAR': 10.0563, 'ISR': 13.8797}, 'instrumental': {'SDR': 14.9594, 'SIR': 24.7963, 'SAR': 17.0091, 'ISR': 17.6732}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR_MDXNET_1_9703.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET 2'
+    Info: {'filename': 'UVR_MDXNET_2_9682.onnx', 'scores': {'vocals': {'SDR': 9.37589, 'SIR': 20.114, 'SAR': 9.70211, 'ISR': 13.1167}, 'instrumental': {'SDR': 14.9895, 'SIR': 23.7599, 'SAR': 16.9425, 'ISR': 18.0907}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR_MDXNET_2_9682.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET 3'
+    Info: {'filename': 'UVR_MDXNET_3_9662.onnx', 'scores': {'vocals': {'SDR': 9.70367, 'SIR': 19.976, 'SAR': 10.0846, 'ISR': 14.1654}, 'instrumental': {'SDR': 15.002, 'SIR': 25.1688, 'SAR': 16.9139, 'ISR': 17.7281}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR_MDXNET_3_9662.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst 1'
+    Info: {'filename': 'UVR-MDX-NET-Inst_1.onnx', 'scores': {'vocals': {'SDR': 9.22039, 'SIR': 19.6074, 'SAR': 10.4162, 'ISR': 14.1711}, 'instrumental': {'SDR': 15.2216, 'SIR': 24.6851, 'SAR': 17.4261, 'ISR': 17.7117}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_1.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst 2'
+    Info: {'filename': 'UVR-MDX-NET-Inst_2.onnx', 'scores': {'vocals': {'SDR': 9.17704, 'SIR': 20.0442, 'SAR': 10.1789, 'ISR': 14.3341}, 'instrumental': {'SDR': 15.3057, 'SIR': 24.9653, 'SAR': 17.3077, 'ISR': 17.9731}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_2.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Inst 3'
+    Info: {'filename': 'UVR-MDX-NET-Inst_3.onnx', 'scores': {'vocals': {'SDR': 9.23542, 'SIR': 19.8462, 'SAR': 10.4271, 'ISR': 14.2256}, 'instrumental': {'SDR': 15.3174, 'SIR': 24.8193, 'SAR': 17.3916, 'ISR': 17.797}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_3.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Karaoke'
+    Info: {'filename': 'UVR_MDXNET_KARA.onnx', 'scores': {'vocals': {'SDR': 5.58549, 'SIR': 20.8336, 'SAR': 5.06062, 'ISR': 8.12603}, 'instrumental': {'SDR': 14.0784, 'SIR': 16.62, 'SAR': 15.6881, 'ISR': 18.8105}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR_MDXNET_KARA.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Karaoke 2'
+    Info: {'filename': 'UVR_MDXNET_KARA_2.onnx', 'scores': {'vocals': {'SDR': 5.43274, 'SIR': 19.1086, 'SAR': 4.72303, 'ISR': 8.35778}, 'instrumental': {'SDR': 14.7703, 'SIR': 17.3486, 'SAR': 15.6943, 'ISR': 18.5482}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR_MDXNET_KARA_2.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR_MDXNET_9482'
+    Info: {'filename': 'UVR_MDXNET_9482.onnx', 'scores': {'vocals': {'SDR': 9.28314, 'SIR': 19.9505, 'SAR': 9.51553, 'ISR': 12.8071}, 'instrumental': {'SDR': 14.9171, 'SIR': 23.2859, 'SAR': 16.9608, 'ISR': 17.9312}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR_MDXNET_9482.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Voc FT'
+    Info: {'filename': 'UVR-MDX-NET-Voc_FT.onnx', 'scores': {'vocals': {'SDR': 10.1549, 'SIR': 21.519, 'SAR': 10.826, 'ISR': 14.1742}, 'instrumental': {'SDR': 15.4338, 'SIR': 25.2169, 'SAR': 17.5684, 'ISR': 18.3519}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR-MDX-NET-Voc_FT.onnx']}
+
+  Friendly name: 'MDX-Net Model: Kim Vocal 1'
+    Info: {'filename': 'Kim_Vocal_1.onnx', 'scores': {'vocals': {'SDR': 10.1067, 'SIR': 21.87, 'SAR': 10.5929, 'ISR': 14.2105}, 'instrumental': {'SDR': 15.4793, 'SIR': 25.2307, 'SAR': 17.5688, 'ISR': 18.4536}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['Kim_Vocal_1.onnx']}
+
+  Friendly name: 'MDX-Net Model: Kim Vocal 2'
+    Info: {'filename': 'Kim_Vocal_2.onnx', 'scores': {'vocals': {'SDR': 10.1794, 'SIR': 21.0294, 'SAR': 10.8745, 'ISR': 14.3166}, 'instrumental': {'SDR': 15.3598, 'SIR': 25.46, 'SAR': 17.5005, 'ISR': 18.1517}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['Kim_Vocal_2.onnx']}
+
+  Friendly name: 'MDX-Net Model: Kim Inst'
+    Info: {'filename': 'Kim_Inst.onnx', 'scores': {'vocals': {'SDR': 9.14306, 'SIR': 20.0946, 'SAR': 10.2093, 'ISR': 14.0559}, 'instrumental': {'SDR': 15.4556, 'SIR': 24.5048, 'SAR': 17.3809, 'ISR': 17.9684}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['Kim_Inst.onnx']}
+
+  Friendly name: 'MDX-Net Model: Reverb HQ By FoxJoy'
+    Info: {'filename': 'Reverb_HQ_By_FoxJoy.onnx', 'scores': {}, 'stems': ['reverb', 'no reverb'], 'target_stem': 'reverb', 'download_files': ['Reverb_HQ_By_FoxJoy.onnx']}
+
+  Friendly name: 'MDX-Net Model: UVR-MDX-NET Crowd HQ 1 By Aufr33'
+    Info: {'filename': 'UVR-MDX-NET_Crowd_HQ_1.onnx', 'scores': {}, 'stems': ['no crowd', 'crowd'], 'target_stem': 'no crowd', 'download_files': ['UVR-MDX-NET_Crowd_HQ_1.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_a_vocals'
+    Info: {'filename': 'kuielab_a_vocals.onnx', 'scores': {'vocals': {'SDR': 9.5717, 'SIR': 19.6322, 'SAR': 10.3407, 'ISR': 13.6876}, 'instrumental': {'SDR': 15.2903, 'SIR': 24.1551, 'SAR': 17.7925, 'ISR': 18.0617}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['kuielab_a_vocals.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_a_other'
+    Info: {'filename': 'kuielab_a_other.onnx', 'scores': {'instrumental': {'SDR': 2.92805, 'SIR': 10.1144, 'SAR': 4.01882, 'ISR': 6.13747}}, 'stems': ['other', 'no other'], 'target_stem': 'other', 'download_files': ['kuielab_a_other.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_a_bass'
+    Info: {'filename': 'kuielab_a_bass.onnx', 'scores': {'bass': {'SDR': 10.4481, 'SIR': 20.9862, 'SAR': 10.5715, 'ISR': 13.9131}, 'instrumental': {'SDR': 2.67399, 'SIR': 6.42725, 'SAR': 3.8121, 'ISR': 6.65939}}, 'stems': ['bass', 'no bass'], 'target_stem': 'bass', 'download_files': ['kuielab_a_bass.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_a_drums'
+    Info: {'filename': 'kuielab_a_drums.onnx', 'scores': {'drums': {'SDR': 6.99726, 'SIR': 15.342, 'SAR': 7.15693, 'ISR': 11.7812}, 'instrumental': {'SDR': 3.11637, 'SIR': 8.84112, 'SAR': 4.47515, 'ISR': 8.39873}}, 'stems': ['drums', 'no drums'], 'target_stem': 'drums', 'download_files': ['kuielab_a_drums.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_b_vocals'
+    Info: {'filename': 'kuielab_b_vocals.onnx', 'scores': {'vocals': {'SDR': 8.96846, 'SIR': 19.8856, 'SAR': 9.67877, 'ISR': 13.4149}, 'instrumental': {'SDR': 15.0575, 'SIR': 24.0151, 'SAR': 17.063, 'ISR': 18.0555}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['kuielab_b_vocals.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_b_other'
+    Info: {'filename': 'kuielab_b_other.onnx', 'scores': {'instrumental': {'SDR': 3.1866, 'SIR': 10.9108, 'SAR': 4.13215, 'ISR': 6.35344}}, 'stems': ['other', 'no other'], 'target_stem': 'other', 'download_files': ['kuielab_b_other.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_b_bass'
+    Info: {'filename': 'kuielab_b_bass.onnx', 'scores': {'bass': {'SDR': 9.91032, 'SIR': 20.3015, 'SAR': 9.7907, 'ISR': 13.3093}, 'instrumental': {'SDR': 2.73546, 'SIR': 7.23423, 'SAR': 3.86573, 'ISR': 7.29981}}, 'stems': ['bass', 'no bass'], 'target_stem': 'bass', 'download_files': ['kuielab_b_bass.onnx']}
+
+  Friendly name: 'MDX-Net Model: kuielab_b_drums'
+    Info: {'filename': 'kuielab_b_drums.onnx', 'scores': {'drums': {'SDR': 7.08376, 'SIR': 16.5241, 'SAR': 7.38794, 'ISR': 11.2089}, 'instrumental': {'SDR': 3.18288, 'SIR': 8.95872, 'SAR': 4.77046, 'ISR': 8.51475}}, 'stems': ['drums', 'no drums'], 'target_stem': 'drums', 'download_files': ['kuielab_b_drums.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Main_340'
+    Info: {'filename': 'UVR-MDX-NET_Main_340.onnx', 'scores': {'vocals': {'SDR': 10.1745, 'SIR': 21.5048, 'SAR': 9.83894, 'ISR': 14.4258}, 'instrumental': {'SDR': 15.4028, 'SIR': 25.6395, 'SAR': 17.3, 'ISR': 18.3195}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR-MDX-NET_Main_340.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Main_390'
+    Info: {'filename': 'UVR-MDX-NET_Main_390.onnx', 'scores': {'vocals': {'SDR': 4.54626, 'SIR': 20.5896, 'SAR': 10.8479, 'ISR': 8.07398}, 'instrumental': {'SDR': 8.80815, 'SIR': 11.8844, 'SAR': 13.6395, 'ISR': 16.7793}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR-MDX-NET_Main_390.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Main_406'
+    Info: {'filename': 'UVR-MDX-NET_Main_406.onnx', 'scores': {'vocals': {'SDR': 10.4412, 'SIR': 21.0793, 'SAR': 10.8743, 'ISR': 15.8161}, 'instrumental': {'SDR': 15.2775, 'SIR': 27.4736, 'SAR': 16.9945, 'ISR': 18.0622}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR-MDX-NET_Main_406.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Main_427'
+    Info: {'filename': 'UVR-MDX-NET_Main_427.onnx', 'scores': {'vocals': {'SDR': 10.1894, 'SIR': 20.7689, 'SAR': 10.8986, 'ISR': 14.24}, 'instrumental': {'SDR': 15.4579, 'SIR': 24.9567, 'SAR': 17.5097, 'ISR': 18.1301}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR-MDX-NET_Main_427.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Main_438'
+    Info: {'filename': 'UVR-MDX-NET_Main_438.onnx', 'scores': {'vocals': {'SDR': 10.1118, 'SIR': 20.6291, 'SAR': 10.8316, 'ISR': 14.2351}, 'instrumental': {'SDR': 15.3232, 'SIR': 25.1613, 'SAR': 17.525, 'ISR': 18.0793}}, 'stems': ['vocals', 'instrumental'], 'target_stem': 'vocals', 'download_files': ['UVR-MDX-NET_Main_438.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Inst_82_beta'
+    Info: {'filename': 'UVR-MDX-NET_Inst_82_beta.onnx', 'scores': {'vocals': {'SDR': 8.22151, 'SIR': 18.0511, 'SAR': 8.98095, 'ISR': 12.5775}, 'instrumental': {'SDR': 14.3129, 'SIR': 22.3067, 'SAR': 16.5377, 'ISR': 17.2281}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET_Inst_82_beta.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Inst_90_beta'
+    Info: {'filename': 'UVR-MDX-NET_Inst_90_beta.onnx', 'scores': {'vocals': {'SDR': 8.13924, 'SIR': 15.0102, 'SAR': 9.90526, 'ISR': 13.3091}, 'instrumental': {'SDR': 13.8918, 'SIR': 23.1029, 'SAR': 16.6214, 'ISR': 15.7792}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET_Inst_90_beta.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET_Inst_187_beta'
+    Info: {'filename': 'UVR-MDX-NET_Inst_187_beta.onnx', 'scores': {'vocals': {'SDR': 8.54948, 'SIR': 15.8859, 'SAR': 10.3132, 'ISR': 14.0249}, 'instrumental': {'SDR': 14.2736, 'SIR': 23.852, 'SAR': 17.1211, 'ISR': 15.9649}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET_Inst_187_beta.onnx']}
+
+  Friendly name: 'MDX-Net Model VIP: UVR-MDX-NET-Inst_full_292'
+    Info: {'filename': 'UVR-MDX-NET-Inst_full_292.onnx', 'scores': {'vocals': {'SDR': 8.54049, 'SIR': 19.7121, 'SAR': 9.76062, 'ISR': 14.0305}, 'instrumental': {'SDR': 15.0579, 'SIR': 24.4972, 'SAR': 17.1961, 'ISR': 17.778}}, 'stems': ['instrumental', 'vocals'], 'target_stem': 'instrumental', 'download_files': ['UVR-MDX-NET-Inst_full_292.onnx']}
+

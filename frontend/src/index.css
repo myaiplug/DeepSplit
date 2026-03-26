@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0f1d;
+  --foreground: #f3f4f6;
+  --accent-cyan: #22d3ee;
+  --accent-purple: #a855f7;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0f1d] text-[#f3f4f6] antialiased selection:bg-cyan-500/30;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}

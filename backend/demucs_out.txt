@@ -1,0 +1,108 @@
+﻿C:\Python313\python.e
+xe : 2026-02-19 
+04:29:50,424 - INFO 
+- separator - 
+Separator version 
+0.41.1 instantiating 
+with output_dir: 
+None, output_format: 
+WAV
+At line:1 char:1
++ C:\Python313\python
+.exe 
+inspect_demucs.py 
+2>&1 | Out-File 
+-FilePath d ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (2026-02   
+ -19 04:2...put_f    
+ormat: WAV:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+2026-02-19 
+04:29:50,424 - INFO 
+- separator - Output 
+directory not 
+specified. Using 
+current working 
+directory.
+2026-02-19 
+04:29:50,424 - INFO 
+- separator - Using 
+model directory from 
+model_file_dir 
+parameter: /tmp/audio
+-separator-models/
+2026-02-19 
+04:29:50,425 - INFO 
+- separator - 
+Operating System: 
+Windows 10.0.26100
+2026-02-19 
+04:29:50,463 - INFO 
+- separator - 
+System: Windows 
+Node: Lap-33 
+Release: 11 Machine: 
+AMD64 Proc: AMD64 
+Family 23 Model 24 
+Stepping 1, 
+AuthenticAMD
+2026-02-19 
+04:29:50,464 - INFO 
+- separator - Python 
+Version: 3.13.3
+2026-02-19 
+04:29:50,464 - INFO 
+- separator - 
+PyTorch Version: 
+2.10.0+cpu
+2026-02-19 
+04:29:50,530 - INFO 
+- separator - FFmpeg 
+installed: ffmpeg 
+version 7.1.1-full_bu
+ild-www.gyan.dev 
+Copyright (c) 
+2000-2025 the FFmpeg 
+developers
+2026-02-19 
+04:29:50,534 - INFO 
+- separator - ONNX 
+Runtime GPU package 
+installed with 
+version: 1.24.1
+2026-02-19 
+04:29:50,536 - INFO 
+- separator - ONNX 
+Runtime CPU package 
+installed with 
+version: 1.22.1
+2026-02-19 
+04:29:50,537 - INFO 
+- separator - No 
+hardware 
+acceleration could 
+be configured, 
+running in CPU mode
+=== Demucs details ===
+  Friendly: 'Demucs v4: htdemucs_ft'
+  Info: {'filename': 'htdemucs_ft.yaml', 'scores': {'vocals': {'SDR': 10.7932, 'SIR': 18.8631, 'SAR': 10.0006, 'ISR': 16.4351}, 'drums': {'SDR': 10.0244, 'SIR': 18.8449, 'SAR': 10.7862, 'ISR': 16.4898}, 'bass': {'SDR': 12.0199, 'SIR': 22.8976, 'SAR': 11.9458, 'ISR': 17.3537}}, 'stems': ['vocals', 'drums', 'bass', 'other'], 'target_stem': None, 'download_files': ['https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/f7e0c4bc-ba3fe64a.th', 'https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/d12395a8-e57c48e6.th', 'https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/92cfc3b6-ef3bcb9c.th', 'https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/04573f0d-f3cf25b2.th', 'https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/htdemucs_ft.yaml']}
+
+  Friendly: 'Demucs v4: htdemucs'
+  Info: {'filename': 'htdemucs.yaml', 'scores': {'vocals': {'SDR': 9.86742, 'SIR': 17.6698, 'SAR': 9.54323, 'ISR': 16.0121}, 'drums': {'SDR': 9.44627, 'SIR': 18.3177, 'SAR': 9.66205, 'ISR': 15.5911}, 'bass': {'SDR': 11.6443, 'SIR': 22.6631, 'SAR': 11.62, 'ISR': 17.2754}}, 'stems': ['vocals', 'drums', 'bass', 'other'], 'target_stem': None, 'download_files': ['https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/955717e8-8726e21a.th', 'https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/htdemucs.yaml']}
+
+  Friendly: 'Demucs v4: hdemucs_mmi'
+  Info: {'filename': 'hdemucs_mmi.yaml', 'scores': {'vocals': {'SDR': 10.166, 'SIR': 18.3898, 'SAR': 9.72683, 'ISR': 16.3828}, 'drums': {'SDR': 9.63568, 'SIR': 18.5335, 'SAR': 10.1224, 'ISR': 15.9836}, 'bass': {'SDR': 12.2277, 'SIR': 21.99, 'SAR': 11.9833, 'ISR': 17.5396}}, 'stems': ['vocals', 'drums', 'bass', 'other'], 'target_stem': None, 'download_files': ['https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/75fc33f5-1941ce65.th', 'https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/hdemucs_mmi.yaml']}
+
+  Friendly: 'Demucs v4: htdemucs_6s'
+  Info: {'filename': 'htdemucs_6s.yaml', 'scores': {'vocals': {'SDR': 9.57061, 'SIR': 16.5014, 'SAR': 9.12617, 'ISR': 15.6148}, 'drums': {'SDR': 8.47242, 'SIR': 17.463, 'SAR': 8.37468, 'ISR': 13.7995}, 'bass': {'SDR': 10.0979, 'SIR': 20.5499, 'SAR': 10.8536, 'ISR': 15.6402}}, 'stems': ['vocals', 'drums', 'bass', 'guitar', 'piano', 'other'], 'target_stem': None, 'download_files': ['https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/5c90dfd2-34c22ccb.th', 'https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/htdemucs_6s.yaml']}
+

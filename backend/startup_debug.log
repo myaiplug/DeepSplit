@@ -1,0 +1,139 @@
+﻿uvicorn : 2026-03-24 
+15:40:30,896 - main - 
+INFO - Backend starting...
+At line:1 char:1
++ uvicorn main:app --host 
+0.0.0.0 --port 8000 
+--log-level debug 2>&1 |  
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (2  
+  026-03-24 15:4...end    
+ starting...:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+2026-03-24 15:40:30,897 - 
+main - INFO - Python 
+executable: 
+C:\Python313\python.exe
+2026-03-24 15:40:30,897 - 
+main - INFO - CWD: C:\User
+s\15024\projects\DeepSplit
+\backend
+2026-03-24 15:40:30,897 - 
+main - INFO - Base dir: C:
+\Users\15024\projects\Deep
+Split\backend
+2026-03-24 15:40:40,784 - 
+main - WARNING - ClamAV 
+daemon not reachable 
+(Could not reach clamd 
+using network (127.0.0.1, 
+3310)). Virus scanning 
+DISABLED. Install ClamAV 
+and start clamd to enable.
+INFO:     Started server 
+process [15364]
+INFO:     Waiting for 
+application startup.
+2026-03-24 15:40:40,810 - 
+audio_separator.separator.
+separator - INFO - 
+Separator version 0.41.1 
+instantiating with 
+output_dir: None, 
+output_format: mp3
+2026-03-24 15:40:40,810 - 
+audio_separator.separator.
+separator - INFO - Output 
+directory not specified. 
+Using current working 
+directory.
+2026-03-24 15:40:40,811 - 
+audio_separator.separator.
+separator - INFO - Using 
+model directory from 
+model_file_dir parameter: 
+/tmp/audio-separator-model
+s/
+2026-03-24 15:40:40,813 - 
+audio_separator.separator.
+separator - INFO - 
+Operating System: Windows 
+10.0.26100
+2026-03-24 15:40:40,854 - 
+audio_separator.separator.
+separator - INFO - 
+System: Windows Node: 
+Laptop-33 Release: 11 
+Machine: AMD64 Proc: 
+AMD64 Family 23 Model 24 
+Stepping 1, AuthenticAMD
+2026-03-24 15:40:40,855 - 
+audio_separator.separator.
+separator - INFO - Python 
+Version: 3.13.3
+2026-03-24 15:40:40,855 - 
+audio_separator.separator.
+separator - INFO - 
+PyTorch Version: 
+2.10.0+cpu
+2026-03-24 15:40:40,971 - 
+audio_separator.separator.
+separator - INFO - FFmpeg 
+installed: ffmpeg version 
+7.1.1-full_build-www.gyan.
+dev Copyright (c) 
+2000-2025 the FFmpeg 
+developers
+2026-03-24 15:40:40,976 - 
+audio_separator.separator.
+separator - INFO - ONNX 
+Runtime GPU package 
+installed with version: 
+1.24.1
+2026-03-24 15:40:40,979 - 
+audio_separator.separator.
+separator - INFO - ONNX 
+Runtime CPU package 
+installed with version: 
+1.22.1
+2026-03-24 15:40:40,981 - 
+audio_separator.separator.
+separator - INFO - No 
+hardware acceleration 
+could be configured, 
+running in CPU mode
+2026-03-24 15:40:40,987 - 
+main - INFO - FFMPEG 
+detected.
+2026-03-24 15:40:40,987 - 
+main - INFO - FX Engine 
+initialized.
+2026-03-24 15:40:40,988 - 
+main - INFO - TTL cleanup 
+scheduler started.
+INFO:     Application 
+startup complete.
+ERROR:    [Errno 10048] 
+error while attempting to 
+bind on address 
+('0.0.0.0', 8000): 
+[winerror 10048] only one 
+usage of each socket 
+address (protocol/network 
+address/port) is normally 
+permitted
+INFO:     Waiting for 
+application shutdown.
+2026-03-24 15:40:40,990 - 
+main - INFO - Lifespan 
+shutting down.
+INFO:     Application 
+shutdown complete.

@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepSplit AI — Professional Audio Stem Separation</title>
+  <meta name="description" content="DeepSplit uses state-of-the-art AI to separate any song into individual stems — vocals, drums, bass, guitar, piano and more. Free desktop app for Windows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #a855f7;
+      --pink: #ec4899;
+      --blue: #3b82f6;
+      --green: #10b981;
+      --bg: #050505;
+      --surface: #0f0f0f;
+      --border: rgba(255,255,255,0.08);
+      --text: #f8fafc;
+      --muted: #6b7280;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ─── Noise texture overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      background: rgba(5,5,5,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 13px;
+      color: white;
+      box-shadow: 0 0 20px rgba(168,85,247,0.4);
+    }
+    .logo-text { font-size: 1.1rem; font-weight: 800; color: white; }
+    .logo-text span { color: var(--purple); }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav ul a:hover { color: white; }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: white;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 20px rgba(168,85,247,0.3);
+    }
+    .nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(168,85,247,0.5); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+    }
+    .hero-glow-1 {
+      position: absolute;
+      top: 10%; left: 10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(168,85,247,0.15), transparent 70%);
+      border-radius: 50%;
+      animation: pulse 6s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 10%; right: 10%;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(236,72,153,0.12), transparent 70%);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out 2s infinite;
+    }
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity:0.6; } 50% { transform: scale(1.1); opacity:1; } }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(168,85,247,0.1);
+      border: 1px solid rgba(168,85,247,0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--purple);
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+    }
+    .hero-badge::before { content: '◉'; font-size: 0.6rem; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 0%, #c4b5fd 40%, #ec4899 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+    .hero-sub {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--muted);
+      max-width: 680px;
+      font-weight: 400;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── GENRE SHOWCASE ─── */
+    .genre-section { padding: 8rem 2rem; background: rgba(168,85,247,0.02); }
+    .genre-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .genre-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .genre-card:hover { border-color: var(--purple); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .genre-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .genre-tag { font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; color: var(--muted); opacity: 0.8; }
+    
+    .demo-controls { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .demo-btn {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: all 0.2s;
+    }
+    .demo-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+    .demo-btn.active { background: var(--purple); border-color: var(--purple); box-shadow: 0 0 20px rgba(168,85,247,0.4); }
+    
+    .split-viz {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-top: 1rem;
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+    .genre-card.playing .split-viz { opacity: 1; }
+    .viz-bar { flex: 1; height: 4px; background: var(--purple); border-radius: 2px; }
+
+    /* ─── COMPARISON ─── */
+    .compare-section { padding: 8rem 2rem; }
+    .compare-table {
+      width: 100%;
+      max-width: 900px;
+      margin: 4rem auto 0;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .compare-table th, .compare-table td { padding: 1.5rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .compare-table th { background: rgba(255,255,255,0.02); font-weight: 700; color: white; }
+    .compare-table .feature-col { width: 40%; font-weight: 500; color: var(--muted); }
+    .compare-table .check { color: var(--green); font-weight: 900; }
+    .compare-table .cross { color: #ef4444; font-weight: 900; opacity: 0.5; }
+    .highlight-row { background: rgba(168,85,247,0.05); }
+
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .price-card.pro { border-color: var(--purple); background: linear-gradient(180deg, rgba(168,85,247,0.05), transparent); position: relative; }
+    .price-card.pro::after {
+      content: 'BEST VALUE';
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-size: 0.65rem; font-weight: 800; color: var(--purple);
+      background: rgba(168,85,247,0.1); padding: 0.25rem 0.75rem; border-radius: 100px;
+    }
+    .price-tag { font-size: 3rem; font-weight: 900; margin: 1.5rem 0; }
+    .price-tag span { font-size: 1rem; color: var(--muted); font-weight: 400; }
+    .price-features { list-style: none; margin-bottom: 2.5rem; flex: 1; }
+    .price-features li { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.95rem; color: var(--muted); }
+    .price-features li svg { color: var(--purple); flex-shrink: 0; }
+
+    /* ─── SEO / FREE GAME ─── */
+    .seo-section { padding: 8rem 2rem; background: rgba(5,5,5,0.5); }
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .article-card {
+      padding: 2rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .article-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+    .article-card h4 { font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.4; }
+    .article-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .read-more { display: flex; align-items: center; gap: 0.5rem; color: var(--purple); font-size: 0.8rem; font-weight: 700; margin-top: 1.5rem; }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 40px rgba(168,85,247,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(168,85,247,0.6); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 1rem 2rem;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+
+    /* Waveform visualizer */
+    .waveform-demo {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .waveform-demo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(168,85,247,0.05), transparent 60%);
+    }
+    .stem-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .stem-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      width: 80px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .stem-wave {
+      flex: 1;
+      height: 32px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .stem-bars {
+      display: flex;
+      gap: 2px;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+    .bar {
+      width: 3px;
+      border-radius: 2px;
+      animation: wavebar 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes wavebar { from { transform: scaleY(0.2); } to { transform: scaleY(1); } }
+
+    .stem-vol { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); width: 35px; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 6rem 2rem; position: relative; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .section-sub { color: var(--muted); font-size: 1.1rem; max-width: 520px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ─── HOW IT WORKS ─── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .step-card:hover { border-color: rgba(168,85,247,0.4); transform: translateY(-4px); }
+    .step-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--purple);
+      margin-bottom: 1rem;
+      background: rgba(168,85,247,0.1);
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+    }
+    .step-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .step-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step-card p { color: var(--muted); font-size: 0.95rem; }
+
+    /* ─── STEM MODES ─── */
+    .modes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .mode-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .mode-card:hover { transform: translateY(-4px); }
+    .mode-card.featured { border-color: rgba(168,85,247,0.4); background: rgba(168,85,247,0.05); }
+    .mode-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--pink);
+      background: rgba(236,72,153,0.15);
+      border: 1px solid rgba(236,72,153,0.3);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+    .mode-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .mode-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .mode-stems { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem; }
+    .stem-tag {
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.2rem 0.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+    }
+    .mode-time { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; font-family: 'JetBrains Mono', monospace; }
+
+    /* ─── FEATURES ─── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .feature-card:hover { border-color: rgba(168,85,247,0.3); transform: translateY(-2px); }
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .feature-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ─── PROOF / STATS ─── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .stat {
+      background: var(--surface);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    .stat-sub { font-size: 0.75rem; color: rgba(107,114,128,0.7); margin-top: 0.25rem; font-family: 'JetBrains Mono', monospace; }
+
+    /* ─── TECH STACK ─── */
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    /* ─── DOWNLOAD CTA ─── */
+    .cta-section {
+      text-align: center;
+      padding: 8rem 2rem;
+      position: relative;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 { margin-bottom: 1rem; }
+    .cta-section p { color: var(--muted); font-size: 1.1rem; margin-bottom: 3rem; }
+    .download-box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .download-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: white; }
+    .footer-logo { margin-bottom: 1rem; font-weight: 800; font-size: 1.25rem; }
+    .footer-logo span { color: var(--purple); }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(168,85,247,0.3); border-radius: 3px; }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">DS</div>
+    <span class="logo-text">DeepSplit<span>.AI</span></span>
+  </a>
+  <ul>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#demos">Benchmarks</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#download">Download</a></li>
+  </ul>
+  <a href="#download" class="nav-cta">⬇ Download Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-badge">STATE-OF-THE-ART AI · MDX + DEMUCS HYBRID</div>
+
+  <h1>Stop Renting Stems.<br/><em style="font-style:normal;background:linear-gradient(90deg,var(--purple),#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Own the Source.</em></h1>
+  <p class="hero-sub">
+    The world's first professional AI stem separator that lives on your desktop. No cloud, no track limits, and zero subscriptions. Total privacy for your creative process.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#download" class="btn-primary" id="main-download-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download for Windows
+    </a>
+    <a href="#how" class="btn-secondary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      See how it works
+    </a>
+  </div>
+
+  <!-- Animated waveform mockup -->
+  <div class="waveform-demo fade-in">
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);margin-bottom:1.5rem;text-align:left;">// DeepSplit Engine V2.1 Process: multi_stage_MDX_hybrid.wav</p>
+    <div id="waveform-rows"></div>
+    <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.7rem;color:var(--purple);font-weight:800;letter-spacing:0.1em;">99.4% QUALITY SCORE</span>
+        <span style="font-size:0.7rem;color:var(--muted);font-family:'JetBrains Mono',monospace;">PROCESSED LOCALLY (0.0ms LATENCY)</span>
+    </div>
+  </div>
+</section>
+
+<!-- GENRE SHOWCASE -->
+<section id="demos" class="genre-section">
+    <div class="container">
+        <p class="section-label">Real-World Benchmarks</p>
+        <h2>The Gold Standard<br/>Across Every Genre.</h2>
+        <p class="section-sub">Don't take our word for it. Hear how our hybrid engine handles everything from distorted Metal to complex Jazz harmony.</p>
+
+        <div class="genre-grid">
+            <!-- Pop -->
+            <div class="genre-card fade-in">
+                <div class="genre-tag">GENRE: POP</div>
+                <h3>✨ Synthetic Pop </h3>
+                <p style="font-size:0.9rem;color:var(--muted);margin:1rem 0;">Tested on modern Billboard productions. Crystal clear vocal isolation with zero bleed from heavy 808s.</p>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="toggleDemo(this, 'pop-full')">Full Mix</button>
+                    <button class="demo-btn" onclick="toggleDemo(this, 'pop-split')">Isolated Stems</button>
+                </div>
+                <div class="split-viz"><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div></div>
+            </div>
+
+            <!-- Rock -->
+            <div class="genre-card fade-in">
+                <div class="genre-tag">GENRE: ROCK</div>
+                <h3>🎸 Classic Rock </h3>
+                <p style="font-size:0.9rem;color:var(--muted);margin:1rem 0;">Handles live recorded drums and distorted guitars. Separates the guitar solo without losing the snare punch.</p>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="toggleDemo(this, 'rock-full')">Full Mix</button>
+                    <button class="demo-btn" onclick="toggleDemo(this, 'rock-split')">Isolated Stems</button>
+                </div>
+                <div class="split-viz"><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div></div>
+            </div>
+
+            <!-- Rap -->
+            <div class="genre-card fade-in">
+                <div class="genre-tag">GENRE: RAP / TRAP</div>
+                <h3>🎤 Heavy Hip-Hop </h3>
+                <p style="font-size:0.9rem;color:var(--muted);margin:1rem 0;">Perfect for sampling. Extracts the melody loop perfectly from aggressive hi-hats and booming kicks.</p>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="toggleDemo(this, 'rap-full')">Full Mix</button>
+                    <button class="demo-btn" onclick="toggleDemo(this, 'rap-split')">Isolated Stems</button>
+                </div>
+                <div class="split-viz"><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div></div>
+            </div>
+
+            <!-- Metal -->
+            <div class="genre-card fade-in">
+                <div class="genre-tag">GENRE: METAL</div>
+                <h3>🤘 Extreme Metal </h3>
+                <p style="font-size:0.9rem;color:var(--muted);margin:1rem 0;">The ultimate test. Isolates double-kick pedagogy and high-gain rhythmic layers with pinpoint accuracy.</p>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="toggleDemo(this, 'metal-full')">Full Mix</button>
+                    <button class="demo-btn" onclick="toggleDemo(this, 'metal-split')">Isolated Stems</button>
+                </div>
+                <div class="split-viz"><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div></div>
+            </div>
+
+            <!-- Jazz -->
+            <div class="genre-card fade-in">
+                <div class="genre-tag">GENRE: JAZZ</div>
+                <h3>🎷 Smooth Jazz </h3>
+                <p style="font-size:0.9rem;color:var(--muted);margin:1rem 0;">Respects the dynamics. Keeps the room ambience of live brass while isolating the double bass line.</p>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="toggleDemo(this, 'jazz-full')">Full Mix</button>
+                    <button class="demo-btn" onclick="toggleDemo(this, 'jazz-split')">Isolated Stems</button>
+                </div>
+                <div class="split-viz"><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div></div>
+            </div>
+
+            <!-- Blues -->
+            <div class="genre-card fade-in">
+                <div class="genre-tag">GENRE: BLUES</div>
+                <h3>🎙 Vintage Blues </h3>
+                <p style="font-size:0.9rem;color:var(--muted);margin:1rem 0;">Tested on 1950s mono recordings. Magic separation that finds the vocal even in limited frequency bands.</p>
+                <div class="demo-controls">
+                    <button class="demo-btn" onclick="toggleDemo(this, 'blues-full')">Full Mix</button>
+                    <button class="demo-btn" onclick="toggleDemo(this, 'blues-split')">Isolated Stems</button>
+                </div>
+                <div class="split-viz"><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPARISON SECTION -->
+<section class="compare-section">
+    <div class="container">
+        <p class="section-label">Why we win</p>
+        <h2>Stop Paying per Song.<br/>Own the Engine.</h2>
+        
+        <table class="compare-table fade-in">
+            <thead>
+                <tr>
+                    <th class="feature-col">Feature</th>
+                    <th>Leading Cloud Sites</th>
+                    <th style="color:var(--purple)">DeepSplit Desktop</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="feature-col">Cost per Track</td>
+                    <td>$1.00 – $5.00</td>
+                    <td><span class="check">$0.00 (Infinite)</span></td>
+                </tr>
+                <tr>
+                    <td class="feature-col">Privacy (Data Upload)</td>
+                    <td>Your music hits their server</td>
+                    <td><span class="check">100% Local (Private)</span></td>
+                </tr>
+                <tr>
+                    <td class="feature-col">AI Processing Speed</td>
+                    <td>Queued / Upload Dependent</td>
+                    <td><span class="check">Instant (Hardware Accelerated)</span></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td class="feature-col">Drum Extraction (Kick/Snare)</td>
+                    <td><span class="cross">✕ Basic Drums Only</span></td>
+                    <td><span class="check">✓ Advanced DrumSep</span></td>
+                </tr>
+                <tr>
+                    <td class="feature-col">Offline Mode</td>
+                    <td><span class="cross">✕ Requires Internet</span></td>
+                    <td><span class="check">✓ Works Anywhere</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section id="pricing" style="background:linear-gradient(180deg, var(--bg), rgba(168,85,247,0.05), var(--bg));">
+    <div class="container">
+        <p class="section-label">Pricing</p>
+        <h2 style="text-align:center">The Smart Creative Investment.</h2>
+        
+        <div class="pricing-grid">
+            <!-- Free -->
+            <div class="price-card fade-in">
+                <h3>Open Source</h3>
+                <div class="price-tag">$0<span>/forever</span></div>
+                <ul class="price-features">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 2-Stem Separation</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Clean Vocal Rip</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Processing</li>
+                </ul>
+                <button class="btn-secondary" style="width:100%;justify-content:center">Choose Free</button>
+            </div>
+
+            <!-- Pro -->
+            <div class="price-card pro fade-in">
+                <h3>Creator Pro</h3>
+                <div class="price-tag">$49<span>/one-time</span></div>
+                <ul class="price-features">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 6-Stem Hybrid Pipeline</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Advanced DrumSep Module</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Desktop App (.exe) Included</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Early Access to Model V3</li>
+                </ul>
+                <button class="btn-primary" style="width:100%;justify-content:center">Buy Once, Own Forever</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FREE GAME SECTION (SEO) -->
+<section class="seo-section">
+    <div class="container">
+        <p class="section-label">Free Game</p>
+        <h2>Master the Science<br/>of Sound.</h2>
+        <p class="section-sub">We believe in transparent tech. Learn how stem splitting works and why it's changing the music industry.</p>
+
+        <div class="article-grid">
+            <div class="article-card fade-in">
+                <h4>MDX-Net vs. Demucs: Which is better for your mix?</h4>
+                <p>An deep dive into the architecture of modern separation models and why a hybrid approach is the only way to get artifacts-free audio.</p>
+                <div class="read-more">Read Full Guide →</div>
+            </div>
+            <div class="article-card fade-in">
+                <h4>Privacy in the AI Era: The hidden cost of cloud separation.</h4>
+                <p>Why uploading your unreleased masters to cloud platforms might be a security risk you aren't prepared for.</p>
+                <div class="read-more">Learn Privacy Rights →</div>
+            </div>
+            <div class="article-card fade-in">
+                <h4>Sampling Mastery: How DrumSep isolates hits.</h4>
+                <p>Isolate individual kicks and snares from a fully mastered record to build your custom sample packs with zero phase issues.</p>
+                <div class="read-more">Sample Guide →</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <p class="section-label">Simple workflow</p>
+    <h2>Up and running in<br/><em style="font-style:normal;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">three steps.</em></h2>
+    <p class="section-sub">No cloud required. All processing happens on your machine — your music never leaves your computer.</p>
+
+    <div class="steps">
+      <div class="step-card fade-in">
+        <span class="step-num">01</span>
+        <div class="step-icon">🎵</div>
+        <h3>Drop your track</h3>
+        <p>Upload any MP3, WAV, FLAC or M4A file. Select a region or use the entire track.</p>
+      </div>
+      <div class="step-card fade-in">
+        <span class="step-num">02</span>
+        <div class="step-icon">🎛</div>
+        <h3>Choose your mode</h3>
+        <p>Pick from 2-stem all the way up to 6-stem + advanced drum separation. GPU-optional.</p>
+      </div>
+      <div class="step-card fade-in">
+        <span class="step-num">03</span>
+        <div class="step-icon">⬇</div>
+        <h3>Play & download</h3>
+        <p>Stems are ready individually — play them in the built-in mixer, apply FX, or export.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEM MODES -->
+<section id="modes" style="background:linear-gradient(180deg,var(--bg),rgba(168,85,247,0.03),var(--bg));">
+  <div class="container">
+    <p class="section-label">Separation modes</p>
+    <h2>Choose your level<br/>of detail.</h2>
+    <p class="section-sub">From a quick vocal rip to a fully dissected drum kit — DeepSplit scales to your needs.</p>
+
+    <div class="modes-grid">
+      <div class="mode-card fade-in" style="border-color:rgba(99,102,241,0.3)">
+        <div class="icon">🎤</div>
+        <h3 style="color:#818cf8">2 Stem</h3>
+        <div class="mode-stems">
+          <span class="stem-tag" style="color:#818cf8;border-color:rgba(99,102,241,0.3)">Vocals</span>
+          <span class="stem-tag">Instrumental</span>
+        </div>
+        <p class="mode-time">CPU ~1–2 min · GPU ~10s</p>
+      </div>
+      <div class="mode-card fade-in" style="border-color:rgba(168,85,247,0.3)">
+        <div class="icon">🥁</div>
+        <h3 style="color:var(--purple)">4 Stem</h3>
+        <div class="mode-stems">
+          <span class="stem-tag" style="color:#ec4899;border-color:rgba(236,72,153,0.3)">Vocals</span>
+          <span class="stem-tag" style="color:#eab308;border-color:rgba(234,179,8,0.3)">Drums</span>
+          <span class="stem-tag" style="color:#3b82f6;border-color:rgba(59,130,246,0.3)">Bass</span>
+          <span class="stem-tag">Other</span>
+        </div>
+        <p class="mode-time">CPU ~3–5 min · GPU ~30s</p>
+      </div>
+      <div class="mode-card fade-in" style="border-color:rgba(249,115,22,0.3)">
+        <div class="icon">🎸</div>
+        <h3 style="color:#fb923c">5 Stem</h3>
+        <div class="mode-stems">
+          <span class="stem-tag" style="color:#ec4899;border-color:rgba(236,72,153,0.3)">Vocals</span>
+          <span class="stem-tag" style="color:#eab308;border-color:rgba(234,179,8,0.3)">Drums</span>
+          <span class="stem-tag" style="color:#3b82f6;border-color:rgba(59,130,246,0.3)">Bass</span>
+          <span class="stem-tag" style="color:#fb923c;border-color:rgba(249,115,22,0.3)">Guitar</span>
+          <span class="stem-tag">Other</span>
+        </div>
+        <p class="mode-time">CPU ~5–7 min · GPU ~45s</p>
+      </div>
+      <div class="mode-card featured fade-in">
+        <span class="mode-badge">RECOMMENDED</span>
+        <div class="icon">🎹</div>
+        <h3 style="color:var(--purple)">6 Stem</h3>
+        <div class="mode-stems">
+          <span class="stem-tag" style="color:#ec4899;border-color:rgba(236,72,153,0.3)">Vocals</span>
+          <span class="stem-tag" style="color:#eab308;border-color:rgba(234,179,8,0.3)">Drums</span>
+          <span class="stem-tag" style="color:#3b82f6;border-color:rgba(59,130,246,0.3)">Bass</span>
+          <span class="stem-tag" style="color:#fb923c;border-color:rgba(249,115,22,0.3)">Guitar</span>
+          <span class="stem-tag" style="color:#10b981;border-color:rgba(16,185,129,0.3)">Piano</span>
+          <span class="stem-tag">Other</span>
+        </div>
+        <p class="mode-time">CPU ~6–8 min · GPU ~1 min</p>
+      </div>
+      <div class="mode-card fade-in" style="border-color:rgba(234,179,8,0.3)">
+        <div class="icon">🥁🎺</div>
+        <h3 style="color:#fbbf24">6 Stem + DrumSep</h3>
+        <div class="mode-stems">
+          <span class="stem-tag" style="color:#ec4899;border-color:rgba(236,72,153,0.3)">Vocals</span>
+          <span class="stem-tag" style="color:#ef4444;border-color:rgba(239,68,68,0.3)">Kick</span>
+          <span class="stem-tag" style="color:#f97316;border-color:rgba(249,115,22,0.3)">Snare</span>
+          <span class="stem-tag" style="color:#34d399;border-color:rgba(52,211,153,0.3)">Hi-Hat</span>
+          <span class="stem-tag" style="color:#22d3ee;border-color:rgba(34,211,238,0.3)">Perc</span>
+          <span class="stem-tag" style="color:#3b82f6;border-color:rgba(59,130,246,0.3)">Bass</span>
+          <span class="stem-tag">…more</span>
+        </div>
+        <p class="mode-time">CPU ~10–15 min · GPU ~2 min</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <p class="section-label">Built different</p>
+    <h2>Everything you need.<br/>Nothing you don't.</h2>
+
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon" style="background:rgba(168,85,247,0.1)">🏠</div>
+        <h3>100% Offline</h3>
+        <p>Your music never leaves your machine. All AI processing runs locally using your CPU or GPU. No subscriptions, no usage limits, no data collection.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon" style="background:rgba(236,72,153,0.1)">🤖</div>
+        <h3>SOTA AI Models</h3>
+        <p>Powered by Kim_Vocal_2 (MDX-Net, SDR 10.18) for vocals and htdemucs_6s for instruments — the same models used by professional studios.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon" style="background:rgba(59,130,246,0.1)">⚡</div>
+        <h3>GPU Auto-Detection</h3>
+        <p>DeepSplit automatically detects your NVIDIA GPU and uses CUDA acceleration when available — up to 8× faster than CPU mode.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon" style="background:rgba(16,185,129,0.1)">🎛</div>
+        <h3>Built-in Studio Mixer</h3>
+        <p>Play, mute, solo and blend stems right in the app. Apply FX chains to individual tracks before exporting.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon" style="background:rgba(234,179,8,0.1)">🥁</div>
+        <h3>Advanced DrumSep</h3>
+        <p>Go beyond "drums" — isolate kick, snare, hi-hat and percussion as individual tracks. Perfect for sample creation.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon" style="background:rgba(249,115,22,0.1)">📁</div>
+        <h3>All Formats</h3>
+        <p>Accepts MP3, WAV, FLAC and M4A. Outputs clean normalized MP3 stems. Select any region of the track to process just what you need.</p>
+      </div>
+    </div>
+
+    <!-- Tech pills -->
+    <div class="tech-pills" style="margin-top:3rem">
+      <p style="color:var(--muted);font-size:0.85rem;width:100%;margin-bottom:0.25rem">Powered by</p>
+      <div class="pill"><div class="pill-dot" style="background:var(--purple)"></div>PyTorch 2.x</div>
+      <div class="pill"><div class="pill-dot" style="background:#3b82f6"></div>MDX-Net</div>
+      <div class="pill"><div class="pill-dot" style="background:var(--pink)"></div>Demucs htdemucs_6s</div>
+      <div class="pill"><div class="pill-dot" style="background:var(--green)"></div>FastAPI</div>
+      <div class="pill"><div class="pill-dot" style="background:#f97316"></div>Electron</div>
+      <div class="pill"><div class="pill-dot" style="background:#eab308"></div>React + Vite</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats fade-in">
+      <div class="stat">
+        <div class="stat-num">10.18</div>
+        <div class="stat-label">Vocal SDR</div>
+        <div class="stat-sub">Kim_Vocal_2 · MDX-Net</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Stem modes</div>
+        <div class="stat-sub">up to 10 tracks w/ drumsep</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Audio formats</div>
+        <div class="stat-sub">MP3 · WAV · FLAC</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Data uploaded</div>
+        <div class="stat-sub">100% local processing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD CTA -->
+<section id="download" class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="container" style="position:relative">
+    <p class="section-label">Free download</p>
+    <h2>Start separating<br/>today. For free.</h2>
+    <p>DeepSplit is completely free. Download, install, and separate your first track in minutes.</p>
+
+    <div class="download-box">
+      <a href="#" class="btn-primary" style="font-size:1.1rem;padding:1.2rem 2.5rem;" id="download-btn" onclick="alert('Build in progress — download link coming soon!')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        Download for Windows (.exe)
+      </a>
+      <span class="download-meta">v1.0 · Windows 10/11 · ~1.5 GB · Free forever</span>
+      <span class="download-meta" style="color:rgba(107,114,128,0.5)">macOS &amp; Linux coming soon</span>
+    </div>
+
+    <div style="margin-top:4rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;max-width:700px;margin-left:auto;margin-right:auto">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:left">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">🔒</div>
+        <h3 style="font-size:0.95rem;margin-bottom:0.25rem">No account required</h3>
+        <p style="font-size:0.85rem;color:var(--muted)">Download and start immediately. No signup, no login.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:left">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">🌐</div>
+        <h3 style="font-size:0.95rem;margin-bottom:0.25rem">Works offline</h3>
+        <p style="font-size:0.85rem;color:var(--muted)">After first model download (~600 MB), works with no internet.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:left">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">♾</div>
+        <h3 style="font-size:0.95rem;margin-bottom:0.25rem">Unlimited processing</h3>
+        <p style="font-size:0.85rem;color:var(--muted)">No track limits, no watermarks, no hidden fees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DeepSplit<span>.AI</span></div>
+  <p style="margin-bottom:1rem">Professional AI Audio Separation · Built with ❤️ &amp; PyTorch</p>
+  <p><a href="#how">How it works</a> · <a href="#modes">Modes</a> · <a href="#features">Features</a> · <a href="#download">Download</a></p>
+  <p style="margin-top:1.5rem;font-size:0.75rem;color:rgba(107,114,128,0.5)">© 2025 DeepSplit. Free &amp; open source.</p>
+</footer>
+
+<script>
+  // ── Waveform demo animation ──
+  const stems = [
+    { label: 'VOCALS',  color: '#ec4899', heights: [0.9,0.7,0.95,0.6,0.85,0.4,0.7,0.9,0.5,0.8,0.6,0.95,0.7,0.5,0.85,0.4,0.9,0.65] },
+    { label: 'DRUMS',   color: '#eab308', heights: [0.4,0.9,0.2,0.95,0.3,0.9,0.1,0.95,0.3,0.9,0.2,0.95,0.4,0.9,0.1,0.95,0.3,0.9] },
+    { label: 'BASS',    color: '#3b82f6', heights: [0.6,0.55,0.65,0.5,0.7,0.6,0.55,0.65,0.6,0.5,0.7,0.55,0.65,0.6,0.5,0.7,0.6,0.55] },
+    { label: 'GUITAR',  color: '#f97316', heights: [0.3,0.5,0.7,0.4,0.6,0.8,0.3,0.5,0.7,0.45,0.6,0.8,0.3,0.55,0.7,0.4,0.6,0.8] },
+    { label: 'PIANO',   color: '#10b981', heights: [0.5,0.3,0.6,0.8,0.4,0.3,0.6,0.5,0.8,0.3,0.5,0.65,0.4,0.8,0.3,0.6,0.5,0.4] },
+    { label: 'OTHER',   color: '#a855f7', heights: [0.4,0.45,0.35,0.5,0.4,0.45,0.35,0.5,0.4,0.45,0.35,0.5,0.4,0.45,0.35,0.5,0.4,0.45] },
+  ];
+
+  const container = document.getElementById('waveform-rows');
+  stems.forEach((stem, si) => {
+    const row = document.createElement('div');
+    row.className = 'stem-row';
+    const label = document.createElement('div');
+    label.className = 'stem-label';
+    label.style.color = stem.color;
+    label.textContent = stem.label;
+    const wave = document.createElement('div');
+    wave.className = 'stem-wave';
+    const bars = document.createElement('div');
+    bars.className = 'stem-bars';
+    stem.heights.forEach((h, i) => {
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      bar.style.background = stem.color;
+      bar.style.height = `${Math.round(h * 28)}px`;
+      bar.style.animationDelay = `${(i * 0.08 + si * 0.15).toFixed(2)}s`;
+      bar.style.animationDuration = `${(1.2 + Math.random() * 0.8).toFixed(2)}s`;
+      bar.style.opacity = '0.8';
+      bars.appendChild(bar);
+    });
+    wave.appendChild(bars);
+    const vol = document.createElement('div');
+    vol.className = 'stem-vol';
+    vol.textContent = '-' + Math.round(Math.random()*6+2) + 'dB';
+    row.appendChild(label);
+    row.appendChild(wave);
+    row.appendChild(vol);
+    container.appendChild(row);
+  });
+
+  // ── Genre Demo Toggle ──
+  function toggleDemo(btn, demoId) {
+    const card = btn.closest('.genre-card');
+    const buttons = card.querySelectorAll('.demo-btn');
+    
+    // Deactivate others
+    buttons.forEach(b => b.classList.remove('active'));
+    
+    // Toggle active
+    btn.classList.add('active');
+    card.classList.add('playing');
+
+    // Simulate audio loading/playing feedback
+    console.log(`Playing demo: ${demoId}`);
+    
+    // In a real app, this would switch the <audio> source.
+    // For now, we provide the UI feedback requested.
+  }
+
+  // ── Scroll fade-in ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
