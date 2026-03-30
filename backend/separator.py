@@ -31,6 +31,7 @@ class AudioSeparator:
             output_format="mp3",
             model_file_dir="/tmp/audio-separator-models/"
         )
+        self.output_extension = ".mp3"
         import torch
         if use_gpu and torch.cuda.is_available():
             self.separator.torch_device = 'cuda'
@@ -48,6 +49,7 @@ class AudioSeparator:
         output_dir: Path,
         original_filename: str,
         num_stems: int = 6,
+        output_format: str = "mp3",
         progress_callback=None,
     ):
         """
@@ -58,6 +60,9 @@ class AudioSeparator:
           6  – MDX + Demucs 6s → vocals, drums, bass, guitar, piano, other  (default)
           7  – 6-stem + drumsep → replaces drums with kick/snare/hihat/overhead/room
         """
+        fmt = (output_format or "mp3").lower()
+        self.separator.output_format = fmt
+        self.output_extension = f".{fmt}"
         self.output_dir = output_dir
         self.separator.output_dir = str(output_dir)
         
@@ -77,10 +82,10 @@ class AudioSeparator:
         elif num_stems == 7:
             # 6-stem first, then sophisticated drumsep
             stems = await self._mode_6stem(audio_path, safe)
-            drum_stem = self.output_dir / f"{safe}_drums.mp3"
+            drum_stem = self.output_dir / f"{safe}_drums{self.output_extension}"
             if drum_stem.exists():
                 drum_stems = await self.separate_drums(drum_stem)
-                stems = [s for s in stems if not s.endswith("_drums.mp3")]
+                stems = [s for s in stems if not s.endswith(f"_drums{self.output_extension}")]
                 stems.extend(drum_stems)
             return stems
         else:
@@ -110,7 +115,7 @@ class AudioSeparator:
         gc.collect()
 
         # Move vocals
-        vocal_dest = self.output_dir / f"{safe}_vocals.mp3"
+        vocal_dest = self.output_dir / f"{safe}_vocals{self.output_extension}"
         _move_file(self.output_dir / vocal_stem, vocal_dest)
         logger.info(f"Vocals → {vocal_dest.name}")
 
@@ -136,7 +141,7 @@ class AudioSeparator:
             lower = f.lower()
             matched = next((suffix for key, suffix in stem_map.items() if key in lower), None)
             if matched:
-                dest = self.output_dir / f"{safe}_{matched}.mp3"
+                dest = self.output_dir / f"{safe}_{matched}{self.output_extension}"
                 src = self.output_dir / f
                 if src.exists():
                     _move_file(src, dest)
@@ -147,7 +152,7 @@ class AudioSeparator:
     async def _mode_2stem(self, audio_path, safe):
         """Vocals + Instrumental only."""
         vocal_name, inst_path = await self._mdx_vocals(audio_path, safe)
-        inst_dest = self.output_dir / f"{safe}_instrumental.mp3"
+        inst_dest = self.output_dir / f"{safe}_instrumental{self.output_extension}"
         if inst_path.exists():
             _move_file(inst_path, inst_dest)
         return [vocal_name, inst_dest.name]
@@ -213,13 +218,13 @@ class AudioSeparator:
             for f in drum_output:
                 lower = f.lower()
                 dest_name = None
-                if "kick" in lower:        dest_name = f"{safe}_kick.mp3"
-                elif "snare" in lower:     dest_name = f"{safe}_snare.mp3"
+                if "kick" in lower:        dest_name = f"{safe}_kick{self.output_extension}"
+                elif "snare" in lower:     dest_name = f"{safe}_snare{self.output_extension}"
                 elif "hihat" in lower or "hi-hat" in lower or "hat" in lower:
-                    dest_name = f"{safe}_hihat.mp3"
-                elif "overhead" in lower:  dest_name = f"{safe}_overhead.mp3"
-                elif "room" in lower:      dest_name = f"{safe}_room.mp3"
-                else: dest_name = f"{safe}_percussion.mp3"
+                    dest_name = f"{safe}_hihat{self.output_extension}"
+                elif "overhead" in lower:  dest_name = f"{safe}_overhead{self.output_extension}"
+                elif "room" in lower:      dest_name = f"{safe}_room{self.output_extension}"
+                else: dest_name = f"{safe}_percussion{self.output_extension}"
 
                 if dest_name:
                     src = self.output_dir / f
