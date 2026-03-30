@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';
-import { Volume2, VolumeX, Sliders } from 'lucide-react';
+import { Volume2, VolumeX, Sliders, Download } from 'lucide-react';
 
 const StemPlayer = ({
     src,
@@ -14,6 +14,7 @@ const StemPlayer = ({
     isSoloed,
     isMuted,
     anysoloed,
+    downloadUrl,
 }) => {
     const containerRef = useRef(null);
     const wavesurfer = useRef(null);
@@ -111,6 +112,18 @@ const StemPlayer = ({
                     <Sliders className="w-3 h-3" />
                     FX
                 </button>
+
+                {/* Download button */}
+                {downloadUrl && (
+                    <a
+                        href={downloadUrl}
+                        download
+                        className="px-2 py-1 text-xs rounded border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/20 hover:text-white transition-colors flex items-center gap-1"
+                        title={`Download ${name}`}
+                    >
+                        <Download className="w-3 h-3" />
+                    </a>
+                )}
 
                 {/* SOLO */}
                 <button

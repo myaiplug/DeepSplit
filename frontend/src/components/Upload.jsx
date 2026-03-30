@@ -2,6 +2,7 @@ import React, { useCallback, useState, useRef, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload as UploadIcon, CheckCircle2, XCircle, AlertCircle, Edit3, ShieldCheck, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import YoutubeInput from './YoutubeInput';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const MAX_BYTES = 50 * 1024 * 1024;
@@ -437,8 +438,33 @@ function DropZone({ getRootProps, getInputProps, isDragActive, error }) {
     );
 }
 
+// ─── Tab toggle ───────────────────────────────────────────────────────────────
+function InputTabs({ active, onChange }) {
+    return (
+        <div className="flex items-center gap-1 p-1 rounded-xl mb-2"
+             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+            {[
+                { id: 'file',    label: '⬆ Upload File' },
+                { id: 'youtube', label: '▶ YouTube URL' },
+            ].map(tab => (
+                <button
+                    key={tab.id}
+                    onClick={() => onChange(tab.id)}
+                    className={`flex-1 py-2 px-4 rounded-lg text-sm font-semibold transition-all duration-200
+                        ${active === tab.id
+                            ? 'bg-purple-600 text-white shadow-md shadow-purple-900/30'
+                            : 'text-gray-500 hover:text-gray-300'}`}
+                >
+                    {tab.label}
+                </button>
+            ))}
+        </div>
+    );
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
-const Upload = ({ onUploadSuccess }) => {
+const Upload = ({ onUploadSuccess, onYoutubeSubmit }) => {
+    const [inputTab, setInputTab] = useState('file');
     const [modalState,   setModalState]   = useState(null); // null|uploading|server-processing|success|error
     const [xhrPct,       setXhrPct]       = useState(0);
     const [xhrLoaded,    setXhrLoaded]    = useState(0);
@@ -596,12 +622,26 @@ const Upload = ({ onUploadSuccess }) => {
 
     return (
         <>
-            <DropZone
-                getRootProps={getRootProps}
-                getInputProps={getInputProps}
-                isDragActive={isDragActive}
-                error={dropError}
-            />
+            {/* Tab toggle */}
+            <InputTabs active={inputTab} onChange={setInputTab} />
+
+            <AnimatePresence mode="wait">
+                {inputTab === 'file' ? (
+                    <motion.div key="file-tab" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }}>
+                        <DropZone
+                            getRootProps={getRootProps}
+                            getInputProps={getInputProps}
+                            isDragActive={isDragActive}
+                            error={dropError}
+                        />
+                    </motion.div>
+                ) : (
+                    <motion.div key="yt-tab" initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }}>
+                        <YoutubeInput onSubmit={onYoutubeSubmit} disabled={false} />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             <AnimatePresence>
                 {modalState && (
                     <UploadModal

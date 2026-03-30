@@ -297,6 +297,30 @@ def get_processed_files(file_id: str):
             })
     return {"files": files}
 
+@app.get("/download/{file_id}/{filename}")
+@limiter.limit("30/minute")
+def download_stem(file_id: str, filename: str, request: Request):
+    """
+    Serves a processed stem file with Content-Disposition: attachment so browsers
+    trigger a save dialog instead of streaming inline.
+    """
+    # Sanitize to prevent path traversal
+    safe_name = Path(filename).name
+    file_path = (PROCESSED_DIR / file_id / safe_name).resolve()
+    # Ensure the resolved path is still inside PROCESSED_DIR (guards against ../ in file_id)
+    try:
+        file_path.relative_to(PROCESSED_DIR.resolve())
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid file path")
+    if not file_path.exists() or not file_path.is_file():
+        raise HTTPException(status_code=404, detail="File not found")
+    return FileResponse(
+        path=str(file_path),
+        filename=safe_name,
+        media_type="application/octet-stream",
+        headers={"Content-Disposition": f'attachment; filename="{safe_name}"'},
+    )
+
 @app.get("/presets/{stem_name}")
 def get_presets(stem_name: str):
     if not fx_engine:
