@@ -423,9 +423,6 @@ const YoutubeSplitter = () => {
                         <h3 className="text-3xl font-black uppercase text-white tracking-tight">
                            Separation Complete!
                         </h3>
-                        <button 
-                           onClick={() => { setStep('input'); setUrl(''); setProcessedFiles([]); setStemGroups([]); setZipUrl(null); setFormat('wav'); setNumStems(6); }}
-                           className="text-sm font-bold text-gray-400 hover:text-white transition-colors"
                         <p className="text-gray-400 font-medium">
                            {processedFiles.filter(f => !f.filename.toLowerCase().endsWith('.zip')).length} high-quality stems ready
                         </p>
