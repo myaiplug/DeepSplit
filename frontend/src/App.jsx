@@ -3,6 +3,7 @@ import Upload from './components/Upload'
 import StemPlayer from './components/StemPlayer'
 import WaveformSelector from './components/WaveformSelector'
 import StemModeSelector from './components/StemModeSelector'
+import StemsResultModal from './components/StemsResultModal'
 import { motion, AnimatePresence } from 'framer-motion'
 import FXSelector from './components/FXSelector'
 import StudioView from './components/Studio/StudioView'
@@ -70,6 +71,12 @@ function App() {
     const [soloedStem, setSoloedStem] = useState(null);   // stem name string or null
     const [mutedStems, setMutedStems] = useState(new Set());
 
+    // Results modal (shown for both file and YouTube processing)
+    const [resultsModalOpen, setResultsModalOpen] = useState(false);
+
+    // YouTube processing status message
+    const [ytStatusMsg, setYtStatusMsg] = useState('');
+
     // Fetch device info on mount
     useEffect(() => {
         fetch('http://localhost:8000/system/info', { signal: AbortSignal.timeout(5000) })
@@ -87,6 +94,76 @@ function App() {
         let dotIntervalId;
 
         if (step === 'processing' && fileData?.file_id) {
+            const fileId = fileData.file_id;
+
+            // ── YouTube: poll /progress/{file_id} directly ──────────────────
+            if (fileData.isYoutube) {
+                const YT_STATUS_LABELS = {
+                    initializing: 'Initializing…',
+                    downloading:  'Downloading audio from YouTube…',
+                    separating:   'Separating stems…',
+                    packaging:    'Packaging stems…',
+                    done:         'Done!',
+                };
+                setYtStatusMsg('Starting YouTube download…');
+
+                intervalId = setInterval(async () => {
+                    try {
+                        const r = await fetch(`http://localhost:8000/progress/${fileId}`);
+                        const data = await r.json();
+
+                        const label = YT_STATUS_LABELS[data.status] || data.status;
+                        setYtStatusMsg(`${label} (${data.progress ?? 0}%)`);
+
+                        if (data.status === 'done') {
+                            clearInterval(intervalId);
+                            clearInterval(dotIntervalId);
+                            // Fetch file list
+                            try {
+                                const filesRes = await fetch(`http://localhost:8000/files/${fileId}`);
+                                const filesData = await filesRes.json();
+                                const STEM_SUFFIXES = [
+                                    'vocals', 'drums', 'bass', 'guitar', 'piano', 'other',
+                                    'kick', 'snare', 'hihat', 'overhead', 'room', 'instrumental',
+                                ];
+                                const newStems = filesData.files
+                                    .filter(f => !f.filename.endsWith('.zip'))
+                                    .map(f => {
+                                        const stem = STEM_SUFFIXES.find(s => f.filename.includes(`_${s}.`));
+                                        return {
+                                            name: stem
+                                                ? stem.charAt(0).toUpperCase() + stem.slice(1)
+                                                : f.filename.replace(/\.[^/.]+$/, ''),
+                                            src: f.url,
+                                            color: STEM_COLORS[stem] || '#6b7280',
+                                            downloadUrl: `http://localhost:8000/download/${fileId}/${f.filename}`,
+                                        };
+                                    });
+                                setStems(newStems);
+                                setResultsModalOpen(true);
+                                setStep('results');
+                            } catch (e) {
+                                console.error('Failed to fetch stems list:', e);
+                                setStep('upload');
+                            }
+                        } else if (data.status === 'failed') {
+                            clearInterval(intervalId);
+                            clearInterval(dotIntervalId);
+                            alert(`Processing failed: ${data.error || 'Unknown error'}`);
+                            setStep('upload');
+                        }
+                    } catch (e) {
+                        console.error('YouTube progress poll error:', e);
+                    }
+                }, 2000);
+
+                return () => {
+                    clearInterval(intervalId);
+                    clearInterval(dotIntervalId);
+                };
+            }
+
+            // ── File upload: HEAD-poll for first stem file ───────────────────
             setStatusMessage('Initializing separation engine...');
 
             let dots = 0;
@@ -96,7 +173,6 @@ function App() {
             }, 1000);
 
             const expectedSuffixes = STEM_POLL_MAP[stemMode] || STEM_POLL_MAP[6];
-            const fileId = fileData.file_id;
             const nameWithoutExt = fileData.filename.replace(/\.[^/.]+$/, '');
             const safeFilename = nameWithoutExt.replace(/[^a-zA-Z0-9 \-_]/g, '').trim();
 
@@ -119,12 +195,14 @@ function App() {
                                 name: suffix.charAt(0).toUpperCase() + suffix.slice(1),
                                 src: url,
                                 color: STEM_COLORS[suffix] || '#6b7280',
+                                downloadUrl: `http://localhost:8000/download/${fileId}/${safeFilename}_${suffix}.mp3`,
                             });
                         }
                     }
 
                     if (newStems.length > 0) {
                         setStems(newStems);
+                        setResultsModalOpen(true);
                         setStep('results');
                     }
                 } catch (e) {
@@ -145,6 +223,34 @@ function App() {
         // data includes file_id, filename, url, size_bytes, and display_name (from rename input)
         setFileData(data);
         setStep('mode');
+    };
+
+    // ── YouTube submit handler ─────────────────────────────────────────────
+    const handleYoutubeSubmit = async (url, format, numStems) => {
+        const stems = numStems || stemMode;
+        setStep('processing');
+        setYtStatusMsg('Sending request…');
+        try {
+            const res = await fetch('http://localhost:8000/process_youtube/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url, format, num_stems: stems }),
+            });
+            if (!res.ok) {
+                let detail = `Server error (${res.status})`;
+                try { detail = (await res.json()).detail || detail; } catch (_) {}
+                alert(`YouTube processing failed: ${detail}`);
+                setStep('upload');
+                return;
+            }
+            const data = await res.json();
+            // Mark as YouTube so the polling effect uses the right strategy
+            setFileData({ file_id: data.file_id, filename: 'youtube', isYoutube: true, format });
+        } catch (e) {
+            console.error('YouTube submit error:', e);
+            alert('Could not reach the backend. Is the server running?');
+            setStep('upload');
+        }
     };
 
     const handleModeConfirmed = () => {
@@ -289,7 +395,7 @@ function App() {
                                 Professional AI Audio Separation &amp; Mixing Environment
                             </p>
                         </div>
-                        <Upload onUploadSuccess={handleUploadSuccess} />
+                         <Upload onUploadSuccess={handleUploadSuccess} onYoutubeSubmit={handleYoutubeSubmit} />
                     </motion.div>
                 )}
 
@@ -338,8 +444,12 @@ function App() {
                             <div className="absolute inset-0 flex items-center justify-center font-mono text-purple-400 text-xs">AI</div>
                         </div>
                         <div className="text-center space-y-2">
-                            <h3 className="text-2xl font-bold text-white">Separating Stems...</h3>
-                            <p className="text-gray-400 font-mono">{statusMessage}</p>
+                            <h3 className="text-2xl font-bold text-white">
+                                {fileData?.isYoutube ? 'Processing YouTube Track…' : 'Separating Stems...'}
+                            </h3>
+                            <p className="text-gray-400 font-mono">
+                                {fileData?.isYoutube ? ytStatusMsg : statusMessage}
+                            </p>
                             <p className="text-gray-600 text-sm">
                                 {stemMode}-stem mode on {deviceInfo?.device === 'cuda' ? `GPU (${deviceInfo.gpu_name})` : 'CPU'} —
                                 this can take several minutes
@@ -348,8 +458,8 @@ function App() {
                     </motion.div>
                 )}
 
-                {/* RESULTS */}
-                {step === 'results' && (
+                {/* RESULTS — inline view when modal is closed (file upload fallback) */}
+                {step === 'results' && !resultsModalOpen && (
                     <motion.div key="results"
                         initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
                         className="container mx-auto max-w-5xl px-4 py-8 relative"
@@ -386,6 +496,7 @@ function App() {
                                     isSoloed={soloedStem === stem.name}
                                     isMuted={mutedStems.has(stem.name)}
                                     anysoloed={soloedStem !== null}
+                                    downloadUrl={stem.downloadUrl || stem.src}
                                 />
                             ))}
                         </div>
@@ -399,6 +510,15 @@ function App() {
                                     ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="fill-current w-6 h-6"><path d="M6 4h4v16H6zm8 0h4v16h-4z" /></svg>
                                     : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="fill-current w-6 h-6 ml-1"><path d="M8 5v14l11-7z" /></svg>}
                             </button>
+                            {fileData?.file_id && (
+                                <a
+                                    href={`http://localhost:8000/download/${fileData.file_id}/stems.zip`}
+                                    className="flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-lg"
+                                    style={{ background: 'linear-gradient(135deg, #0891b2, #7c3aed)' }}
+                                >
+                                    ⬇ Download All (.zip)
+                                </a>
+                            )}
                         </div>
 
                         <div className="mt-12 text-center">
@@ -409,6 +529,26 @@ function App() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* STEMS RESULT MODAL — shown for both YouTube and file upload completion */}
+            <StemsResultModal
+                isOpen={resultsModalOpen}
+                onClose={() => {
+                    setResultsModalOpen(false);
+                    // Stay on results step so inline view is shown if modal is dismissed
+                }}
+                stems={stems}
+                fileId={fileData?.file_id}
+                title={fileData?.isYoutube ? 'YouTube Stems' : 'Your Stems'}
+                deviceInfo={deviceInfo}
+                onOpenStudio={() => { setResultsModalOpen(false); setStudioMode(true); }}
+                onSolo={handleSolo}
+                onMute={handleMute}
+                onFX={handleOpenFX}
+                soloedStem={soloedStem}
+                mutedStems={mutedStems}
+            />
+
             </div>
         </div>
     );

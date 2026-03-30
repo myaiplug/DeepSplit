@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Youtube, Download, Music, Shield, Zap, Globe, FileAudio, X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import StemsModal from '../components/StemsModal';
 
 const STEM_ORDER = ['vocals', 'instrumental', 'drums', 'bass', 'guitar', 'piano', 'kick', 'snare', 'hihat', 'overhead', 'room', 'percussion', 'other'];
 const STEM_LABELS = {
@@ -94,6 +95,7 @@ const YoutubeSplitter = () => {
   const [showResultsModal, setShowResultsModal] = useState(false);
 
   const pollRef = useRef(null);
+  const [showStemsModal, setShowStemsModal] = useState(false);
 
   const refreshFiles = useCallback((files = [], openModal = false) => {
     setProcessedFiles(files);
@@ -138,6 +140,7 @@ const YoutubeSplitter = () => {
              const filesData = await filesRes.json();
              refreshFiles(filesData.files || [], true);
              setStep('results');
+             setShowStemsModal(true); // Open the modal automatically
           } catch (e) {
              setStep('failed');
              setError('Failed to fetch processed files.');
@@ -399,20 +402,46 @@ const YoutubeSplitter = () => {
                     )}
                   </motion.div>
                 ) : step === 'results' ? (
-                  <motion.div 
+                  <motion.div
                     key="results"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="space-y-6"
+                    className="space-y-6 py-12 flex flex-col items-center text-center"
                   >
-                     <div className="flex items-center justify-between mb-8">
-                        <h3 className="text-2xl font-black uppercase text-white tracking-tight flex items-center gap-3">
-                           <Music className="text-cyan-400" />
-                           Your Stems Are Ready
+                     <div className="relative w-24 h-24 mb-4">
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", delay: 0.2 }}
+                          className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full flex items-center justify-center"
+                        >
+                          <Music className="text-white" size={40} />
+                        </motion.div>
+                     </div>
+
+                     <div className="space-y-3">
+                        <h3 className="text-3xl font-black uppercase text-white tracking-tight">
+                           Separation Complete!
                         </h3>
                         <button 
                            onClick={() => { setStep('input'); setUrl(''); setProcessedFiles([]); setStemGroups([]); setZipUrl(null); setFormat('wav'); setNumStems(6); }}
                            className="text-sm font-bold text-gray-400 hover:text-white transition-colors"
+                        <p className="text-gray-400 font-medium">
+                           {processedFiles.filter(f => !f.filename.toLowerCase().endsWith('.zip')).length} high-quality stems ready
+                        </p>
+                     </div>
+
+                     <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full max-w-md">
+                        <button
+                           onClick={() => setShowStemsModal(true)}
+                           className="flex-1 py-4 px-6 bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-500 hover:to-purple-600 text-white rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_50px_rgba(34,211,238,0.5)] transition-all duration-300 flex items-center justify-center gap-3"
+                        >
+                           <Music size={24} />
+                           View & Play Stems
+                        </button>
+                        <button
+                           onClick={() => { setStep('input'); setUrl(''); setProcessedFiles([]); setFormat('wav'); setShowStemsModal(false); }}
+                           className="py-4 px-6 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold transition-colors"
                         >
                            Process Another
                         </button>
@@ -598,6 +627,14 @@ const YoutubeSplitter = () => {
       </AnimatePresence>
 
       <Footer />
+
+      {/* Stems Modal */}
+      <StemsModal
+        isOpen={showStemsModal}
+        onClose={() => setShowStemsModal(false)}
+        files={processedFiles}
+        fileId={fileId}
+      />
     </div>
   );
 };
