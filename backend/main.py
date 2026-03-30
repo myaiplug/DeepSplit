@@ -6,6 +6,7 @@ import asyncio
 import time
 import shutil
 import uuid
+import tempfile
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional, List
@@ -120,6 +121,7 @@ ALLOWED_MIMES = {
     "application/octet-stream",
 }
 ALLOWED_EXTENSIONS = {".mp3", ".wav", ".flac", ".m4a", ".ogg", ".aiff"}
+ALLOWED_OUTPUT_FORMATS = {"mp3", "wav", "flac"}
 
 # ── In-memory state ────────────────────────────────────────────────────────
 fx_progress:         dict = {}   # task_key -> int
@@ -287,7 +289,7 @@ def get_processed_files(file_id: str):
         raise HTTPException(status_code=404, detail="Processed directory not found")
         
     files = []
-    for f in dir_path.iterdir():
+    for f in sorted(dir_path.iterdir()):
         if f.is_file():
             files.append({
                 "filename": f.name,
@@ -412,6 +414,27 @@ def _write_file(path: Path, data: bytes):
     with open(path, "wb") as f:
         f.write(data)
 
+def _package_stems_as_zip(output_dir: Path, archive_name: str = "stems.zip") -> Optional[Path]:
+    """
+    Create a zip archive of all files in output_dir without including prior archives.
+    Returns the final archive path or None if the directory is missing.
+    """
+    if not output_dir.exists():
+        return None
+    base = archive_name[:-4] if archive_name.lower().endswith(".zip") else archive_name
+    existing = output_dir / f"{base}.zip"
+    if existing.exists():
+        try:
+            existing.unlink()
+        except Exception:
+            pass
+    with tempfile.TemporaryDirectory() as tmpdir:
+        archive_base = Path(tmpdir) / base
+        archive_path = shutil.make_archive(str(archive_base), "zip", root_dir=output_dir)
+        final_path = output_dir / f"{base}.zip"
+        shutil.move(archive_path, final_path)
+        return final_path
+
 # ── Process endpoint ───────────────────────────────────────────────────────
 @app.post("/process/")
 @limiter.limit("1/minute")
@@ -431,12 +454,16 @@ async def process_audio_endpoint(request: Request, req: ProcessRequest, backgrou
 @app.post("/process_youtube/")
 @limiter.limit("1/minute")
 async def process_youtube_endpoint(request: Request, req: YoutubeSplitRequest, background_tasks: BackgroundTasks):
+    output_format = (req.format or "wav").lower()
+    if output_format not in ALLOWED_OUTPUT_FORMATS:
+        raise HTTPException(status_code=400, detail="Unsupported format. Choose mp3, wav, or flac.")
+
     file_id = str(uuid.uuid4())
     processing_progress[file_id] = {"progress": 0, "status": "initializing", "error": None}
     
     background_tasks.add_task(
         process_youtube_task,
-        file_id, req.url, req.format, req.num_stems
+        file_id, req.url, output_format, req.num_stems
     )
     return {"file_id": file_id, "status": "processing_started"}
 
@@ -529,6 +556,9 @@ async def process_audio_task(
                 num_stems=num_stems,
                 progress_callback=progress_cb,
             )
+        processing_progress[file_id]["status"] = "packaging"
+        processing_progress[file_id]["progress"] = 95
+        await asyncio.to_thread(_package_stems_as_zip, output_dir)
         processing_progress[file_id]["status"]   = "done"
         processing_progress[file_id]["progress"] = 100
     except Exception as e:
@@ -550,9 +580,13 @@ async def process_youtube_task(
 ):
     import yt_dlp
     processing_progress[file_id] = {"progress": 0, "status": "downloading", "error": None}
+    requested_format = (output_format or "wav").lower()
+    if requested_format not in ALLOWED_OUTPUT_FORMATS:
+        requested_format = "wav"
     
     # Download path template. %(autonumber)s ensures unique names for playlist items.
     download_tmpl = UPLOAD_DIR / f"{file_id}_%(autonumber)s_%(title)s"
+    download_ext = f".{requested_format}"
 
     def ydl_hook(d):
         if d['status'] == 'downloading':
@@ -573,8 +607,8 @@ async def process_youtube_task(
         'outtmpl': str(download_tmpl),
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
+            'preferredcodec': requested_format,
+            'preferredquality': '0' if requested_format in {"wav", "flac"} else '320',
         }],
         'progress_hooks': [ydl_hook],
         'quiet': True,
@@ -603,11 +637,11 @@ async def process_youtube_task(
         # Gather downloaded files (yt-dlp adds .mp3)
         actual_paths = []
         for f in UPLOAD_DIR.iterdir():
-            if f.is_file() and f.name.startswith(f"{file_id}_") and f.suffix == '.mp3':
+            if f.is_file() and f.name.startswith(f"{file_id}_") and f.suffix.lower() == download_ext:
                 actual_paths.append(f)
                 
         if not actual_paths:
-            raise RuntimeError("YouTube download failed - no mp3 files produced.")
+            raise RuntimeError("YouTube download failed - no audio files produced.")
 
         processing_progress[file_id]["status"] = "separating"
         processing_progress[file_id]["progress"] = 35
@@ -640,9 +674,12 @@ async def process_youtube_task(
                     output_dir=output_dir,
                     original_filename=stem_name,
                     num_stems=num_stems,
+                    output_format=requested_format,
                     progress_callback=progress_cb,
                 )
-        
+        processing_progress[file_id]["status"] = "packaging"
+        processing_progress[file_id]["progress"] = 95
+        await asyncio.to_thread(_package_stems_as_zip, output_dir)
         processing_progress[file_id]["status"]   = "done"
         processing_progress[file_id]["progress"] = 100
         logger.info(f"YouTube separation complete for {file_id}")

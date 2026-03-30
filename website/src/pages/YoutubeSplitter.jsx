@@ -27,6 +27,8 @@ const YoutubeSplitter = () => {
           setStatusText('Downloading from YouTube...');
         } else if (data.status === 'separating') {
           setStatusText('Surgical Stem Splitting (MDX-Net)...');
+        } else if (data.status === 'packaging') {
+          setStatusText('Packaging stems for download...');
         } else if (data.status === 'done') {
           clearInterval(interval);
           setIsProcessing(false);
@@ -57,6 +59,7 @@ const YoutubeSplitter = () => {
     const [selectedPreset, setSelectedPreset] = useState('');
     const [isApplying, setIsApplying] = useState(false);
     const [progress, setProgress] = useState(0);
+    const isArchive = file.filename?.toLowerCase().endsWith('.zip');
 
     const getStemName = (fname) => {
        const lower = fname.toLowerCase();
@@ -69,11 +72,12 @@ const YoutubeSplitter = () => {
     };
 
     useEffect(() => {
+       if (isArchive) return;
        fetch(`http://localhost:8000/presets/${getStemName(file.filename)}`)
          .then(res => res.json())
          .then(data => setPresets(data))
          .catch(err => console.error(err));
-    }, [file.filename]);
+    }, [file.filename, isArchive]);
 
     const applyFx = async () => {
       if (!selectedPreset) return;
@@ -112,10 +116,12 @@ const YoutubeSplitter = () => {
       <div className="flex flex-col md:flex-row items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl mb-3 gap-4">
          <div className="flex items-center gap-3 w-full md:w-auto overflow-hidden">
             <FileAudio size={20} className="text-cyan-400 shrink-0" />
-            <span className="text-gray-300 font-medium truncate" title={file.filename}>{file.filename}</span>
+            <span className="text-gray-300 font-medium truncate" title={file.filename}>
+              {isArchive ? 'All Stems (.zip)' : file.filename}
+            </span>
          </div>
          <div className="flex items-center gap-3 w-full md:w-auto">
-            {presets.length > 0 && !file.filename.includes('_fx') && (
+            {presets.length > 0 && !file.filename.includes('_fx') && !isArchive && (
                <div className="flex items-center gap-2">
                   <select 
                      className="bg-[#0a0f1d] border border-white/10 rounded-lg px-3 py-2 text-sm text-gray-300 outline-none focus:border-cyan-400/50"
