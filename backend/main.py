@@ -306,7 +306,12 @@ def download_stem(file_id: str, filename: str, request: Request):
     """
     # Sanitize to prevent path traversal
     safe_name = Path(filename).name
-    file_path = PROCESSED_DIR / file_id / safe_name
+    file_path = (PROCESSED_DIR / file_id / safe_name).resolve()
+    # Ensure the resolved path is still inside PROCESSED_DIR (guards against ../ in file_id)
+    try:
+        file_path.relative_to(PROCESSED_DIR.resolve())
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid file path")
     if not file_path.exists() or not file_path.is_file():
         raise HTTPException(status_code=404, detail="File not found")
     return FileResponse(
