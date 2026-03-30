@@ -1,13 +1,88 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Youtube, Download, Music, Share2, Shield, Zap, Globe, FileAudio, ArrowRight } from 'lucide-react';
+import { Youtube, Download, Music, Shield, Zap, Globe, FileAudio, X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StemsModal from '../components/StemsModal';
 
+const STEM_ORDER = ['vocals', 'instrumental', 'drums', 'bass', 'guitar', 'piano', 'kick', 'snare', 'hihat', 'overhead', 'room', 'percussion', 'other'];
+const STEM_LABELS = {
+  vocals: 'Vocals',
+  instrumental: 'Instrumental',
+  drums: 'Drums',
+  bass: 'Bass',
+  guitar: 'Guitar',
+  piano: 'Piano',
+  other: 'Other',
+  kick: 'Kick',
+  snare: 'Snare',
+  hihat: 'Hi-Hat',
+  overhead: 'Overheads',
+  room: 'Room',
+  percussion: 'Percussion',
+};
+const STEM_COLORS = {
+  vocals: 'from-pink-400 to-red-500',
+  instrumental: 'from-indigo-400 to-blue-500',
+  drums: 'from-yellow-400 to-amber-500',
+  bass: 'from-blue-400 to-cyan-500',
+  guitar: 'from-orange-400 to-amber-500',
+  piano: 'from-emerald-400 to-teal-500',
+  other: 'from-purple-400 to-indigo-500',
+  kick: 'from-red-400 to-rose-500',
+  snare: 'from-orange-400 to-amber-500',
+  hihat: 'from-emerald-400 to-lime-500',
+  overhead: 'from-cyan-400 to-blue-500',
+  room: 'from-slate-400 to-gray-500',
+  percussion: 'from-fuchsia-400 to-purple-500',
+};
+
+const parseProcessedFiles = (files = []) => {
+  const groups = {};
+  let archiveUrl = null;
+
+  files.forEach((file) => {
+    const lower = file.filename.toLowerCase();
+    if (lower.endsWith('.zip')) {
+      archiveUrl = file.url;
+      return;
+    }
+
+    const withoutExt = file.filename.replace(/\.[^/.]+$/, '');
+    const parts = withoutExt.split('_');
+    const stemKey = parts.length > 1 ? parts.pop().toLowerCase() : 'mix';
+    const trackKey = parts.join('_') || withoutExt;
+    const label = STEM_LABELS[stemKey] || stemKey.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
+    if (!groups[trackKey]) groups[trackKey] = [];
+    groups[trackKey].push({
+      stemKey,
+      label,
+      filename: file.filename,
+      url: file.url,
+    });
+  });
+
+  const orderedGroups = Object.entries(groups).map(([track, stems]) => ({
+    track,
+    displayName: track.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Track',
+    stems: stems.sort((a, b) => {
+      const aIdx = STEM_ORDER.indexOf(a.stemKey);
+      const bIdx = STEM_ORDER.indexOf(b.stemKey);
+      if (aIdx === -1 && bIdx === -1) return a.label.localeCompare(b.label);
+      if (aIdx === -1) return 1;
+      if (bIdx === -1) return -1;
+      return aIdx - bIdx;
+    }),
+  })).sort((a, b) => a.displayName.localeCompare(b.displayName));
+
+  return { groups: orderedGroups, archiveUrl };
+};
+
 const YoutubeSplitter = () => {
   const [url, setUrl] = useState('');
   const [format, setFormat] = useState('wav');
+  const [numStems, setNumStems] = useState(6);
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('');
@@ -15,30 +90,55 @@ const YoutubeSplitter = () => {
   const [fileId, setFileId] = useState(null);
   const [error, setError] = useState(null);
   const [processedFiles, setProcessedFiles] = useState([]);
+  const [stemGroups, setStemGroups] = useState([]);
+  const [zipUrl, setZipUrl] = useState(null);
+  const [showResultsModal, setShowResultsModal] = useState(false);
+
+  const pollRef = useRef(null);
   const [showStemsModal, setShowStemsModal] = useState(false);
 
-  const startPolling = (id) => {
-    const interval = setInterval(async () => {
+  const refreshFiles = useCallback((files = [], openModal = false) => {
+    setProcessedFiles(files);
+    const parsed = parseProcessedFiles(files);
+    setStemGroups(parsed.groups);
+    setZipUrl(parsed.archiveUrl);
+    if (openModal) {
+      setShowResultsModal(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+      }
+    };
+  }, []);
+
+  const startPolling = useCallback((id) => {
+    if (pollRef.current) clearInterval(pollRef.current);
+
+    pollRef.current = setInterval(async () => {
       try {
         const res = await fetch(`http://localhost:8000/progress/${id}`);
         const data = await res.json();
         
-        setProgress(data.progress);
+        setProgress(data.progress || 0);
         
         if (data.status === 'downloading') {
           setStatusText('Downloading from YouTube...');
         } else if (data.status === 'separating') {
-          setStatusText('Surgical Stem Splitting (MDX-Net)...');
+          setStatusText('Surgical Stem Splitting (MDX/Demucs)...');
         } else if (data.status === 'packaging') {
           setStatusText('Packaging stems for download...');
         } else if (data.status === 'done') {
-          clearInterval(interval);
+          clearInterval(pollRef.current);
+          pollRef.current = null;
           setIsProcessing(false);
-          // Fetch the list of files
           try {
              const filesRes = await fetch(`http://localhost:8000/files/${id}`);
              const filesData = await filesRes.json();
-             setProcessedFiles(filesData.files || []);
+             refreshFiles(filesData.files || [], true);
              setStep('results');
              setShowStemsModal(true); // Open the modal automatically
           } catch (e) {
@@ -49,15 +149,18 @@ const YoutubeSplitter = () => {
           setStep('failed');
           setError(data.error || 'Separation failed.');
           setIsProcessing(false);
-          clearInterval(interval);
+          clearInterval(pollRef.current);
+          pollRef.current = null;
+        } else if (data.status === 'initializing') {
+          setStatusText('Initializing pipeline...');
         }
       } catch (err) {
         console.error('Polling error:', err);
       }
     }, 2000);
-  };
+  }, [refreshFiles]);
 
-  const FileRow = ({ file, fileId }) => {
+  const FileRow = ({ file, fileId, onRefresh }) => {
     const [presets, setPresets] = useState([]);
     const [selectedPreset, setSelectedPreset] = useState('');
     const [isApplying, setIsApplying] = useState(false);
@@ -105,7 +208,7 @@ const YoutubeSplitter = () => {
                   // Refresh the whole files list
                   const filesRes = await fetch(`http://localhost:8000/files/${fileId}`);
                   const filesData = await filesRes.json();
-                  setProcessedFiles(filesData.files || []);
+                  onRefresh?.(filesData.files || []);
                }
             }
          }, 1000);
@@ -163,12 +266,15 @@ const YoutubeSplitter = () => {
     setError(null);
     setProgress(0);
     setStatusText('Initializing Pipeline...');
+    setStemGroups([]);
+    setZipUrl(null);
+    setShowResultsModal(false);
 
     try {
       const res = await fetch('http://localhost:8000/process_youtube/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, format, num_stems: 6 })
+        body: JSON.stringify({ url, format, num_stems: numStems })
       });
       
       if (!res.ok) throw new Error('Failed to start processing');
@@ -243,7 +349,7 @@ const YoutubeSplitter = () => {
                           <Youtube size={24} />
                         </div>
                       </div>
-                    </div>
+                  </div>
 
                     {/* Format Selector */}
                     <div className="grid grid-cols-3 gap-4">
@@ -257,6 +363,23 @@ const YoutubeSplitter = () => {
                         </button>
                       ))}
                     </div>
+                    <div className="grid grid-cols-3 gap-4">
+                      {[4, 5, 6].map((count) => (
+                        <button
+                          key={count}
+                          onClick={() => setNumStems(count)}
+                          className={`py-4 rounded-xl border font-black uppercase tracking-widest text-[10px] transition-all duration-300 ${numStems === count ? 'bg-gradient-to-r from-cyan-400/10 to-purple-500/10 border-white/20 text-white shadow-lg shadow-white/5' : 'bg-transparent border-white/5 text-gray-500 hover:border-white/10 hover:text-gray-400'}`}
+                        >
+                          {count} Stems
+                          <div className="text-[10px] font-semibold text-gray-400 mt-1">
+                            {count === 4 ? 'Demucs' : count === 5 ? 'MDX + Demucs' : 'MDX + Demucs 6s'}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                    <p className="text-xs text-gray-500 font-medium">
+                      Best results: WAV export + 6-stem hybrid (MDX vocals + Demucs instrument models).
+                    </p>
 
                     {/* Action Button */}
                     <button 
@@ -300,6 +423,9 @@ const YoutubeSplitter = () => {
                         <h3 className="text-3xl font-black uppercase text-white tracking-tight">
                            Separation Complete!
                         </h3>
+                        <button 
+                           onClick={() => { setStep('input'); setUrl(''); setProcessedFiles([]); setStemGroups([]); setZipUrl(null); setFormat('wav'); setNumStems(6); }}
+                           className="text-sm font-bold text-gray-400 hover:text-white transition-colors"
                         <p className="text-gray-400 font-medium">
                            {processedFiles.filter(f => !f.filename.toLowerCase().endsWith('.zip')).length} high-quality stems ready
                         </p>
@@ -319,6 +445,28 @@ const YoutubeSplitter = () => {
                         >
                            Process Another
                         </button>
+                     </div>
+                     <div className="flex flex-wrap items-center gap-3">
+                        <button
+                          onClick={() => setShowResultsModal(true)}
+                          className="px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-sm font-bold text-white hover:bg-white/15 transition-colors"
+                        >
+                          View stems in modal
+                        </button>
+                        {zipUrl && (
+                          <a
+                            href={zipUrl}
+                            download
+                            className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] font-black text-sm shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all"
+                          >
+                            Download All (.zip)
+                          </a>
+                        )}
+                     </div>
+                     <div className="max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                        {processedFiles.map((file, i) => (
+                           <FileRow key={i} file={file} fileId={fileId} onRefresh={refreshFiles} />
+                        ))}
                      </div>
                   </motion.div>
                 ) : (
@@ -383,6 +531,100 @@ const YoutubeSplitter = () => {
           </div>
         </div>
       </main>
+
+      <AnimatePresence>
+        {showResultsModal && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center px-4"
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.97, opacity: 0 }}
+              className="w-full max-w-5xl max-h-[80vh] overflow-hidden bg-[#0b1020] border border-white/10 rounded-2xl shadow-2xl"
+            >
+              <div className="flex items-start justify-between p-6 border-b border-white/5">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-400 mb-2">Stems ready</p>
+                  <h3 className="text-2xl font-black text-white">Preview & Download</h3>
+                  <p className="text-sm text-gray-400">Exported as {format.toUpperCase()} • {numStems}-stem chain (MDX/Demucs)</p>
+                </div>
+                <button
+                  onClick={() => setShowResultsModal(false)}
+                  className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="p-6 space-y-4 overflow-y-auto max-h-[65vh] custom-scrollbar">
+                {zipUrl && (
+                  <div className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+                    <div>
+                      <p className="text-xs uppercase text-gray-400 font-black tracking-[0.2em]">Bundle</p>
+                      <p className="text-white font-bold">All stems (.zip)</p>
+                    </div>
+                    <a
+                      href={zipUrl}
+                      download
+                      className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] font-black text-sm shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all"
+                    >
+                      Download All
+                    </a>
+                  </div>
+                )}
+
+                {stemGroups.length === 0 && (
+                  <div className="p-6 rounded-xl bg-white/5 border border-white/10 text-gray-300 text-sm">
+                    No stems detected yet. If you just finished processing, give it a few seconds.
+                  </div>
+                )}
+
+                {stemGroups.map((group, i) => (
+                  <div key={group.track + i} className="p-5 rounded-xl bg-white/5 border border-white/10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-black">Track</p>
+                        <h4 className="text-xl font-black text-white">{group.displayName}</h4>
+                      </div>
+                      <span className="text-xs font-semibold text-gray-400">{group.stems.length} stems</span>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {group.stems.map((stem, idx) => (
+                        <div key={stem.filename + idx} className="p-4 rounded-lg bg-[#0f1629] border border-white/5">
+                          <div className="flex items-center justify-between gap-3">
+                            <div className="flex items-center gap-2">
+                              <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${STEM_COLORS[stem.stemKey] || 'from-gray-500 to-slate-600'} flex items-center justify-center text-[11px] font-black uppercase text-white`}>
+                                {stem.label.slice(0, 3)}
+                              </div>
+                              <div>
+                                <p className="text-white font-semibold leading-tight">{stem.label}</p>
+                                <p className="text-[11px] text-gray-500">{stem.filename}</p>
+                              </div>
+                            </div>
+                            <a
+                              href={stem.url}
+                              download
+                              className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-300 transition-colors"
+                              title="Download stem"
+                            >
+                              <Download size={18} />
+                            </a>
+                          </div>
+                          <audio controls src={stem.url} className="w-full mt-3 h-10" preload="metadata" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
 
