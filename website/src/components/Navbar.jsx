@@ -18,6 +18,7 @@ const Navbar = () => {
       <ul className="hidden md:flex gap-8 list-none">
         <li><a href="/#how" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">How it works</a></li>
         <li><a href="/#demos" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Benchmarks</a></li>
+        <li><Link to="/blog" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Free Game</Link></li>
         <li><Link to="/blog/how-to-split-stems-from-youtube" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Free Game (Blog)</Link></li>
         <li><Link to="/youtube" className="text-sm font-black text-cyan-400 hover:text-white transition-all duration-300 uppercase tracking-widest italic drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]">YouTube Splitter (v2)</Link></li>
       </ul>

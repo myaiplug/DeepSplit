@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -20,6 +21,7 @@ const Footer = () => {
         <a href="#demos" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Modes</a>
         <a href="/blog/how-to-split-stems-from-youtube" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Blog</a>
         <a href="#features" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Features</a>
+        <Link to="/blog" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Free Game</Link>
         <a href="#download" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Download</a>
       </div>
       <p className="text-[10px] uppercase tracking-[0.3em] text-gray-600 font-black">© 2025 StemSplit. Free & open source.</p>

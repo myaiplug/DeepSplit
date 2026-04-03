@@ -58,6 +58,132 @@ body::before {
   border-radius: 10px;
 }
 
+/* ─── Blog article prose styles ─────────────────────────────────────────────── */
+.prose-deepsplit {
+  color: #d1d5db;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  max-width: 72ch;
+}
+
+.prose-deepsplit p {
+  margin-bottom: 1.5rem;
+}
+
+.prose-deepsplit p.lead {
+  font-size: 1.2rem;
+  color: #f3f4f6;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.prose-deepsplit h2 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.prose-deepsplit h3 {
+  color: #22d3ee;
+  font-size: 1.125rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.prose-deepsplit h4 {
+  color: #f3f4f6;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-deepsplit ul,
+.prose-deepsplit ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose-deepsplit ul {
+  list-style-type: disc;
+}
+
+.prose-deepsplit ol {
+  list-style-type: decimal;
+}
+
+.prose-deepsplit li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.prose-deepsplit strong {
+  color: #f3f4f6;
+  font-weight: 700;
+}
+
+.prose-deepsplit em {
+  color: #d1d5db;
+  font-style: italic;
+}
+
+.prose-deepsplit a {
+  color: #22d3ee;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.prose-deepsplit a:hover {
+  color: #67e8f9;
+}
+
+.prose-deepsplit table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.prose-deepsplit th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: #9ca3af;
+  font-weight: 900;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.prose-deepsplit td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #9ca3af;
+}
+
+.prose-deepsplit tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+.prose-deepsplit code {
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  color: #22d3ee;
+  font-size: 0.85em;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(34, 211, 238, 0.5);
 }
