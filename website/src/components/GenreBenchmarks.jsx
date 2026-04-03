@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const GENRES = [
-  { id: 'pop', name: 'Synthetic Pop', tag: 'GENRE: POP', desc: 'Crystal clear vocal isolation with zero bleed from heavy 808s.', image: '/images/genres/pop.png' },
-  { id: 'rock', name: 'Classic Rock', tag: 'GENRE: ROCK', desc: 'Separates the guitar solo without losing the snare punch.', image: '/images/genres/rock.png' },
-  { id: 'rap', name: 'Heavy Hip-Hop', tag: 'GENRE: RAP', desc: 'Extracts the melody loop perfectly from aggressive hi-hats.', image: '/images/genres/rap.png' },
+  { id: 'pop', name: 'Synthetic Pop', tag: 'GENRE: POP', desc: 'Crystal clear vocal isolation with zero bleed from heavy 808s.', image: 'https://github.com/myaiplug/DeepSplit/blob/main/website/public/images/genres/country.png?raw=true' },
+  { id: 'rock', name: 'Classic Rock', tag: 'GENRE: ROCK', desc: 'Separates the guitar solo without losing the snare punch.', image: 'https://github.com/myaiplug/DeepSplit/blob/main/website/public/images/genres/rock.png?raw=true' },
+  { id: 'rap', name: 'Heavy Hip-Hop', tag: 'GENRE: RAP', desc: 'Extracts the melody loop perfectly from aggressive hi-hats.', image: 'https://github.com/myaiplug/DeepSplit/blob/main/website/public/images/genres/pop.png?raw=true' },
 ];
 
 const GenreBenchmarks = () => {
