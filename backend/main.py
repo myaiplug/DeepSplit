@@ -184,6 +184,9 @@ class FXRequest(BaseModel):
     mix:       float = 1.0
     preview:   bool = False
 
+class YoutubeSplitApiRequest(BaseModel):
+    url: str
+
 # ── Upload validation helpers ──────────────────────────────────────────────
 def _validate_upload(filename: str, header_bytes: bytes, file_size: int) -> None:
     """Raises HTTPException on size, extension, or MIME type violation."""
@@ -475,6 +478,161 @@ async def process_audio_endpoint(request: Request, req: ProcessRequest, backgrou
     )
     return {"file_id": req.file_id, "status": "processing_started"}
 
+@app.post("/api/youtube-split")
+@limiter.limit("2/minute")
+async def youtube_split_api(request: Request, req: YoutubeSplitApiRequest):
+    """
+    Synchronous YouTube → WAV → 4-stem Demucs split.
+    Returns direct URLs for vocals, drums, bass, and other stems.
+    """
+    url = (req.url or "").strip()
+    if not url.startswith(("http://", "https://")) or "youtu" not in url.lower():
+        raise HTTPException(status_code=400, detail="Invalid YouTube URL.")
+    if not FFMPEG_AVAILABLE:
+        raise HTTPException(status_code=503, detail="FFmpeg is not available on the server.")
+
+    try:
+        import yt_dlp   # Lazy import to keep cold start fast
+    except Exception as e:
+        logger.error(f"yt-dlp import failed: {e}")
+        raise HTTPException(status_code=500, detail="YouTube downloader unavailable.")
+
+    file_id = str(uuid.uuid4())
+    processing_progress[file_id] = {"progress": 0, "status": "downloading", "error": None}
+
+    output_dir = PROCESSED_DIR / file_id
+    if output_dir.exists():
+        shutil.rmtree(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    download_base = UPLOAD_DIR / file_id
+    download_wav  = UPLOAD_DIR / f"{file_id}.wav"
+
+    ydl_opts = {
+        "format": "bestaudio/best",
+        "outtmpl": str(download_base) + ".%(ext)s",
+        "postprocessors": [{
+            "key": "FFmpegExtractAudio",
+            "preferredcodec": "wav",
+            "preferredquality": "0",
+        }],
+        "quiet": True,
+        "no_warnings": True,
+        "noplaylist": True,
+    }
+
+    try:
+        logger.info(f"[YouTubeSplit] Downloading: {url}")
+
+        def extract():
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                return ydl.extract_info(url, download=True)
+
+        info = await asyncio.to_thread(extract)
+        if not info:
+            raise HTTPException(status_code=400, detail="Failed to download audio from YouTube.")
+
+        # Handle playlist vs single video
+        if "entries" in info and info.get("entries"):
+            info = next((e for e in info["entries"] if e), info["entries"][0])
+
+        title = (info.get("title") or "YouTube Track").strip()
+        safe_title = "".join(c for c in title if c.isalnum() or c in (" ", "-", "_")).strip() or "YouTube Track"
+
+        if not download_wav.exists():
+            # yt-dlp sometimes leaves original extension; try to locate
+            candidates = list(UPLOAD_DIR.glob(f"{file_id}.*"))
+            if candidates:
+                src = candidates[0]
+                await asyncio.to_thread(shutil.move, src, download_wav)
+
+        if not download_wav.exists():
+            raise HTTPException(status_code=500, detail="YouTube download failed to produce audio.")
+
+        processing_progress[file_id]["status"] = "separating"
+        processing_progress[file_id]["progress"] = 40
+
+        def progress_cb(pct_or_dict):
+            try:
+                val = pct_or_dict.get("progress", pct_or_dict.get("percent", pct_or_dict))
+            except Exception:
+                val = pct_or_dict
+            try:
+                processing_progress[file_id]["progress"] = min(90, int(float(val)))
+            except Exception:
+                pass
+
+        async with separation_lock:
+            await gpu_separator.separate_stems(
+                download_wav,
+                output_dir=output_dir,
+                original_filename=safe_title,
+                num_stems=4,
+                output_format="wav",
+                progress_callback=progress_cb,
+            )
+
+        processing_progress[file_id]["status"] = "packaging"
+        processing_progress[file_id]["progress"] = 95
+        await asyncio.to_thread(_package_stems_as_zip, output_dir)
+
+        # Build stem URLs
+        base_url = str(request.base_url).rstrip("/")
+        def stem_url(name: str) -> str:
+            return f"{base_url}/processed/{file_id}/{name}"
+
+        stem_map = {"vocals": None, "drums": None, "bass": None, "other": None}
+        for f in output_dir.iterdir():
+            if not f.is_file():
+                continue
+            lower = f.name.lower()
+            if lower.endswith((".wav", ".mp3", ".flac")):
+                if "_vocals." in lower:
+                    stem_map["vocals"] = stem_url(f.name)
+                elif "_drums." in lower or "_drum." in lower:
+                    stem_map["drums"] = stem_url(f.name)
+                elif "_bass." in lower:
+                    stem_map["bass"] = stem_url(f.name)
+                elif "_other." in lower:
+                    stem_map["other"] = stem_url(f.name)
+
+        stems_found = {k: v for k, v in stem_map.items() if v}
+        if len(stems_found) < 4:
+            logger.error(f"[YouTubeSplit] Missing expected stems: {stem_map}")
+            raise HTTPException(status_code=500, detail="Stem separation did not produce all 4 stems.")
+
+        zip_path = output_dir / "stems.zip"
+        processing_progress[file_id]["status"] = "done"
+        processing_progress[file_id]["progress"] = 100
+
+        return {
+            "file_id": file_id,
+            "title": safe_title,
+            "stems": stem_map,
+            "zip": stem_url(zip_path.name) if zip_path.exists() else None,
+        }
+
+    except HTTPException as e:
+        processing_progress[file_id]["status"] = "failed"
+        processing_progress[file_id]["error"]  = getattr(e, "detail", str(e))
+        if output_dir.exists():
+            try: shutil.rmtree(output_dir)
+            except Exception: pass
+        raise e
+    except Exception as e:
+        logger.error(f"[YouTubeSplit] Unexpected failure: {e}", exc_info=True)
+        processing_progress[file_id]["status"] = "failed"
+        processing_progress[file_id]["error"]  = str(e)
+        if output_dir.exists():
+            try: shutil.rmtree(output_dir)
+            except Exception: pass
+        raise HTTPException(status_code=500, detail="Unexpected error during YouTube split.")
+    finally:
+        try:
+            if download_wav.exists():
+                download_wav.unlink()
+        except Exception:
+            pass
 @app.post("/process_youtube/")
 @limiter.limit("1/minute")
 async def process_youtube_endpoint(request: Request, req: YoutubeSplitRequest, background_tasks: BackgroundTasks):
