@@ -19,6 +19,7 @@ const Footer = () => {
       <div className="flex justify-center gap-8 mb-12">
         <a href="#how" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">How it works</a>
         <a href="#demos" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Modes</a>
+        <a href="/blog/how-to-split-stems-from-youtube" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Blog</a>
         <a href="#features" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Features</a>
         <Link to="/blog" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Free Game</Link>
         <a href="#download" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Download</a>

@@ -13,6 +13,7 @@ function App() {
         <Route path="/youtube" element={<YoutubeSplitter />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/blog/how-to-split-stems-from-youtube" element={<Blog />} />
       </Routes>
     </Router>
   );
