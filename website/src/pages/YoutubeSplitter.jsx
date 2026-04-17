@@ -132,7 +132,6 @@ const YoutubeSplitter = () => {
     setError(null);
     setProgress(8);
     setStatusText('Splitting stems with Demucs + MDX...');
-    setStemGroups([]);
     setZipUrl(null);
     setShowStemsModal(true);
 
