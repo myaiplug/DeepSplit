@@ -24,3 +24,6 @@ export default defineConfig({
   plugins: [react(), githubPagesSpaFallback()],
   base: command === 'build' ? '/DeepSplit/' : '/',
 }))
+  base: '/DeepSplit/',
+  plugins: [react()],
+})

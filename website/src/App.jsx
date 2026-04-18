@@ -7,8 +7,10 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 
 function App() {
+  const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
+
   return (
-    <Router>
+    <Router basename={basePath}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/youtube" element={<YoutubeSplitter />} />
