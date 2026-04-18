@@ -17,12 +17,12 @@ const Footer = () => {
       </div>
       <p className="mb-8 font-black text-xs uppercase tracking-widest text-[#f3f4f6]/40">Professional AI Audio Separation · Built with ❤️ & PyTorch</p>
       <div className="flex justify-center gap-8 mb-12">
-        <a href="#how" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">How it works</a>
-        <a href="#demos" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Modes</a>
-        <a href="/blog/how-to-split-stems-from-youtube" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Blog</a>
-        <a href="#features" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Features</a>
+        <Link to={{ pathname: '/', hash: '#how' }} className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">How it works</Link>
+        <Link to={{ pathname: '/', hash: '#demos' }} className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Modes</Link>
+        <Link to="/blog/how-to-split-stems-from-youtube" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Blog</Link>
+        <Link to={{ pathname: '/', hash: '#features' }} className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Features</Link>
         <Link to="/blog" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Free Game</Link>
-        <a href="#download" className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Download</a>
+        <Link to={{ pathname: '/', hash: '#download' }} className="font-bold text-gray-500 hover:text-cyan-400 transition-colors">Download</Link>
       </div>
       <p className="text-[10px] uppercase tracking-[0.3em] text-gray-600 font-black">© 2025 StemSplit. Free & open source.</p>
     </footer>

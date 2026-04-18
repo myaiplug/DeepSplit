@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+    <script>
+      (function () {
+        const basePath = '/DeepSplit';
+        const path = window.location.pathname.startsWith(basePath)
+          ? window.location.pathname.slice(basePath.length)
+          : window.location.pathname;
+        const search = window.location.search || '';
+        const hash = window.location.hash || '';
+        const redirect = path + search + hash;
+        const target = `${basePath}/?redirect=${encodeURIComponent(redirect)}`;
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting to the DeepSplit site…
+  </body>
+</html>

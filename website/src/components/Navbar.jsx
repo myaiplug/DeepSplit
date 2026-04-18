@@ -16,16 +16,16 @@ const Navbar = () => {
         </div>
       </Link>
       <ul className="hidden md:flex gap-8 list-none">
-        <li><a href="/#how" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">How it works</a></li>
-        <li><a href="/#demos" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Benchmarks</a></li>
+        <li><Link to={{ pathname: '/', hash: '#how' }} className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">How it works</Link></li>
+        <li><Link to={{ pathname: '/', hash: '#demos' }} className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Benchmarks</Link></li>
         <li><Link to="/blog/split-stems-from-youtube" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Blog</Link></li>
         <li><Link to="/blog" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Free Game</Link></li>
         <li><Link to="/blog/how-to-split-stems-from-youtube" className="text-sm font-bold text-gray-400 hover:text-cyan-400 transition-all duration-300">Free Game (Blog)</Link></li>
         <li><Link to="/youtube" className="text-sm font-black text-cyan-400 hover:text-white transition-all duration-300 uppercase tracking-widest italic drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]">YouTube Splitter (v2)</Link></li>
       </ul>
-      <a href="/#download" className="bg-gradient-to-br from-cyan-400 to-purple-500 text-[#0a0f1d] px-6 py-2.5 rounded-full text-sm font-black shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] transition-all duration-500">
+      <Link to={{ pathname: '/', hash: '#download' }} className="bg-gradient-to-br from-cyan-400 to-purple-500 text-[#0a0f1d] px-6 py-2.5 rounded-full text-sm font-black shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] transition-all duration-500">
         ⬇ Download Free
-      </a>
+      </Link>
     </nav>
   );
 };
