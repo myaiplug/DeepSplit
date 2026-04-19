@@ -4,31 +4,39 @@ import { Youtube, Download, Music, Shield, Zap, Globe, ExternalLink } from 'luci
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const YT_URL_REGEX = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtube\.com\/shorts\/|youtube\.com\/embed\/|youtu\.be\/)[\w-]+/i;
+const isValidVideoId = (value) => /^[\w-]{11}$/.test(value || '');
 
 const extractVideoId = (input) => {
   if (!input) return null;
   const value = input.trim();
 
-  if (/^[\w-]{11}$/.test(value)) return value;
+  if (isValidVideoId(value)) return value;
 
   try {
-    const maybeUrl = value.startsWith('http://') || value.startsWith('https://') ? value : `https://${value}`;
+    const hasScheme = value.startsWith('http://') || value.startsWith('https://');
+    if (!hasScheme && !/^((www|m|music)\.)?(youtube\.com|youtu\.be)(\/|$)/i.test(value)) {
+      return null;
+    }
+
+    const maybeUrl = hasScheme ? value : `https://${value}`;
     const parsed = new URL(maybeUrl);
     const host = parsed.hostname.replace(/^www\./, '');
 
     if (host === 'youtu.be') {
-      return parsed.pathname.split('/').filter(Boolean)[0] || null;
+      const id = parsed.pathname.split('/').filter(Boolean)[0] || null;
+      return isValidVideoId(id) ? id : null;
     }
 
-    if (host.includes('youtube.com')) {
+    if (['youtube.com', 'm.youtube.com', 'music.youtube.com'].includes(host)) {
       if (parsed.pathname === '/watch') {
-        return parsed.searchParams.get('v');
+        const id = parsed.searchParams.get('v');
+        return isValidVideoId(id) ? id : null;
       }
 
       const pathParts = parsed.pathname.split('/').filter(Boolean);
       if (['shorts', 'embed', 'live'].includes(pathParts[0])) {
-        return pathParts[1] || null;
+        const id = pathParts[1] || null;
+        return isValidVideoId(id) ? id : null;
       }
     }
   } catch {
@@ -60,13 +68,46 @@ const loadYouTubeIframeApi = () => {
     const script = document.createElement('script');
     script.src = 'https://www.youtube.com/iframe_api';
     script.async = true;
-    script.onerror = () => reject(new Error('Could not load YouTube player API.'));
+    let settled = false;
 
+    let poll;
+    let timeout;
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      if (poll) window.clearInterval(poll);
+      if (timeout) window.clearTimeout(timeout);
+      resolve(window.YT);
+    };
+    const fail = (error) => {
+      if (settled) return;
+      settled = true;
+      if (poll) window.clearInterval(poll);
+      if (timeout) window.clearTimeout(timeout);
+      reject(error);
+    };
+
+    script.onerror = () => fail(new Error('Could not load YouTube player API.'));
     const previous = window.onYouTubeIframeAPIReady;
     window.onYouTubeIframeAPIReady = () => {
       previous?.();
-      resolve(window.YT);
+      done();
     };
+
+    // Fallback for callback races: resolve as soon as the API object appears.
+    poll = window.setInterval(() => {
+      if (window.YT?.Player) {
+        done();
+      }
+    }, 50);
+
+    timeout = window.setTimeout(() => {
+      if (window.YT?.Player) {
+        done();
+      } else {
+        fail(new Error('Timed out loading YouTube player API.'));
+      }
+    }, 10000);
 
     document.head.appendChild(script);
   });
@@ -91,7 +132,7 @@ const getYouTubeDuration = async (videoId) => {
       try {
         player?.destroy();
       } catch {
-        // no-op
+        // Ignore teardown errors from partially initialized/terminated iframe players.
       }
       container.remove();
     };
@@ -163,7 +204,7 @@ const YoutubeSplitter = () => {
       return;
     }
 
-    if (!videoId || !YT_URL_REGEX.test(trimmed)) {
+    if (!videoId) {
       setStep('failed');
       setError('Please enter a valid YouTube video URL.');
       return;
@@ -199,7 +240,7 @@ const YoutubeSplitter = () => {
         url: canonicalUrl,
         title: metadata?.title || 'YouTube Video',
         author: metadata?.author_name || 'Unknown channel',
-        thumbnailUrl: metadata?.thumbnail_url || `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+        thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
         duration: formatDuration(durationSeconds),
       });
 
@@ -207,12 +248,12 @@ const YoutubeSplitter = () => {
       setStep('ready');
     } catch (err) {
       const message = err?.message || 'Could not fetch YouTube metadata.';
-      const isNetworkError = err instanceof TypeError || /failed to fetch/i.test(message);
+      const isNetworkError = err instanceof TypeError || /failed to fetch/i.test(message || '');
 
       setStep('failed');
       setError(
         isNetworkError
-          ? 'Could not reach the metadata service. This is usually caused by a blocked network request (ad blocker, firewall, or strict privacy settings). Please disable blockers for this site and try again.'
+          ? 'Could not reach the metadata service. This may be due to blocked requests, network issues, or service downtime. Try disabling browser extensions or checking your connection.'
           : `Could not fetch video info: ${message}`
       );
       setStatusText('Metadata fetch failed.');
@@ -221,9 +262,10 @@ const YoutubeSplitter = () => {
     }
   };
 
+  const baseUrl = import.meta.env.BASE_URL || '/';
   const installerHref = preview
-    ? `/?youtube=${encodeURIComponent(preview.url)}#download`
-    : '/#download';
+    ? `${baseUrl}?url=${encodeURIComponent(preview.url)}#download`
+    : `${baseUrl}#download`;
 
   const appHref = preview
     ? `deepsplit://youtube?url=${encodeURIComponent(preview.url)}`
