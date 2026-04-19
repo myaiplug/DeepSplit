@@ -1,9 +1,11 @@
 name: Deploy Website to GitHub Pages
 
 on:
-  repository_dispatch:
-    types:
-      - disabled-pages-deployment
+  push:
+    branches: ["main"]
+    paths:
+      - 'website/**'
+  workflow_dispatch:
 
 permissions:
   contents: read
