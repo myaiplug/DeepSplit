@@ -2,12 +2,12 @@
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+  # Disabled: replaced by deploy-website.yml which builds the React app
   workflow_dispatch:
+    inputs:
+      disabled:
+        description: 'This workflow is disabled'
+        required: false
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
