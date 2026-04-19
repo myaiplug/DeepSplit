@@ -50,6 +50,7 @@ class AudioSeparator:
         original_filename: str,
         num_stems: int = 6,
         output_format: str = "mp3",
+        model_type: str = "auto",
         progress_callback=None,
     ):
         """
@@ -59,29 +60,36 @@ class AudioSeparator:
           5  – MDX + Demucs 4  → vocals, drums, bass, guitar, other
           6  – MDX + Demucs 6s → vocals, drums, bass, guitar, piano, other  (default)
           7  – 6-stem + drumsep → replaces drums with kick/snare/hihat/overhead/room
+
+        model_type options:
+          "auto"     - Default smart chain (MDX + htdemucs)
+          "htdemucs" - Hybrid Transformer Demucs (best quality)
+          "mdx23c"   - Latest MDX23C model (fast)
+          "roformer" - Roformer model (experimental)
+          "demucs"   - Original Demucs v4
         """
         fmt = (output_format or "mp3").lower()
         self.separator.output_format = fmt
         self.output_extension = f".{fmt}"
         self.output_dir = output_dir
         self.separator.output_dir = str(output_dir)
-        
+
         safe = _safe_name(original_filename)
         # Assign callback globally to the Separator class so it emits natively to UI
         if progress_callback:
             self.separator.progress_callback = progress_callback
-            
-        logger.info(f"Starting separation: mode={num_stems}, file={audio_path.name}")
+
+        logger.info(f"Starting separation: mode={num_stems}, model={model_type}, file={audio_path.name}")
 
         if num_stems == 2:
-            return await self._mode_2stem(audio_path, safe)
+            return await self._mode_2stem(audio_path, safe, model_type)
         elif num_stems == 4:
-            return await self._mode_4stem(audio_path, safe)
+            return await self._mode_4stem(audio_path, safe, model_type)
         elif num_stems == 5:
-            return await self._mode_5stem(audio_path, safe)
+            return await self._mode_5stem(audio_path, safe, model_type)
         elif num_stems == 7:
             # 6-stem first, then sophisticated drumsep
-            stems = await self._mode_6stem(audio_path, safe)
+            stems = await self._mode_6stem(audio_path, safe, model_type)
             drum_stem = self.output_dir / f"{safe}_drums{self.output_extension}"
             if drum_stem.exists():
                 drum_stems = await self.separate_drums(drum_stem)
@@ -90,15 +98,65 @@ class AudioSeparator:
             return stems
         else:
             # Default: 6-stem
-            return await self._mode_6stem(audio_path, safe)
+            return await self._mode_6stem(audio_path, safe, model_type)
+
+    # ------------------------------------------------------------------
+    # Model selection helper
+    # ------------------------------------------------------------------
+
+    def _select_model(self, model_type: str, task: str = "vocals") -> str:
+        """
+        Select the appropriate model file based on type and task.
+
+        model_type: "auto", "htdemucs", "mdx23c", "roformer", "demucs"
+        task: "vocals", "4stem", "6stem"
+        """
+        if model_type == "auto":
+            # Default smart selection
+            if task == "vocals":
+                return "Kim_Vocal_2.onnx"  # MDX
+            elif task == "4stem":
+                return "htdemucs_ft.yaml"
+            elif task == "6stem":
+                return "htdemucs_6s.yaml"
+            else:
+                return "htdemucs_ft.yaml"
+
+        elif model_type == "htdemucs":
+            if task == "vocals" or task == "4stem":
+                return "htdemucs_ft.yaml"
+            else:
+                return "htdemucs_6s.yaml"
+
+        elif model_type == "mdx23c":
+            # Use MDX23C models
+            if task == "vocals":
+                return "MDX23C-8KFFT-InstVoc_HQ.ckpt"
+            else:
+                return "MDX23C-8KFFT-InstVoc_HQ.ckpt"
+
+        elif model_type == "roformer":
+            # Roformer models
+            return "model_bs_roformer_ep_317_sdr_12.9755.ckpt"
+
+        elif model_type == "demucs":
+            # Original Demucs v4
+            if task == "6stem":
+                return "htdemucs_6s.yaml"
+            else:
+                return "htdemucs.yaml"
+
+        else:
+            logger.warning(f"Unknown model_type: {model_type}, using auto")
+            return self._select_model("auto", task)
 
     # ------------------------------------------------------------------
     # Mode implementations
     # ------------------------------------------------------------------
 
-    async def _mdx_vocals(self, audio_path: Path, safe: str):
+    async def _mdx_vocals(self, audio_path: Path, safe: str, model_type: str = "auto"):
         """Run MDX vocal separation. Returns (vocal_dest_name, inst_path)."""
-        mdx_model = 'Kim_Vocal_2.onnx'
+        mdx_model = self._select_model(model_type, "vocals")
         logger.info(f"Loading MDX model: {mdx_model}")
         await asyncio.to_thread(self.separator.load_model, model_filename=mdx_model)
 
@@ -106,8 +164,8 @@ class AudioSeparator:
         mdx_output = await asyncio.to_thread(self.separator.separate, str(audio_path))
         logger.info(f"MDX output: {mdx_output}")
 
-        vocal_stem = next((f for f in mdx_output if "(vocals)" in f.lower()), None)
-        inst_stem   = next((f for f in mdx_output if "(instrumental)" in f.lower()), None)
+        vocal_stem = next((f for f in mdx_output if "(vocals)" in f.lower() or "(vocal)" in f.lower()), None)
+        inst_stem   = next((f for f in mdx_output if "(instrumental)" in f.lower() or "(instrument)" in f.lower()), None)
 
         if not vocal_stem or not inst_stem:
             raise RuntimeError(f"MDX did not produce expected stems. Got: {mdx_output}")
@@ -149,39 +207,42 @@ class AudioSeparator:
                     logger.info(f"{matched} → {dest.name}")
         return result
 
-    async def _mode_2stem(self, audio_path, safe):
+    async def _mode_2stem(self, audio_path, safe, model_type="auto"):
         """Vocals + Instrumental only."""
-        vocal_name, inst_path = await self._mdx_vocals(audio_path, safe)
+        vocal_name, inst_path = await self._mdx_vocals(audio_path, safe, model_type)
         inst_dest = self.output_dir / f"{safe}_instrumental{self.output_extension}"
         if inst_path.exists():
             _move_file(inst_path, inst_dest)
         return [vocal_name, inst_dest.name]
 
-    async def _mode_4stem(self, audio_path, safe):
+    async def _mode_4stem(self, audio_path, safe, model_type="auto"):
         """Full 4-stem Demucs directly on original (no MDX pre-step)."""
+        model = self._select_model(model_type, "4stem")
         stems = await self._demucs_on(
             audio_path, safe,
-            model='htdemucs.yaml',
+            model=model,
             stem_map={"vocals": "vocals", "drums": "drums", "bass": "bass", "other": "other"},
         )
         return stems
 
-    async def _mode_5stem(self, audio_path, safe):
+    async def _mode_5stem(self, audio_path, safe, model_type="auto"):
         """MDX vocals + Demucs 4-stem on instrumental → 5 stems."""
-        vocal_name, inst_path = await self._mdx_vocals(audio_path, safe)
+        vocal_name, inst_path = await self._mdx_vocals(audio_path, safe, model_type)
+        model = self._select_model(model_type, "4stem")
         instr_stems = await self._demucs_on(
             inst_path, safe,
-            model='htdemucs_ft.yaml',
+            model=model,
             stem_map={"drums": "drums", "bass": "bass", "guitar": "guitar", "other": "other"},
         )
         return [vocal_name] + instr_stems
 
-    async def _mode_6stem(self, audio_path, safe):
+    async def _mode_6stem(self, audio_path, safe, model_type="auto"):
         """MDX vocals + Demucs 6-stem on instrumental → 6 stems."""
-        vocal_name, inst_path = await self._mdx_vocals(audio_path, safe)
+        vocal_name, inst_path = await self._mdx_vocals(audio_path, safe, model_type)
+        model = self._select_model(model_type, "6stem")
         instr_stems = await self._demucs_on(
             inst_path, safe,
-            model='htdemucs_6s.yaml',
+            model=model,
             stem_map={
                 "drums": "drums", "bass": "bass",
                 "guitar": "guitar", "piano": "piano", "other": "other",
