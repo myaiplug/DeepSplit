@@ -20,10 +20,7 @@ function githubPagesSpaFallback() {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react(), githubPagesSpaFallback()],
   base: command === 'build' ? '/DeepSplit/' : '/',
 }))
-  base: '/DeepSplit/',
-  plugins: [react()],
-})
