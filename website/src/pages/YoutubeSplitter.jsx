@@ -16,6 +16,8 @@ const YoutubeSplitter = () => {
   const [processedFiles, setProcessedFiles] = useState([]);
   const [zipUrl, setZipUrl] = useState(null);
   const [showStemsModal, setShowStemsModal] = useState(false);
+  const [numStems, setNumStems] = useState(4);
+  const [outputFormat, setOutputFormat] = useState('wav');
 
   const refreshFiles = useCallback((files = [], openModal = false) => {
     setProcessedFiles(files);
@@ -130,45 +132,85 @@ const YoutubeSplitter = () => {
     setIsProcessing(true);
     setStep('processing');
     setError(null);
-    setProgress(8);
-    setStatusText('Splitting stems with Demucs + MDX...');
+    setProgress(0);
+    setStatusText('Initializing...');
     setZipUrl(null);
-    setShowStemsModal(true);
+    setShowStemsModal(false);
 
     try {
-      const res = await fetch('http://localhost:8000/api/youtube-split', {
+      // Start the async processing
+      const res = await fetch('http://localhost:8000/process_youtube/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url })
+        body: JSON.stringify({
+          url,
+          format: outputFormat,
+          num_stems: numStems
+        })
       });
-      
+
       if (!res.ok) {
         const detail = await res.json().catch(() => ({}));
-        throw new Error(detail.detail || 'Failed to split stems.');
+        throw new Error(detail.detail || 'Failed to start stem splitting.');
       }
-      
+
       const data = await res.json();
-      setFileId(data.file_id);
-      setProgress(92);
-      try {
-        const filesRes = await fetch(`http://localhost:8000/files/${data.file_id}`);
-        const filesData = await filesRes.json();
-        refreshFiles(filesData.files || [], true);
-        setStep('results');
-        setProgress(100);
-        setStatusText('Stems ready to play');
-      } catch (e) {
-        setStep('failed');
-        setError('Failed to fetch processed files.');
-      }
+      const processingFileId = data.file_id;
+      setFileId(processingFileId);
+
+      // Poll for progress
+      const pollInterval = setInterval(async () => {
+        try {
+          const progressRes = await fetch(`http://localhost:8000/progress/${processingFileId}`);
+          const progressData = await progressRes.json();
+
+          // Update progress and status
+          setProgress(progressData.progress || 0);
+
+          // Map status to user-friendly text
+          const statusMap = {
+            initializing: 'Initializing...',
+            downloading: 'Downloading audio from YouTube...',
+            separating: `Separating into ${numStems} stems with Demucs + MDX...`,
+            packaging: 'Packaging stems...',
+            done: 'Complete!',
+            failed: 'Processing failed'
+          };
+          setStatusText(statusMap[progressData.status] || progressData.status);
+
+          // Check if done
+          if (progressData.status === 'done') {
+            clearInterval(pollInterval);
+            setProgress(100);
+
+            // Fetch the processed files
+            const filesRes = await fetch(`http://localhost:8000/files/${processingFileId}`);
+            const filesData = await filesRes.json();
+            refreshFiles(filesData.files || [], false);
+
+            setStep('results');
+            setIsProcessing(false);
+            setShowStemsModal(true);
+          } else if (progressData.status === 'failed') {
+            clearInterval(pollInterval);
+            setStep('failed');
+            setError(progressData.error || 'Processing failed');
+            setIsProcessing(false);
+          }
+        } catch (pollErr) {
+          console.error('Polling error:', pollErr);
+        }
+      }, 1000); // Poll every second
+
+      // Cleanup interval after 10 minutes max
+      setTimeout(() => clearInterval(pollInterval), 600000);
+
     } catch (err) {
       setStep('failed');
       setError(err.message || 'YouTube split failed.');
       setIsProcessing(false);
       setProgress(0);
       setStatusText('We could not split that link. Check the URL and try again.');
-    } finally {
-      setIsProcessing(false);
     }
   };
 
@@ -236,14 +278,30 @@ const YoutubeSplitter = () => {
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="p-4 rounded-2xl border border-white/10 bg-white/5">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400 mb-1">Output Format</p>
-                        <p className="text-white font-bold text-lg">WAV (Lossless)</p>
-                        <p className="text-xs text-gray-500">We normalize and keep it 44.1kHz stereo for clean downstream mastering.</p>
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400 mb-2">Output Format</p>
+                        <select
+                          value={outputFormat}
+                          onChange={(e) => setOutputFormat(e.target.value)}
+                          className="w-full bg-[#0a0f1d] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-medium focus:outline-none focus:border-cyan-400/50 transition-all"
+                        >
+                          <option value="wav">WAV (Lossless)</option>
+                          <option value="mp3">MP3 (Compressed)</option>
+                          <option value="flac">FLAC (Lossless)</option>
+                        </select>
+                        <p className="text-xs text-gray-500 mt-2">We normalize and keep it 44.1kHz stereo for clean downstream mastering.</p>
                       </div>
                       <div className="p-4 rounded-2xl border border-white/10 bg-white/5">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400 mb-1">Stem Mode</p>
-                        <p className="text-white font-bold text-lg">4-Stem: Vocals · Drums · Bass · Other</p>
-                        <p className="text-xs text-gray-500">Demucs + MDX chain tuned for YouTube audio. Zero setup, pure split.</p>
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400 mb-2">Stem Mode</p>
+                        <select
+                          value={numStems}
+                          onChange={(e) => setNumStems(parseInt(e.target.value))}
+                          className="w-full bg-[#0a0f1d] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-medium focus:outline-none focus:border-purple-400/50 transition-all"
+                        >
+                          <option value="4">4-Stem: Vocals · Drums · Bass · Other</option>
+                          <option value="5">5-Stem: + Guitar</option>
+                          <option value="6">6-Stem: + Piano (Best Quality)</option>
+                        </select>
+                        <p className="text-xs text-gray-500 mt-2">Demucs + MDX chain tuned for YouTube audio. Zero setup, pure split.</p>
                       </div>
                     </div>
 

@@ -7,6 +7,8 @@ const STEM_META = {
   vocals: { label: 'Vocals', gradient: 'from-pink-500 to-rose-500', wave: '#fb7185' },
   drums: { label: 'Drums', gradient: 'from-orange-500 to-red-500', wave: '#fb923c' },
   bass: { label: 'Bass', gradient: 'from-blue-500 to-cyan-500', wave: '#38bdf8' },
+  guitar: { label: 'Guitar', gradient: 'from-green-500 to-emerald-500', wave: '#10b981' },
+  piano: { label: 'Piano', gradient: 'from-violet-500 to-purple-500', wave: '#8b5cf6' },
   other: { label: 'Other', gradient: 'from-purple-500 to-indigo-500', wave: '#a855f7' },
   instrumental: { label: 'Instrumental', gradient: 'from-indigo-400 to-blue-500', wave: '#60a5fa' },
 };
