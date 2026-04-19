@@ -1,0 +1,30 @@
+# Desktop App Gitignore
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build output
+dist/
+build/out/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Electron
+out/
+
+# Python
+*.pyc
+__pycache__/
+venv/
+.env
