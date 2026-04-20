@@ -291,7 +291,7 @@ def get_processed_files(file_id: str, request: Request):
     try:
         safe_file_id = str(uuid.UUID(file_id.strip()))
     except ValueError:
-        raise HTTPException(status_code=400, detail="Invalid file id")
+        raise HTTPException(status_code=400, detail="Invalid file ID")
 
     dir_path = PROCESSED_DIR / safe_file_id
     if not dir_path.exists() or not dir_path.is_dir():

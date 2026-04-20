@@ -70,7 +70,7 @@ const YoutubeSplitter = () => {
 
     if (!HAS_CONFIGURED_BACKEND) {
       setStep('failed');
-      setError('This web deployment has no YouTube backend configured. Use the desktop app download section below, or set VITE_API_BASE_URL for self-hosted API use.');
+      setError('This web deployment has no YouTube backend configured. Use the desktop app, or set VITE_API_BASE_URL for self-hosted API use.');
       setProgress(0);
       setStatusText('');
       setShowStemsModal(false);
