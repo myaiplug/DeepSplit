@@ -288,7 +288,11 @@ def get_progress(file_id: str, request: Request):
 
 @app.get("/files/{file_id}")
 def get_processed_files(file_id: str, request: Request):
-    dir_path = PROCESSED_DIR / file_id
+    safe_file_id = Path(file_id).name
+    if safe_file_id != file_id or not safe_file_id:
+        raise HTTPException(status_code=400, detail="Invalid file id")
+
+    dir_path = PROCESSED_DIR / safe_file_id
     if not dir_path.exists() or not dir_path.is_dir():
         raise HTTPException(status_code=404, detail="Processed directory not found")
 
@@ -298,7 +302,7 @@ def get_processed_files(file_id: str, request: Request):
         if f.is_file():
             files.append({
                 "filename": f.name,
-                "url": f"{base_url}/processed/{file_id}/{quote(f.name)}"
+                "url": f"{base_url}/processed/{quote(safe_file_id)}/{quote(f.name)}"
             })
     return {"files": files}
 
