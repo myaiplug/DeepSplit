@@ -5,7 +5,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StemsModal from '../components/StemsModal';
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000').replace(/\/$/, '');
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+const HAS_CONFIGURED_BACKEND = Boolean(API_BASE);
 
 const apiUrl = (path) => `${API_BASE}${path.startsWith('/') ? path : `/${path}`}`;
 
@@ -66,6 +67,15 @@ const YoutubeSplitter = () => {
 
   const handleSplit = async () => {
     if (!url.trim()) return;
+
+    if (!HAS_CONFIGURED_BACKEND) {
+      setStep('failed');
+      setError('This web deployment has no YouTube backend configured. Use the desktop app download section below, or set VITE_API_BASE_URL for self-hosted API use.');
+      setProgress(0);
+      setStatusText('');
+      setShowStemsModal(false);
+      return;
+    }
 
     setIsProcessing(true);
     setStep('processing');
@@ -254,6 +264,13 @@ const YoutubeSplitter = () => {
                       >
                         Error: {error}
                       </motion.div>
+                    )}
+
+                    {!HAS_CONFIGURED_BACKEND && (
+                      <div className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl text-yellow-300 text-xs font-semibold">
+                        Web YouTube processing is disabled here because VITE_API_BASE_URL is not set.
+                        Use the desktop app download options below.
+                      </div>
                     )}
                   </motion.div>
                 )}
