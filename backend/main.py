@@ -289,10 +289,14 @@ def get_progress(file_id: str, request: Request):
 @app.get("/files/{file_id}")
 def get_processed_files(file_id: str, request: Request):
     try:
-        uuid.UUID(file_id)
+        safe_file_id = str(uuid.UUID(file_id))
     except ValueError:
-        raise HTTPException(status_code=400, detail="Invalid file id")
-    dir_path = PROCESSED_DIR / file_id
+        raise HTTPException(status_code=400, detail="Invalid file ID format: must be a valid UUID")
+    dir_path = (PROCESSED_DIR / safe_file_id).resolve()
+    try:
+        dir_path.relative_to(PROCESSED_DIR.resolve())
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid file path")
     if not dir_path.exists() or not dir_path.is_dir():
         raise HTTPException(status_code=404, detail="Processed directory not found")
 
@@ -302,7 +306,7 @@ def get_processed_files(file_id: str, request: Request):
         if f.is_file():
             files.append({
                 "filename": f.name,
-                "url": f"{base_url}/processed/{file_id}/{quote(f.name)}"
+                "url": f"{base_url}/processed/{safe_file_id}/{quote(f.name, safe='')}"
             })
     return {"files": files}
 
@@ -438,7 +442,7 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
         "filename":   filename,
         "size_bytes": total,
         "upload_id":  upload_id,
-        "url":        f"{str(request.base_url).rstrip('/')}/uploads/{quote(f'{file_id}_{filename}')}",
+        "url":        f"{str(request.base_url).rstrip('/')}/uploads/{quote(f'{file_id}_{filename}', safe='')}",
         "status":     "uploaded",
         "scan":       "clean" if CLAMD_AVAILABLE else "skipped",
     }

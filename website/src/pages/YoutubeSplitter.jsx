@@ -216,7 +216,7 @@ const YoutubeSplitter = () => {
 
                     {!HAS_API_BASE && (
                       <div className="p-6 bg-amber-500/10 border border-amber-500/20 rounded-2xl text-amber-300 text-sm font-bold">
-                        YouTube splitting requires a configured backend. Set <code>VITE_API_BASE_URL</code> or use the desktop app download below.
+                        YouTube splitting requires a configured backend. Set <span className="font-mono text-amber-200">VITE_API_BASE_URL</span> or use the desktop app download below.
                       </div>
                     )}
 
