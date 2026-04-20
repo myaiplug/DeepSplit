@@ -288,8 +288,9 @@ def get_progress(file_id: str, request: Request):
 
 @app.get("/files/{file_id}")
 def get_processed_files(file_id: str, request: Request):
-    safe_file_id = Path(file_id).name
-    if safe_file_id != file_id or not safe_file_id:
+    try:
+        safe_file_id = str(uuid.UUID((file_id or "").strip()))
+    except ValueError:
         raise HTTPException(status_code=400, detail="Invalid file id")
 
     dir_path = PROCESSED_DIR / safe_file_id
