@@ -289,7 +289,7 @@ def get_progress(file_id: str, request: Request):
 @app.get("/files/{file_id}")
 def get_processed_files(file_id: str, request: Request):
     try:
-        safe_file_id = str(uuid.UUID((file_id or "").strip()))
+        safe_file_id = str(uuid.UUID(file_id.strip()))
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid file id")
 
@@ -303,7 +303,7 @@ def get_processed_files(file_id: str, request: Request):
         if f.is_file():
             files.append({
                 "filename": f.name,
-                "url": f"{base_url}/processed/{quote(safe_file_id)}/{quote(f.name)}"
+                "url": f"{base_url}/processed/{safe_file_id}/{quote(f.name)}"
             })
     return {"files": files}
 
