@@ -1,275 +1,154 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Youtube, Download, Music, Shield, Zap, Globe, ExternalLink } from 'lucide-react';
+import { Youtube, Download, Music, Shield, Zap, Globe } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import StemsModal from '../components/StemsModal';
 
-const isValidVideoId = (value) => /^[\w-]{11}$/.test(value || '');
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000').replace(/\/$/, '');
 
-const extractVideoId = (input) => {
-  if (!input) return null;
-  const value = input.trim();
+const apiUrl = (path) => `${API_BASE}${path.startsWith('/') ? path : `/${path}`}`;
 
-  if (isValidVideoId(value)) return value;
-
-  try {
-    const hasScheme = value.startsWith('http://') || value.startsWith('https://');
-    if (!hasScheme && !/^((www|m|music)\.)?(youtube\.com|youtu\.be)(\/|$)/i.test(value)) {
-      return null;
-    }
-
-    const maybeUrl = hasScheme ? value : `https://${value}`;
-    const parsed = new URL(maybeUrl);
-    const host = parsed.hostname.replace(/^www\./, '');
-
-    if (host === 'youtu.be') {
-      const id = parsed.pathname.split('/').filter(Boolean)[0] || null;
-      return isValidVideoId(id) ? id : null;
-    }
-
-    if (['youtube.com', 'm.youtube.com', 'music.youtube.com'].includes(host)) {
-      if (parsed.pathname === '/watch') {
-        const id = parsed.searchParams.get('v');
-        return isValidVideoId(id) ? id : null;
-      }
-
-      const pathParts = parsed.pathname.split('/').filter(Boolean);
-      if (['shorts', 'embed', 'live'].includes(pathParts[0])) {
-        const id = pathParts[1] || null;
-        return isValidVideoId(id) ? id : null;
-      }
-    }
-  } catch {
-    return null;
+const formatStatus = (status, progressValue) => {
+  const progressLabel = Number.isFinite(progressValue) ? ` (${Math.round(progressValue)}%)` : '';
+  switch (status) {
+    case 'initializing':
+      return `Initializing pipeline${progressLabel}`;
+    case 'downloading':
+      return `Downloading audio from YouTube${progressLabel}`;
+    case 'separating':
+      return `Separating stems with Demucs/MDX${progressLabel}`;
+    case 'packaging':
+      return `Packaging stems${progressLabel}`;
+    case 'done':
+    case 'completed':
+      return 'Stems ready to play';
+    case 'failed':
+      return 'Split failed';
+    default:
+      return status ? `${status}${progressLabel}` : 'Processing…';
   }
-
-  return null;
-};
-
-const formatDuration = (seconds) => {
-  if (!Number.isFinite(seconds) || seconds <= 0) return 'Unknown';
-  const total = Math.round(seconds);
-  const hrs = Math.floor(total / 3600);
-  const mins = Math.floor((total % 3600) / 60);
-  const secs = total % 60;
-
-  if (hrs > 0) {
-    return `${hrs}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-  }
-
-  return `${mins}:${String(secs).padStart(2, '0')}`;
-};
-
-const loadYouTubeIframeApi = () => {
-  if (window.YT?.Player) return Promise.resolve(window.YT);
-  if (window.__ytIframeApiPromise) return window.__ytIframeApiPromise;
-
-  window.__ytIframeApiPromise = new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = 'https://www.youtube.com/iframe_api';
-    script.async = true;
-    let settled = false;
-
-    let poll;
-    let timeout;
-    const done = () => {
-      if (settled) return;
-      settled = true;
-      if (poll) window.clearInterval(poll);
-      if (timeout) window.clearTimeout(timeout);
-      resolve(window.YT);
-    };
-    const fail = (error) => {
-      if (settled) return;
-      settled = true;
-      if (poll) window.clearInterval(poll);
-      if (timeout) window.clearTimeout(timeout);
-      reject(error);
-    };
-
-    script.onerror = () => fail(new Error('Could not load YouTube player API.'));
-    const previous = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      previous?.();
-      done();
-    };
-
-    // Fallback for callback races: resolve as soon as the API object appears.
-    poll = window.setInterval(() => {
-      if (window.YT?.Player) {
-        done();
-      }
-    }, 50);
-
-    timeout = window.setTimeout(() => {
-      if (window.YT?.Player) {
-        done();
-      } else {
-        fail(new Error('Timed out loading YouTube player API.'));
-      }
-    }, 10000);
-
-    document.head.appendChild(script);
-  });
-
-  return window.__ytIframeApiPromise;
-};
-
-const getYouTubeDuration = async (videoId) => {
-  await loadYouTubeIframeApi();
-
-  return new Promise((resolve, reject) => {
-    const container = document.createElement('div');
-    container.style.position = 'absolute';
-    container.style.left = '-9999px';
-    container.style.top = '-9999px';
-    document.body.appendChild(container);
-
-    let settled = false;
-    let player;
-
-    const cleanup = () => {
-      try {
-        player?.destroy();
-      } catch {
-        // Ignore teardown errors from partially initialized/terminated iframe players.
-      }
-      container.remove();
-    };
-
-    const done = (fn, value) => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      fn(value);
-    };
-
-    const timeout = window.setTimeout(() => {
-      done(resolve, null);
-    }, 10000);
-
-    try {
-      player = new window.YT.Player(container, {
-        width: '1',
-        height: '1',
-        videoId,
-        playerVars: {
-          autoplay: 0,
-          controls: 0,
-          playsinline: 1,
-          rel: 0,
-          origin: window.location.origin,
-        },
-        events: {
-          onReady: () => {
-            window.clearTimeout(timeout);
-            const duration = Number(player.getDuration?.());
-            done(resolve, Number.isFinite(duration) && duration > 0 ? duration : null);
-          },
-          onError: () => {
-            window.clearTimeout(timeout);
-            done(resolve, null);
-          },
-        },
-      });
-    } catch (error) {
-      window.clearTimeout(timeout);
-      done(reject, error);
-    }
-  });
 };
 
 const YoutubeSplitter = () => {
   const [url, setUrl] = useState('');
-  const [isLoadingMeta, setIsLoadingMeta] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('');
-  const [step, setStep] = useState('input'); // input, loading, ready, failed
+  const [step, setStep] = useState('input'); // input, processing, results, failed
+  const [fileId, setFileId] = useState(null);
   const [error, setError] = useState(null);
-  const [preview, setPreview] = useState(null);
+  const [processedFiles, setProcessedFiles] = useState([]);
+  const [zipUrl, setZipUrl] = useState(null);
+  const [showStemsModal, setShowStemsModal] = useState(false);
+  const [numStems, setNumStems] = useState(6);
+  const [outputFormat, setOutputFormat] = useState('wav');
 
-  const resetPreview = () => {
-    setPreview(null);
-    setError(null);
-    setStatusText('');
+  const refreshFiles = (files = [], openModal = false) => {
+    setProcessedFiles(files);
+    const archive = files.find((f) => (f.filename || '').toLowerCase().endsWith('.zip'));
+    setZipUrl(archive?.url || null);
+    if (openModal) setShowStemsModal(true);
+  };
+
+  const resetFlow = () => {
     setStep('input');
+    setUrl('');
+    setProcessedFiles([]);
+    setZipUrl(null);
+    setError(null);
+    setFileId(null);
+    setProgress(0);
+    setStatusText('');
+    setShowStemsModal(false);
+    setIsProcessing(false);
   };
 
   const handleSplit = async () => {
-    const trimmed = url.trim();
-    const videoId = extractVideoId(trimmed);
+    if (!url.trim()) return;
 
-    if (!trimmed) {
-      setStep('failed');
-      setError('Please paste a YouTube URL.');
-      return;
-    }
-
-    if (!videoId) {
-      setStep('failed');
-      setError('Please enter a valid YouTube video URL.');
-      return;
-    }
-
-    setIsLoadingMeta(true);
-    setStep('loading');
+    setIsProcessing(true);
+    setStep('processing');
     setError(null);
-    setStatusText('Fetching YouTube metadata...');
+    setProgress(3);
+    setStatusText('Queueing split job...');
+    setZipUrl(null);
+    setShowStemsModal(true);
 
     try {
-      const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
-      const metadataUrl = `https://noembed.com/embed?url=${encodeURIComponent(canonicalUrl)}`;
-
-      const metadataRes = await fetch(metadataUrl, {
-        headers: { Accept: 'application/json' },
+      const startRes = await fetch(apiUrl('/process_youtube/'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          url: url.trim(),
+          format: outputFormat,
+          num_stems: numStems,
+        }),
       });
 
-      if (!metadataRes.ok) {
-        throw new Error(`Metadata service returned ${metadataRes.status}.`);
+      if (!startRes.ok) {
+        const detail = await startRes.json().catch(() => ({}));
+        throw new Error(detail.detail || `Could not start split (${startRes.status}).`);
       }
 
-      const metadata = await metadataRes.json();
-      if (metadata?.error) {
-        throw new Error(metadata.error);
+      const startData = await startRes.json();
+      const nextFileId = startData.file_id;
+      if (!nextFileId) {
+        throw new Error('Server did not return a file id.');
       }
 
-      setStatusText('Fetching duration from YouTube player...');
-      const durationSeconds = await getYouTubeDuration(videoId).catch(() => null);
+      setFileId(nextFileId);
 
-      setPreview({
-        videoId,
-        url: canonicalUrl,
-        title: metadata?.title || 'YouTube Video',
-        author: metadata?.author_name || 'Unknown channel',
-        thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
-        duration: formatDuration(durationSeconds),
-      });
+      let finished = false;
+      for (let attempt = 0; attempt < 600; attempt += 1) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setStatusText('Preview ready. Continue to installer or open the app.');
-      setStep('ready');
+        const progressRes = await fetch(apiUrl(`/progress/${nextFileId}`));
+        if (!progressRes.ok) continue;
+
+        const progressData = await progressRes.json();
+        const pct = Number(progressData.progress);
+        const safePct = Number.isFinite(pct) ? Math.max(0, Math.min(100, pct)) : progress;
+        setProgress(safePct);
+        setStatusText(formatStatus(progressData.status, safePct));
+
+        if (progressData.error) {
+          throw new Error(progressData.error);
+        }
+
+        if (progressData.status === 'failed') {
+          throw new Error('YouTube split failed on the server.');
+        }
+
+        if (progressData.status === 'done' || progressData.status === 'completed' || safePct >= 100) {
+          finished = true;
+          break;
+        }
+      }
+
+      if (!finished) {
+        throw new Error('Split timed out while waiting for completion.');
+      }
+
+      const filesRes = await fetch(apiUrl(`/files/${nextFileId}`));
+      if (!filesRes.ok) {
+        throw new Error('Failed to fetch processed stems.');
+      }
+
+      const filesData = await filesRes.json();
+      refreshFiles(filesData.files || [], true);
+      setStep('results');
+      setProgress(100);
+      setStatusText('Stems ready to play');
     } catch (err) {
-      const message = err?.message || 'Could not fetch YouTube metadata.';
-      const isNetworkError = err instanceof TypeError || /failed to fetch/i.test(message || '');
-
       setStep('failed');
-      setError(
-        isNetworkError
-          ? 'Could not reach the metadata service. This may be due to blocked requests, network issues, or service downtime. Try disabling browser extensions or checking your connection.'
-          : `Could not fetch video info: ${message}`
-      );
-      setStatusText('Metadata fetch failed.');
+      setError(err.message || 'YouTube split failed.');
+      setProgress(0);
+      setStatusText('We could not split that link. Check the URL and try again.');
     } finally {
-      setIsLoadingMeta(false);
+      setIsProcessing(false);
     }
   };
-
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const installerHref = preview
-    ? `${baseUrl}?url=${encodeURIComponent(preview.url)}#download`
-    : `${baseUrl}#download`;
-
-  const appHref = preview
-    ? `deepsplit://youtube?url=${encodeURIComponent(preview.url)}`
-    : 'deepsplit://youtube';
 
   return (
     <div className="min-h-screen bg-[#0a0f1d] text-[#f3f4f6] selection:bg-cyan-500/30 font-sans">
@@ -286,14 +165,14 @@ const YoutubeSplitter = () => {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-              <Youtube size={14} /> YouTube to Stems Funnel
+              <Youtube size={14} /> YouTube to Stems (v2 Beta)
             </div>
             <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white">
-              Paste YouTube URL<br />
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent italic">Preview. Then Split.</span>
+              Instant YouTube<br />
+              <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent italic">Stem Separation.</span>
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto font-medium">
-              We fetch title, thumbnail, and duration first. Then you can jump directly to the StemSplit installer/app.
+              Paste a video URL. We&apos;ll download, separate 4–6 stems, and show waveforms with individual and zip downloads.
             </p>
           </motion.div>
 
@@ -303,110 +182,182 @@ const YoutubeSplitter = () => {
             transition={{ delay: 0.2 }}
             className="p-1 px-1 rounded-[2.5rem] bg-gradient-to-br from-white/10 to-white/5 border border-white/5 shadow-2xl backdrop-blur-xl mb-12"
           >
-            <div className="bg-[#0a0f1d]/80 rounded-[2.4rem] p-8 md:p-12 space-y-8">
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Paste YouTube URL (Video)..."
-                    value={url}
-                    onChange={(e) => {
-                      setUrl(e.target.value);
-                      if (step === 'failed' || step === 'ready') {
-                        resetPreview();
-                      }
-                    }}
-                    className="w-full bg-[#0a0f1d] border border-white/10 rounded-2xl px-6 py-5 text-lg font-medium focus:outline-none focus:border-cyan-400/50 transition-all text-white placeholder-gray-600"
-                  />
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 group-hover:text-cyan-400 transition-colors">
-                    <Youtube size={24} />
-                  </div>
-                </div>
-              </div>
-
-              <button
-                onClick={handleSplit}
-                disabled={!url || isLoadingMeta}
-                className="w-full py-6 bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] rounded-2xl font-black text-xl shadow-[0_0_50px_rgba(34,211,238,0.3)] hover:shadow-[0_0_80px_rgba(34,211,238,0.5)] hover:scale-[1.02] transition-all duration-500 flex items-center justify-center gap-3 disabled:opacity-30 disabled:hover:scale-100 disabled:shadow-none"
-              >
-                <Zap size={24} />
-                {isLoadingMeta ? 'Fetching Preview…' : 'Fetch Video Preview'}
-              </button>
-
-              <AnimatePresence>
-                {step === 'loading' && (
+            <div className="bg-[#0a0f1d]/80 rounded-[2.4rem] p-8 md:p-12">
+              <AnimatePresence mode="wait">
+                {(step === 'input' || step === 'failed') && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="p-4 bg-cyan-500/10 border border-cyan-500/20 rounded-2xl text-cyan-300 text-sm font-bold"
+                    key="input-form"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="space-y-8"
                   >
-                    {statusText || 'Fetching metadata...'}
+                    <div className="relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
+                      <div className="relative">
+                        <input
+                          type="text"
+                          placeholder="Paste YouTube URL (Video or Playlist)..."
+                          value={url}
+                          onChange={(e) => setUrl(e.target.value)}
+                          className="w-full bg-[#0a0f1d] border border-white/10 rounded-2xl px-6 py-5 text-lg font-medium focus:outline-none focus:border-cyan-400/50 transition-all text-white placeholder-gray-600"
+                        />
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 group-hover:text-cyan-400 transition-colors">
+                          <Youtube size={24} />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="p-4 rounded-2xl border border-white/10 bg-white/5">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400 mb-2">Output Format</p>
+                        <select
+                          value={outputFormat}
+                          onChange={(e) => setOutputFormat(e.target.value)}
+                          className="w-full bg-[#0a0f1d] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-medium focus:outline-none focus:border-cyan-400/50 transition-all"
+                        >
+                          <option value="wav">WAV (Lossless)</option>
+                          <option value="mp3">MP3 (Compressed)</option>
+                          <option value="flac">FLAC (Lossless)</option>
+                        </select>
+                        <p className="text-xs text-gray-500 mt-2">Choose the format for exported stems.</p>
+                      </div>
+                      <div className="p-4 rounded-2xl border border-white/10 bg-white/5">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-purple-400 mb-2">Stem Mode</p>
+                        <select
+                          value={numStems}
+                          onChange={(e) => setNumStems(parseInt(e.target.value, 10))}
+                          className="w-full bg-[#0a0f1d] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-medium focus:outline-none focus:border-purple-400/50 transition-all"
+                        >
+                          <option value="4">4-Stem: Vocals · Drums · Bass · Other</option>
+                          <option value="5">5-Stem: Vocals · Drums · Bass · Guitar · Other</option>
+                          <option value="6">6-Stem: Vocals · Drums · Bass · Guitar · Piano · Other</option>
+                        </select>
+                        <p className="text-xs text-gray-500 mt-2">Demucs + MDX chain tuned for YouTube audio.</p>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={handleSplit}
+                      disabled={!url || isProcessing}
+                      className="w-full py-6 bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] rounded-2xl font-black text-xl shadow-[0_0_50px_rgba(34,211,238,0.3)] hover:shadow-[0_0_80px_rgba(34,211,238,0.5)] hover:scale-[1.02] transition-all duration-500 flex items-center justify-center gap-3 disabled:opacity-30 disabled:hover:scale-100 disabled:shadow-none"
+                    >
+                      <Zap size={24} />
+                      Split to High-Res Stems
+                    </button>
+
+                    {step === 'failed' && error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="p-6 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 text-sm font-bold"
+                      >
+                        Error: {error}
+                      </motion.div>
+                    )}
+                  </motion.div>
+                )}
+
+                {step === 'results' && (
+                  <motion.div
+                    key="results"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="space-y-6 py-12 flex flex-col items-center text-center"
+                  >
+                    <div className="relative w-24 h-24 mb-4">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: 'spring', delay: 0.2 }}
+                        className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full flex items-center justify-center"
+                      >
+                        <Music className="text-white" size={40} />
+                      </motion.div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="text-3xl font-black uppercase text-white tracking-tight">Separation Complete!</h3>
+                      <p className="text-gray-400 font-medium">
+                        {processedFiles.filter((f) => !f.filename.toLowerCase().endsWith('.zip')).length} high-quality stems ready
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full max-w-md">
+                      <button
+                        onClick={() => setShowStemsModal(true)}
+                        className="flex-1 py-4 px-6 bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-500 hover:to-purple-600 text-white rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_50px_rgba(34,211,238,0.5)] transition-all duration-300 flex items-center justify-center gap-3"
+                      >
+                        <Music size={24} />
+                        View & Play Stems
+                      </button>
+                      <button
+                        onClick={resetFlow}
+                        className="py-4 px-6 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold transition-colors"
+                      >
+                        Process Another
+                      </button>
+                    </div>
+
+                    {zipUrl && (
+                      <a
+                        href={zipUrl}
+                        download
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] font-black text-sm shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all"
+                      >
+                        Download All (.zip)
+                      </a>
+                    )}
+                  </motion.div>
+                )}
+
+                {step === 'processing' && (
+                  <motion.div
+                    key="processing"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.1 }}
+                    className="py-12 flex flex-col items-center text-center space-y-8"
+                  >
+                    <div className="relative w-32 h-32">
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                        className="absolute inset-0 border-4 border-cyan-400/20 border-t-cyan-400 rounded-full"
+                      />
+                      <motion.div
+                        animate={{ rotate: -360 }}
+                        transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+                        className="absolute inset-4 border-4 border-purple-500/20 border-t-purple-500 rounded-full"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center text-white">
+                        <Zap size={32} className="animate-pulse text-cyan-400" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-2">{statusText || 'Processing...'}</h3>
+                      <p className="text-gray-500 font-medium">Total Pipeline Progress: {Math.round(progress)}%</p>
+                    </div>
+
+                    <div className="w-full max-w-md h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: '0%' }}
+                        animate={{ width: `${progress}%` }}
+                        className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 shadow-[0_0_15px_rgba(34,211,238,0.5)]"
+                      />
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-
-              {step === 'failed' && error && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-6 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 text-sm font-bold"
-                >
-                  Error: {error}
-                </motion.div>
-              )}
-
-              {step === 'ready' && preview && (
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden"
-                >
-                  <img
-                    src={preview.thumbnailUrl}
-                    alt={preview.title}
-                    className="w-full aspect-video object-cover"
-                    loading="lazy"
-                  />
-                  <div className="p-6 space-y-4">
-                    <h3 className="text-2xl font-black tracking-tight text-white">{preview.title}</h3>
-                    <div className="flex flex-wrap gap-3 text-xs font-black uppercase tracking-widest">
-                      <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
-                        Duration: {preview.duration}
-                      </span>
-                      <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">
-                        Channel: {preview.author}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <a
-                        href={installerHref}
-                        className="flex-1 py-4 px-6 bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-cyan-500 hover:to-purple-600 text-[#0a0f1d] rounded-2xl font-black text-center transition-all duration-300 flex items-center justify-center gap-2"
-                      >
-                        <Download size={20} />
-                        Continue to Installer
-                      </a>
-                      <a
-                        href={appHref}
-                        className="flex-1 py-4 px-6 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-black text-center transition-colors flex items-center justify-center gap-2"
-                      >
-                        <ExternalLink size={20} />
-                        Open StemSplit App
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
             </div>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: <Shield size={20} />, title: 'No Localhost Dependency', desc: 'Metadata preview uses public endpoints compatible with GitHub Pages.' },
-              { icon: <Zap size={20} />, title: 'Fast Preview', desc: 'Fetch title + thumbnail via noembed and duration via YouTube iframe API.' },
-              { icon: <Globe size={20} />, title: 'Installer Handoff', desc: 'Pass users directly to install/open flow after preview is confirmed.' },
+              { icon: <Shield size={20} />, title: 'Privacy First', desc: 'Process everything on your own backend and stream only the resulting stems.' },
+              { icon: <Zap size={20} />, title: 'Lossless Audio', desc: 'Separate source audio without unnecessary re-compression.' },
+              { icon: <Globe size={20} />, title: 'Playlist Support', desc: 'Use YouTube links directly from your browser.' },
             ].map((f, i) => (
               <div key={i} className="p-6 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center">
                 <div className="text-cyan-400 mb-4">{f.icon}</div>
@@ -415,10 +366,60 @@ const YoutubeSplitter = () => {
               </div>
             ))}
           </div>
+
+          <div id="download" className="mt-16 p-12 rounded-3xl bg-gradient-to-br from-cyan-500/5 to-purple-500/5 border border-white/10">
+            <div className="text-center max-w-3xl mx-auto space-y-8">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Download DeepSplit</h2>
+                <p className="text-gray-400 text-lg">Free, unlimited, offline stem separation for your desktop.</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all">
+                  <h3 className="text-2xl font-black text-white mb-3">Windows</h3>
+                  <p className="text-gray-400 text-sm mb-6">Windows 10 or later</p>
+                  <a
+                    href="https://github.com/myaiplug/DeepSplit/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] rounded-xl font-black hover:shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all"
+                  >
+                    <Download size={20} />
+                    Download .exe
+                  </a>
+                </div>
+
+                <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400/30 transition-all">
+                  <h3 className="text-2xl font-black text-white mb-3">macOS</h3>
+                  <p className="text-gray-400 text-sm mb-6">macOS 11 (Big Sur) or later</p>
+                  <a
+                    href="https://github.com/myaiplug/DeepSplit/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold border border-white/20 transition-all"
+                  >
+                    <Download size={20} />
+                    Download .dmg
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
       <Footer />
+
+      <StemsModal
+        isOpen={showStemsModal}
+        onClose={() => setShowStemsModal(false)}
+        files={processedFiles}
+        loading={isProcessing}
+        statusText={statusText || 'Splitting stems...'}
+        error={step === 'failed' ? error : null}
+        zipUrl={zipUrl}
+        title="YouTube Stems"
+      />
     </div>
   );
 };
