@@ -73,12 +73,44 @@ except Exception as _clamav_err:
 # ── Rate limiter ───────────────────────────────────────────────────────────
 limiter = Limiter(key_func=get_remote_address, default_limits=["60/minute"])
 
+
+def _torch_cuda_available() -> bool:
+    try:
+        import torch
+        return bool(torch.cuda.is_available())
+    except Exception:
+        return False
+
+
+def _find_downloaded_audio_files(file_id: str, requested_format: str) -> List[Path]:
+    supported_exts = {".mp3", ".wav", ".flac", ".m4a", ".ogg", ".opus", ".webm"}
+    preferred_ext = f".{(requested_format or 'wav').lower()}"
+
+    candidates: List[Path] = []
+    for f in UPLOAD_DIR.iterdir():
+        if not f.is_file():
+            continue
+        if not f.name.startswith(f"{file_id}_"):
+            continue
+        if f.suffix.lower() in supported_exts:
+            candidates.append(f)
+
+    if not candidates:
+        return []
+
+    preferred = [p for p in candidates if p.suffix.lower() == preferred_ext]
+    fallback = [p for p in candidates if p.suffix.lower() != preferred_ext]
+    return sorted(preferred) + sorted(fallback)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global fx_engine, gpu_separator, separation_lock, FFMPEG_AVAILABLE
     separation_lock = asyncio.Lock()
-    gpu_separator = AudioSeparator(use_gpu=True)
-    
+    use_gpu = _torch_cuda_available()
+    gpu_separator = AudioSeparator(use_gpu=use_gpu)
+    logger.info("Primary separator initialized in %s mode.", "GPU" if use_gpu else "CPU")
+
     FFMPEG_AVAILABLE = bool(shutil.which("ffmpeg"))
     if not FFMPEG_AVAILABLE:
         logger.warning("FFMPEG not found on PATH. Audio mixdown/export will fail.")
@@ -91,12 +123,11 @@ async def lifespan(app: FastAPI):
             logger.info("FX Engine initialized.")
         except Exception as e:
             logger.error(f"Failed to initialize FX Engine: {e}")
-            
+
     asyncio.create_task(cleanup_loop())
     logger.info("TTL cleanup scheduler started.")
-    
+
     yield
-    # Cleanup on shutdown could go here
     logger.info("Lifespan shutting down.")
 
 # ── App setup ─────────────────────────────────────────────────────────────
@@ -317,10 +348,8 @@ def download_stem(file_id: str, filename: str, request: Request):
     Serves a processed stem file with Content-Disposition: attachment so browsers
     trigger a save dialog instead of streaming inline.
     """
-    # Sanitize to prevent path traversal
     safe_name = Path(filename).name
     file_path = (PROCESSED_DIR / file_id / safe_name).resolve()
-    # Ensure the resolved path is still inside PROCESSED_DIR (guards against ../ in file_id)
     try:
         file_path.relative_to(PROCESSED_DIR.resolve())
     except ValueError:
@@ -331,14 +360,13 @@ def download_stem(file_id: str, filename: str, request: Request):
         path=str(file_path),
         filename=safe_name,
         media_type="application/octet-stream",
-        headers={"Content-Disposition": f'attachment; filename="{safe_name}"'},
+        headers={"Content-Disposition": f'attachment; filename=\"{safe_name}\"'},
     )
 
 @app.get("/presets/{stem_name}")
 def get_presets(stem_name: str):
     if not fx_engine:
         raise HTTPException(status_code=503, detail="FX Engine not available (missing dependencies?)")
-    # For precise stem identification, we can extract the keyword from the filename
     return fx_engine.get_presets_for_stem(stem_name)
 
 @app.get("/fx_progress/{task_key}")
@@ -350,40 +378,25 @@ def get_fx_progress(task_key: str):
 @app.get("/upload/progress/{upload_id}")
 @limiter.limit("120/minute")
 def get_upload_progress(upload_id: str, request: Request):
-    """
-    Returns server-side upload stage and completion percentage.
-    Stages: uploading | scanning | finalizing | complete | error
-    pct: 0-100 (server-side view, separate from client XHR bytes)
-    """
     info = upload_progress.get(upload_id)
     if not info:
-        # Return a neutral response instead of 404 while XHR hasn't registered yet
         return {"stage": "waiting", "pct": 0, "done": False, "error": None}
     return info
 
 # ── Upload endpoint ────────────────────────────────────────────────────────
 @app.post("/upload/")
-@limiter.limit("2/minute")   # 1 real upload per 30 seconds effectively; 2/min is cleaner
+@limiter.limit("2/minute")
 async def upload_audio(request: Request, file: UploadFile = File(...)):
-    """
-    Production upload endpoint:
-    - 50 MB streaming size cap (checked on every chunk, disk never touched if exceeded)
-    - MIME validation via libmagic
-    - ClamAV virus scan (if daemon running)
-    - Server-side progress tracking via X-Upload-ID header
-    """
     upload_id = request.headers.get("X-Upload-ID", str(uuid.uuid4()))
     filename  = file.filename or "unknown"
 
-    # Register progress entry immediately
     upload_progress[upload_id] = {"stage": "uploading", "pct": 0, "done": False, "error": None}
 
-    CHUNK = 65_536  # 64 KB
+    CHUNK = 65_536
     chunks: List[bytes] = []
     total = 0
     header_bytes: Optional[bytes] = None
 
-    # ── 1. Stream in + enforce size cap ───────────────────────────────────
     while True:
         chunk = await file.read(CHUNK)
         if not chunk:
@@ -398,7 +411,6 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
             }
             raise HTTPException(status_code=413, detail="File too large. Maximum allowed size is 50 MB.")
         chunks.append(chunk)
-        # Update server-side upload pct (capped at 70 — rest reserved for scan)
         pct = min(int((total / MAX_FILE_SIZE_BYTES) * 70), 70)
         upload_progress[upload_id]["pct"] = pct
 
@@ -406,7 +418,6 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
         upload_progress[upload_id] = {"stage": "error", "pct": 0, "done": True, "error": "Empty file."}
         raise HTTPException(status_code=400, detail="Empty file received.")
 
-    # ── 2. MIME + extension validation ────────────────────────────────────
     upload_progress[upload_id]["stage"] = "validating"
     upload_progress[upload_id]["pct"]   = 72
     try:
@@ -415,7 +426,6 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
         upload_progress[upload_id] = {"stage": "error", "pct": 72, "done": True, "error": e.detail}
         raise
 
-    # ── 3. Virus / malware scan ───────────────────────────────────────────
     upload_progress[upload_id]["stage"] = "scanning"
     upload_progress[upload_id]["pct"]   = 80
     file_bytes = b"".join(chunks)
@@ -425,7 +435,6 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
         upload_progress[upload_id] = {"stage": "error", "pct": 80, "done": True, "error": e.detail}
         raise
 
-    # ── 4. Write to disk ──────────────────────────────────────────────────
     upload_progress[upload_id]["stage"] = "finalizing"
     upload_progress[upload_id]["pct"]   = 92
 
@@ -433,7 +442,6 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
     file_path = UPLOAD_DIR / f"{file_id}_{filename}"
     await asyncio.to_thread(_write_file, file_path, file_bytes)
 
-    # ── 5. Complete ───────────────────────────────────────────────────────
     upload_progress[upload_id] = {"stage": "complete", "pct": 100, "done": True, "error": None}
     logger.info(f"Upload OK: '{filename}' ({total/(1024*1024):.2f} MB) → {file_path.name}")
 
@@ -452,10 +460,6 @@ def _write_file(path: Path, data: bytes):
         f.write(data)
 
 def _package_stems_as_zip(output_dir: Path, archive_name: str = "stems.zip") -> Optional[Path]:
-    """
-    Create a zip archive of all files in output_dir without including prior archives.
-    Returns the final archive path or None if the directory is missing.
-    """
     if not output_dir.exists():
         return None
     base = archive_name[:-4] if archive_name.lower().endswith(".zip") else archive_name
@@ -472,7 +476,6 @@ def _package_stems_as_zip(output_dir: Path, archive_name: str = "stems.zip") -> 
         shutil.move(archive_path, final_path)
         return final_path
 
-# ── Process endpoint ───────────────────────────────────────────────────────
 @app.post("/process/")
 @limiter.limit("1/minute")
 async def process_audio_endpoint(request: Request, req: ProcessRequest, background_tasks: BackgroundTasks):
@@ -491,10 +494,6 @@ async def process_audio_endpoint(request: Request, req: ProcessRequest, backgrou
 @app.post("/api/youtube-split")
 @limiter.limit("2/minute")
 async def youtube_split_api(request: Request, req: YoutubeSplitApiRequest):
-    """
-    Synchronous YouTube → WAV → 4-stem Demucs split.
-    Returns direct URLs for vocals, drums, bass, and other stems.
-    """
     url = (req.url or "").strip()
     if not url.startswith(("http://", "https://")) or "youtu" not in url.lower():
         raise HTTPException(status_code=400, detail="Invalid YouTube URL.")
@@ -502,7 +501,7 @@ async def youtube_split_api(request: Request, req: YoutubeSplitApiRequest):
         raise HTTPException(status_code=503, detail="FFmpeg is not available on the server.")
 
     try:
-        import yt_dlp   # Lazy import to keep cold start fast
+        import yt_dlp
     except Exception as e:
         logger.error(f"yt-dlp import failed: {e}")
         raise HTTPException(status_code=500, detail="YouTube downloader unavailable.")
@@ -542,7 +541,6 @@ async def youtube_split_api(request: Request, req: YoutubeSplitApiRequest):
         if not info:
             raise HTTPException(status_code=400, detail="Failed to download audio from YouTube.")
 
-        # Handle playlist vs single video
         if "entries" in info and info.get("entries"):
             info = next((e for e in info["entries"] if e), info["entries"][0])
 
@@ -550,7 +548,6 @@ async def youtube_split_api(request: Request, req: YoutubeSplitApiRequest):
         safe_title = "".join(c for c in title if c.isalnum() or c in (" ", "-", "_")).strip() or "YouTube Track"
 
         if not download_wav.exists():
-            # yt-dlp sometimes leaves original extension; try to locate
             candidates = list(UPLOAD_DIR.glob(f"{file_id}.*"))
             if candidates:
                 src = candidates[0]
@@ -586,7 +583,6 @@ async def youtube_split_api(request: Request, req: YoutubeSplitApiRequest):
         processing_progress[file_id]["progress"] = 95
         await asyncio.to_thread(_package_stems_as_zip, output_dir)
 
-        # Build stem URLs
         base_url = str(request.base_url).rstrip("/")
         def stem_url(name: str) -> str:
             return f"{base_url}/processed/{file_id}/{name}"
@@ -643,6 +639,7 @@ async def youtube_split_api(request: Request, req: YoutubeSplitApiRequest):
                 download_wav.unlink()
         except Exception:
             pass
+
 @app.post("/process_youtube/")
 @limiter.limit("1/minute")
 async def process_youtube_endpoint(request: Request, req: YoutubeSplitRequest, background_tasks: BackgroundTasks):
@@ -652,7 +649,7 @@ async def process_youtube_endpoint(request: Request, req: YoutubeSplitRequest, b
 
     file_id = str(uuid.uuid4())
     processing_progress[file_id] = {"progress": 0, "status": "initializing", "error": None}
-    
+
     background_tasks.add_task(
         process_youtube_task,
         file_id, req.url, output_format, req.num_stems
@@ -664,7 +661,7 @@ async def process_youtube_endpoint(request: Request, req: YoutubeSplitRequest, b
 async def process_fx_endpoint(request: Request, req: FXRequest, background_tasks: BackgroundTasks):
     if not fx_engine:
         raise HTTPException(status_code=503, detail="FX Engine not available")
-    
+
     task_key = f"{req.file_id}_{req.filename}_{'preview' if req.preview else 'full'}"
     background_tasks.add_task(process_fx_task, task_key, req)
     return {"task_key": task_key, "status": "fx_processing_started"}
@@ -674,35 +671,32 @@ async def process_fx_task(task_key: str, req: FXRequest):
     try:
         output_dir = PROCESSED_DIR / req.file_id
         input_path = output_dir / req.filename
-        
+
         if not input_path.exists():
             logger.error(f"Cannot find target file '{req.filename}' for file {req.file_id}")
             fx_progress[task_key] = -1
             return
-            
+
         if req.preview:
             output_name = input_path.stem + "_preview.mp3"
         else:
             output_name = input_path.stem + "_fx.mp3"
-            
+
         output_path = output_dir / output_name
 
         def cb(p):
             fx_progress[task_key] = p
-            
+
         await asyncio.to_thread(
             fx_engine.process_fx,
             str(input_path), str(output_path), req.preset_id, req.passes, req.mix, req.preview, cb
         )
         fx_progress[task_key] = 100
-        
-        # If it's a full apply, overwrite the original stem file or update a state.
-        # usually we just let frontend play the new _fx file. 
+
         if not req.preview:
-            # Optionally overwrite original to make it persistent:
             import shutil
             shutil.copy2(output_path, input_path)
-            
+
     except Exception as e:
         logger.error(f"FX processing failed: {e}", exc_info=True)
         fx_progress[task_key] = -1
@@ -727,9 +721,6 @@ async def process_audio_task(
     if output_dir.exists():
         shutil.rmtree(output_dir)
     output_dir.mkdir(exist_ok=True)
-
-    # AudioSeparator caching prevents large re-allocations on GPU. 
-    # Use global separation lock to prevent out-of-memory concurrency errors.
 
     def progress_cb(pct_or_dict):
         if hasattr(pct_or_dict, "get"):
@@ -757,7 +748,6 @@ async def process_audio_task(
         logger.error(f"Processing failed for {file_id}: {e}", exc_info=True)
         processing_progress[file_id]["status"] = "failed"
         processing_progress[file_id]["error"]  = str(e)
-        # Clean up partial output
         if output_dir.exists():
             try:
                 shutil.rmtree(output_dir)
@@ -775,18 +765,14 @@ async def process_youtube_task(
     requested_format = (output_format or "wav").lower()
     if requested_format not in ALLOWED_OUTPUT_FORMATS:
         requested_format = "wav"
-    
-    # Download path template. %(autonumber)s ensures unique names for playlist items.
+
     download_tmpl = UPLOAD_DIR / f"{file_id}_%(autonumber)s_%(title)s"
-    download_ext = f".{requested_format}"
 
     def ydl_hook(d):
         if d['status'] == 'downloading':
             p = d.get('_percent_str', '0%').replace('%','')
             try:
-                # Map 0-100 download to 0-30 of total progress
                 current_p = int(float(p) * 0.3)
-                # Take max in case of multiple files downloading to avoid backwards progress
                 if current_p > processing_progress[file_id].get("progress", 0):
                     processing_progress[file_id]["progress"] = current_p
             except Exception:
@@ -805,50 +791,43 @@ async def process_youtube_task(
         'progress_hooks': [ydl_hook],
         'quiet': True,
         'no_warnings': True,
-        'ignoreerrors': True, # continue on playlist error
+        'ignoreerrors': True,
     }
 
     try:
         logger.info(f"Downloading YouTube audio (or playlist): {url}")
-        
+
         def extract_and_download():
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 return ydl.extract_info(url, download=True)
-                
+
         info = await asyncio.to_thread(extract_and_download)
         if not info:
             raise RuntimeError("YouTube download failed - no info returned.")
 
-        # `info` could be a single video or a playlist
         entries = info.get('entries') if 'entries' in info else [info]
         entries = [e for e in entries if e is not None]
-        
+
         if not entries:
             raise RuntimeError("YouTube download failed - no valid entries found.")
 
-        # Gather downloaded files (yt-dlp adds .mp3)
-        actual_paths = []
-        for f in UPLOAD_DIR.iterdir():
-            if f.is_file() and f.name.startswith(f"{file_id}_") and f.suffix.lower() == download_ext:
-                actual_paths.append(f)
-                
+        actual_paths = _find_downloaded_audio_files(file_id, requested_format)
         if not actual_paths:
-            raise RuntimeError("YouTube download failed - no audio files produced.")
+            raise RuntimeError(f"YouTube download failed - no audio files produced for requested format '{requested_format}'.")
 
         processing_progress[file_id]["status"] = "separating"
         processing_progress[file_id]["progress"] = 35
 
         output_dir = PROCESSED_DIR / file_id
         output_dir.mkdir(exist_ok=True)
-        
+
         total_files = len(actual_paths)
         for idx, actual_path in enumerate(actual_paths):
             logger.info(f"Separating file {idx + 1}/{total_files}: {actual_path.name}")
-            
-            # Map 0-100 separation of *this file* into its subset of the remaining 65% progress
+
             base_pct = 35 + int(65 * (idx / total_files))
             file_pct_span = 65 / total_files
-            
+
             def progress_cb(pct_or_dict):
                 if hasattr(pct_or_dict, "get"):
                     val = pct_or_dict.get("progress", pct_or_dict.get("percent", 0))
@@ -857,9 +836,8 @@ async def process_youtube_task(
                 total_pct = base_pct + int(float(val) * file_pct_span / 100)
                 processing_progress[file_id]["progress"] = min(total_pct, 100)
 
-            # Extract basic name from actual_path
             stem_name = actual_path.stem.replace(f"{file_id}_", "")
-            
+
             async with separation_lock:
                 await gpu_separator.separate_stems(
                     actual_path,
