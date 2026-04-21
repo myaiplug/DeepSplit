@@ -16,7 +16,7 @@ const resourcesPath = isDev
 
 const backendPath = path.join(resourcesPath, 'backend');
 const frontendPath = isDev
-  ? path.join(resourcesPath, 'website', 'dist')
+  ? path.join(resourcesPath, 'frontend', 'dist')
   : path.join(resourcesPath, 'frontend');
 
 // Python executable path
@@ -83,15 +83,18 @@ function createWindow() {
   });
 
   // Wait for backend to start before loading frontend
+  // Backend startup includes Python initialization, model loading, etc.
+  // which can take 10-15 seconds on first run
   setTimeout(() => {
     if (isDev) {
-      // In development, load from Vite dev server if available
-      mainWindow.loadURL('http://localhost:8000');
+      // In development, load frontend from Vite dev server
+      // Note: Frontend dev server typically runs on port 5173, not 8000
+      mainWindow.loadFile(path.join(frontendPath, 'index.html'));
     } else {
       // In production, load from local files
       mainWindow.loadFile(path.join(frontendPath, 'index.html'));
     }
-  }, 2000);
+  }, 10000);
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();

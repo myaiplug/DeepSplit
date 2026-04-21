@@ -43,7 +43,7 @@
         "filter": ["**/*", "!venv/**/*", "!__pycache__/**/*", "!*.pyc"]
       },
       {
-        "from": "../website/dist",
+        "from": "../frontend/dist",
         "to": "frontend",
         "filter": ["**/*"]
       }
