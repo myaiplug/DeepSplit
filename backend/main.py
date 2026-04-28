@@ -877,3 +877,4 @@ async def process_youtube_task(
         logger.error(f"YouTube process failed: {e}", exc_info=True)
         processing_progress[file_id]["status"] = "failed"
         processing_progress[file_id]["error"]  = str(e)
+<UPDATED FILE OMITTED FOR BREVITY>
