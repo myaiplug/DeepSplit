@@ -1368,3 +1368,92 @@ RuntimeError: MDX did not produce expected stems. Got: []
 2026-03-26 11:04:49,309 - main - INFO - TTL cleanup removed 4 item(s).
 2026-03-26 12:04:49,494 - main - INFO - TTL cleanup removed 4 item(s).
 2026-03-26 13:04:49,545 - main - INFO - TTL cleanup removed 2 item(s).
+2026-05-23 19:14:42,187 INFO httpx: HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-05-23 19:14:42,189 INFO httpx: HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-05-23 19:14:42,208 INFO deepsplit: Uploaded test.wav → /home/runner/work/DeepSplit/DeepSplit/backend/temp/uploads/128f6e9b-b948-4d72-ae16-43a60704a526/test.wav (88244 bytes)
+2026-05-23 19:14:42,209 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 200 OK"
+2026-05-23 19:14:42,211 INFO httpx: HTTP Request: GET http://testserver/progress/nonexistent-id "HTTP/1.1 404 Not Found"
+2026-05-23 19:14:42,212 INFO httpx: HTTP Request: GET http://testserver/progress/128f6e9b-b948-4d72-ae16-43a60704a526 "HTTP/1.1 200 OK"
+2026-05-23 19:14:42,213 INFO httpx: HTTP Request: GET http://testserver/files/128f6e9b-b948-4d72-ae16-43a60704a526 "HTTP/1.1 200 OK"
+2026-05-23 19:14:42,215 INFO httpx: HTTP Request: POST http://testserver/process_youtube/ "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:15:29,238 INFO httpx: HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-05-23 19:15:29,257 INFO deepsplit: Uploaded test.wav → /home/runner/work/DeepSplit/DeepSplit/backend/temp/uploads/998aabde-d765-4109-9995-d9342ad99a1d/test.wav (88244 bytes)
+2026-05-23 19:15:29,258 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 200 OK"
+2026-05-23 19:15:29,260 INFO httpx: HTTP Request: GET http://testserver/progress/998aabde-d765-4109-9995-d9342ad99a1d "HTTP/1.1 200 OK"
+2026-05-23 19:15:29,262 INFO httpx: HTTP Request: GET http://testserver/files/998aabde-d765-4109-9995-d9342ad99a1d "HTTP/1.1 200 OK"
+2026-05-23 19:15:29,263 INFO httpx: HTTP Request: POST http://testserver/process_youtube/ "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:15:29,265 ERROR deepsplit: YouTube pipeline failed for 3ed009a6-83a1-4782-b0e3-f3b60ce220c3
+Traceback (most recent call last):
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 262, in _youtube_pipeline
+    ffmpeg_bin = _find_ffmpeg()
+                 ^^^^^^^^^^^^^^
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 199, in _find_ffmpeg
+    raise RuntimeError("ffmpeg not found. Install it or bundle it next to the executable.")
+RuntimeError: ffmpeg not found. Install it or bundle it next to the executable.
+2026-05-23 19:15:29,266 INFO httpx: HTTP Request: POST http://testserver/process_youtube/ "HTTP/1.1 200 OK"
+2026-05-23 19:15:29,267 INFO httpx: HTTP Request: GET http://testserver/progress/3ed009a6-83a1-4782-b0e3-f3b60ce220c3 "HTTP/1.1 200 OK"
+2026-05-23 19:15:29,269 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 415 Unsupported Media Type"
+2026-05-23 19:15:29,472 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 413 Request Entity Too Large"
+2026-05-23 19:15:29,474 INFO httpx: HTTP Request: POST http://testserver/process/ "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:15:29,476 INFO httpx: HTTP Request: POST http://testserver/process/ "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:15:29,482 INFO httpx: HTTP Request: GET http://testserver/presets/vocals "HTTP/1.1 200 OK"
+2026-05-23 19:17:48,885 INFO httpx: HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-05-23 19:17:48,904 INFO deepsplit: Uploaded test.wav → /home/runner/work/DeepSplit/DeepSplit/backend/temp/uploads/7f391b43-18e8-4b5a-a491-63b7139ffce9/test.wav (88244 bytes)
+2026-05-23 19:17:48,905 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 200 OK"
+2026-05-23 19:17:48,906 INFO httpx: HTTP Request: GET http://testserver/etc/passwd "HTTP/1.1 404 Not Found"
+2026-05-23 19:18:05,824 INFO httpx: HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-05-23 19:18:05,843 INFO deepsplit: Uploaded test.wav → /home/runner/work/DeepSplit/DeepSplit/backend/temp/uploads/7c5e0566-f3ac-4434-b19c-e8a6cd8e502a/test.wav (88244 bytes)
+2026-05-23 19:18:05,844 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 200 OK"
+2026-05-23 19:18:05,846 INFO httpx: HTTP Request: GET http://testserver/progress/not-a-valid-uuid "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:18:05,847 INFO httpx: HTTP Request: GET http://testserver/files/not-a-valid-uuid "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:18:05,849 INFO httpx: HTTP Request: GET http://testserver/processed/7c5e0566-f3ac-4434-b19c-e8a6cd8e502a/..%2F..%2F..%2Fetc%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-05-23 19:18:05,850 INFO httpx: HTTP Request: GET http://testserver/processed/7c5e0566-f3ac-4434-b19c-e8a6cd8e502a/file;shell.mp3 "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:18:05,851 INFO httpx: HTTP Request: GET http://testserver/progress/7c5e0566-f3ac-4434-b19c-e8a6cd8e502a "HTTP/1.1 200 OK"
+2026-05-23 19:18:05,853 ERROR deepsplit: YouTube pipeline failed for 2bed7294-a0d8-4c62-be00-bde482b1364d
+Traceback (most recent call last):
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 282, in _youtube_pipeline
+    ffmpeg_bin = _find_ffmpeg()
+                 ^^^^^^^^^^^^^^
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 219, in _find_ffmpeg
+    raise RuntimeError("ffmpeg not found. Install it or bundle it next to the executable.")
+RuntimeError: ffmpeg not found. Install it or bundle it next to the executable.
+2026-05-23 19:18:05,854 INFO httpx: HTTP Request: POST http://testserver/process_youtube/ "HTTP/1.1 200 OK"
+2026-05-23 19:18:05,857 INFO httpx: HTTP Request: GET http://testserver/presets/vocals "HTTP/1.1 200 OK"
+2026-05-23 19:20:24,154 INFO httpx: HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-05-23 19:20:24,173 INFO deepsplit: Uploaded test.wav → /home/runner/work/DeepSplit/DeepSplit/backend/temp/uploads/feda60b9-fd8f-4f3c-b367-2039a23d6894/test.wav (88244 bytes)
+2026-05-23 19:20:24,175 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 200 OK"
+2026-05-23 19:20:24,176 INFO httpx: HTTP Request: GET http://testserver/progress/not-a-valid-uuid "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:20:24,178 INFO httpx: HTTP Request: GET http://testserver/files/not-a-valid-uuid "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:20:24,179 INFO httpx: HTTP Request: GET http://testserver/processed/feda60b9-fd8f-4f3c-b367-2039a23d6894/..%2Fetc%2Fpasswd "HTTP/1.1 404 Not Found"
+2026-05-23 19:20:24,180 INFO httpx: HTTP Request: GET http://testserver/processed/feda60b9-fd8f-4f3c-b367-2039a23d6894/file;shell.mp3 "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:20:24,182 INFO httpx: HTTP Request: GET http://testserver/progress/feda60b9-fd8f-4f3c-b367-2039a23d6894 "HTTP/1.1 200 OK"
+2026-05-23 19:20:24,184 INFO httpx: HTTP Request: GET http://testserver/files/feda60b9-fd8f-4f3c-b367-2039a23d6894 "HTTP/1.1 200 OK"
+2026-05-23 19:20:24,186 INFO httpx: HTTP Request: POST http://testserver/process_youtube/ "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:20:24,187 ERROR deepsplit: YouTube pipeline failed for 15f13453-3fd2-429f-92dd-b0e4e44c0e64
+Traceback (most recent call last):
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 290, in _youtube_pipeline
+    ffmpeg_bin = _find_ffmpeg()
+                 ^^^^^^^^^^^^^^
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 227, in _find_ffmpeg
+    raise RuntimeError("ffmpeg not found. Install it or bundle it next to the executable.")
+RuntimeError: ffmpeg not found. Install it or bundle it next to the executable.
+2026-05-23 19:20:24,188 INFO httpx: HTTP Request: POST http://testserver/process_youtube/ "HTTP/1.1 200 OK"
+2026-05-23 19:20:24,190 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 415 Unsupported Media Type"
+2026-05-23 19:20:24,402 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 413 Request Entity Too Large"
+2026-05-23 19:20:24,404 INFO httpx: HTTP Request: POST http://testserver/process/ "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:20:24,405 INFO httpx: HTTP Request: POST http://testserver/process/ "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:20:24,409 INFO httpx: HTTP Request: GET http://testserver/presets/vocals "HTTP/1.1 200 OK"
+2026-05-23 19:21:40,495 INFO deepsplit: Uploaded test.wav → /home/runner/work/DeepSplit/DeepSplit/backend/temp/uploads/4b8a3c73-a03e-46ea-8b6e-96ed98b08717/test.wav (88244 bytes)
+2026-05-23 19:21:40,496 INFO httpx: HTTP Request: POST http://testserver/upload/ "HTTP/1.1 200 OK"
+2026-05-23 19:21:40,498 INFO httpx: HTTP Request: GET http://testserver/progress/4b8a3c73-a03e-46ea-8b6e-96ed98b08717 "HTTP/1.1 200 OK"
+2026-05-23 19:21:40,499 INFO httpx: HTTP Request: GET http://testserver/files/4b8a3c73-a03e-46ea-8b6e-96ed98b08717 "HTTP/1.1 200 OK"
+2026-05-23 19:21:40,501 INFO httpx: HTTP Request: GET http://testserver/progress/not-uuid "HTTP/1.1 422 Unprocessable Entity"
+2026-05-23 19:21:40,502 ERROR deepsplit: YouTube pipeline failed for 19783596-1146-4b58-99b9-996ba07911e3
+Traceback (most recent call last):
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 290, in _youtube_pipeline
+    ffmpeg_bin = _find_ffmpeg()
+                 ^^^^^^^^^^^^^^
+  File "/home/runner/work/DeepSplit/DeepSplit/backend/main.py", line 227, in _find_ffmpeg
+    raise RuntimeError("ffmpeg not found. Install it or bundle it next to the executable.")
+RuntimeError: ffmpeg not found. Install it or bundle it next to the executable.
+2026-05-23 19:21:40,503 INFO httpx: HTTP Request: POST http://testserver/process_youtube/ "HTTP/1.1 200 OK"

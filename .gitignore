@@ -198,3 +198,7 @@ python_embed.zip
 *.flac
 *.mp3
 *.flac
+
+# Runtime temp/job dirs
+backend/temp/
+
