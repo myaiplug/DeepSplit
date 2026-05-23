@@ -8,6 +8,7 @@ import uuid
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
+import tempfile
 from typing import Any, Dict, List, Optional, Tuple
 
 from fastapi import BackgroundTasks, FastAPI, File, HTTPException, Request, UploadFile
@@ -15,15 +16,35 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from fx_engine import FXEngine
-from separator import AudioSeparator
-
 logger = logging.getLogger("deepsplit")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 
 BACKEND_DIR = Path(__file__).resolve().parent
-JOBS_DIR = (BACKEND_DIR / "temp" / "jobs").resolve()
+
+
+def _init_jobs_dir() -> Path:
+    override = os.getenv("DEEPSPLIT_JOBS_DIR", "").strip()
+    if override:
+        p = Path(override).expanduser().resolve()
+        p.mkdir(parents=True, exist_ok=True)
+        return p
+
+    primary = (BACKEND_DIR / "temp" / "jobs").resolve()
+    try:
+        primary.mkdir(parents=True, exist_ok=True)
+        # Ensure we can write (packaged apps may run from read-only locations).
+        test = primary / ".write_test"
+        test.write_text("ok", encoding="utf-8")
+        test.unlink(missing_ok=True)
+        return primary
+    except Exception:
+        fallback = (Path(tempfile.gettempdir()) / "deepsplit" / "temp" / "jobs").resolve()
+        fallback.mkdir(parents=True, exist_ok=True)
+        return fallback
+
+
+JOBS_DIR = _init_jobs_dir()
 MAX_UPLOAD_BYTES = 50 * 1024 * 1024
 
 ALLOWED_EXTS = {".wav", ".mp3", ".flac", ".aiff", ".aif", ".m4a", ".webm", ".mp4", ".ogg"}
@@ -189,6 +210,8 @@ def _trim_audio_ffmpeg(input_path: Path, output_path: Path, start_ms: int, end_m
 
 def _yt_dlp_error_to_message(stderr: str) -> str:
     msg = (stderr or "").lower()
+    if "no address associated with hostname" in msg or "temporary failure in name resolution" in msg or "name or service not known" in msg:
+        return "Network error while contacting YouTube."
     if "video is unavailable" in msg or "this video is not available" in msg:
         return "This YouTube video is unavailable."
     if "private video" in msg or "this is a private video" in msg:
@@ -396,10 +419,11 @@ async def upload(request: Request, file: UploadFile = File(...)):
             pass
 
     _set_upload_progress(upload_id, "complete", 100, done=True)
+    base = str(request.base_url).rstrip("/")
     return {
         "file_id": file_id,
         "filename": filename,
-        "url": f"http://localhost:8000/uploads/{file_id}_{filename}",
+        "url": f"{base}/uploads/{file_id}_{filename}",
         "size_bytes": written,
     }
 
@@ -436,8 +460,9 @@ async def download_file(file_id: str, filename: str):
 
 
 @app.get("/files/{file_id}")
-async def list_files(file_id: str):
+async def list_files(request: Request, file_id: str):
     paths = _job_paths(_safe_job_id(file_id))
+    base = str(request.base_url).rstrip("/")
     files: List[Dict[str, Any]] = []
     for p in sorted(paths.output_dir.glob("*")):
         if not p.is_file():
@@ -445,7 +470,7 @@ async def list_files(file_id: str):
         files.append(
             {
                 "filename": p.name,
-                "url": f"http://localhost:8000/processed/{file_id}/{p.name}",
+                "url": f"{base}/processed/{file_id}/{p.name}",
                 "size_bytes": p.stat().st_size,
             }
         )
@@ -453,7 +478,7 @@ async def list_files(file_id: str):
         files.append(
             {
                 "filename": p.name,
-                "url": f"http://localhost:8000/download/{file_id}/{p.name}",
+                "url": f"{base}/download/{file_id}/{p.name}",
                 "size_bytes": p.stat().st_size,
             }
         )
@@ -490,8 +515,9 @@ async def _run_youtube_job(job_id: str, url: str, req_format: str, req_stems: in
         await asyncio.to_thread(_convert_to_wav, src, wav_path)
 
         _set_yt_progress(job_id, "separating", 55)
-        separator = AudioSeparator(use_gpu=True)
+        from separator import AudioSeparator  # local import: heavy deps
 
+        separator = AudioSeparator(use_gpu=True)
         stems = await separator.separate_stems(
             audio_path=wav_path,
             output_dir=paths.output_dir,
@@ -537,6 +563,8 @@ async def _run_local_process(req: ProcessRequest):
             wav_in = paths.work_dir / "input.wav"
             await asyncio.to_thread(_convert_to_wav, src, wav_in)
 
+        from separator import AudioSeparator  # local import: heavy deps
+
         separator = AudioSeparator(use_gpu=True)
         await separator.separate_stems(
             audio_path=wav_in,
@@ -560,6 +588,8 @@ async def process_file(req: ProcessRequest):
 @app.get("/presets/{stem_name}")
 async def presets(stem_name: str, file_id: Optional[str] = None):
     # Keep API stable for frontend; output_dir only needed for actual processing.
+    from fx_engine import FXEngine  # local import: optional deps
+
     return FXEngine(BACKEND_DIR).get_presets_for_stem(stem_name)
 
 
@@ -577,6 +607,8 @@ async def _run_fx(file_id: str, stem_name: str, preset_id: str, passes: int, mix
         if not candidates:
             raise RuntimeError("Stem file not found.")
         stem_path = candidates[0].resolve()
+
+        from fx_engine import FXEngine  # local import: optional deps
 
         engine = FXEngine(paths.output_dir)
         if preview:
