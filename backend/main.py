@@ -156,6 +156,11 @@ def _job_dir(safe_id: str) -> Path:
 
 
 def _stems_dir(safe_id: str) -> Path:
+    """Return the stems sub-directory path for a *pre-sanitized* UUID string."""
+    return JOBS_DIR / safe_id / "stems"
+
+
+def _create_stems_dir(safe_id: str) -> Path:
     """Return (and create) the stems sub-directory for a *pre-sanitized* UUID string."""
     d = _job_dir(safe_id) / "stems"
     d.mkdir(parents=True, exist_ok=True)
@@ -277,7 +282,7 @@ async def _youtube_pipeline(
 ):
     """Full YouTube funnel: download → WAV → separate → zip."""
     job = _job_dir(file_id)
-    stems = _stems_dir(file_id)
+    stems = _create_stems_dir(file_id)
     raw_dir = job / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
 
@@ -373,7 +378,7 @@ async def _upload_pipeline(
 ):
     """Upload + trim + separate pipeline for locally uploaded files."""
     job = _job_dir(file_id)
-    stems = _stems_dir(file_id)
+    stems = _create_stems_dir(file_id)
 
     try:
         _set_progress(file_id, status="converting", progress=5)
