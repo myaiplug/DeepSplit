@@ -182,8 +182,9 @@ def _build_files_response(file_id: str, base_url: str) -> list[dict]:
 
 def _ffmpeg_to_wav(input_path: Path, output_path: Path):
     """Convert any audio/video to 44.1 kHz stereo WAV using ffmpeg."""
+    ffmpeg_bin = _find_ffmpeg()
     cmd = [
-        "ffmpeg", "-y",
+        ffmpeg_bin, "-y",
         "-i", str(input_path),
         "-vn",                    # strip video
         "-ar", "44100",
