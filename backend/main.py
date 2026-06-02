@@ -44,13 +44,19 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
 
 # ── Logging ─────────────────────────────────────────────────────────────────
+_log_handlers = [logging.StreamHandler(sys.stdout)]
+_log_file = os.getenv("DEEPSPLIT_LOG_FILE")
+if _log_file:
+    _log_path = Path(_log_file).expanduser()
+    if not _log_path.is_absolute():
+        raise RuntimeError("DEEPSPLIT_LOG_FILE must be an absolute path.")
+    _log_path.parent.mkdir(parents=True, exist_ok=True)
+    _log_handlers.append(logging.FileHandler(_log_path, encoding="utf-8"))
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
-    handlers=[
-        logging.StreamHandler(sys.stdout),
-        logging.FileHandler("backend.log", encoding="utf-8"),
-    ],
+    handlers=_log_handlers,
 )
 logger = logging.getLogger("deepsplit")
 
