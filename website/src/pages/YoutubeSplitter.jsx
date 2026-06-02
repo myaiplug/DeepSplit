@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import StemsModal from '../components/StemsModal';
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
-const HAS_API_BASE = Boolean(API_BASE);
+const HAS_CONFIGURED_BACKEND = Boolean(API_BASE);
 
 const apiUrl = (path) => `${API_BASE}${path.startsWith('/') ? path : `/${path}`}`;
 
@@ -70,6 +70,15 @@ const YoutubeSplitter = () => {
     if (!HAS_API_BASE) {
       setStep('failed');
       setError('YouTube split backend is not configured. Set VITE_API_BASE_URL or use the desktop app.');
+      return;
+    }
+
+    if (!HAS_CONFIGURED_BACKEND) {
+      setStep('failed');
+      setError('This web deployment has no YouTube backend configured. Use the desktop app, or set VITE_API_BASE_URL for self-hosted API use.');
+      setProgress(0);
+      setStatusText('');
+      setShowStemsModal(false);
       return;
     }
 
@@ -266,6 +275,13 @@ const YoutubeSplitter = () => {
                       >
                         Error: {error}
                       </motion.div>
+                    )}
+
+                    {!HAS_CONFIGURED_BACKEND && (
+                      <div className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl text-yellow-300 text-xs font-semibold">
+                        Web YouTube processing is disabled here because VITE_API_BASE_URL is not set.
+                        Use the desktop app download options below.
+                      </div>
                     )}
                   </motion.div>
                 )}
