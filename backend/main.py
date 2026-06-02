@@ -113,6 +113,7 @@ app.add_middleware(
 MAX_UPLOAD_BYTES = 50 * 1024 * 1024  # 50 MB
 ALLOWED_AUDIO_EXTS = {".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a", ".aiff", ".aif", ".webm"}
 ALLOWED_MIME_PREFIXES = ("audio/", "video/webm", "application/octet-stream")
+ALLOWED_OUTPUT_FORMATS = {"mp3", "wav", "flac"}
 
 YT_REGEX = re.compile(
     r"^(https?://)?(www\.)?(youtube\.com/watch\?v=|youtu\.be/|youtube\.com/shorts/)[\w\-]+"
@@ -498,6 +499,12 @@ async def process_audio(req: ProcessRequest, background_tasks: BackgroundTasks):
     The file must exist under UPLOAD_DIR/file_id/.
     """
     safe_id = _sanitize_file_id(req.file_id)
+    output_format = req.output_format.strip().lower()
+    if output_format not in ALLOWED_OUTPUT_FORMATS:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid output format. Allowed values: {', '.join(sorted(ALLOWED_OUTPUT_FORMATS))}.",
+        )
 
     # Validate trim region
     if req.end_ms > 0 and req.start_ms >= req.end_ms:
@@ -525,7 +532,7 @@ async def process_audio(req: ProcessRequest, background_tasks: BackgroundTasks):
         start_ms=req.start_ms,
         end_ms=req.end_ms,
         num_stems=req.num_stems,
-        output_format=req.output_format,
+        output_format=output_format,
     )
 
     return {"status": "processing", "file_id": safe_id}
