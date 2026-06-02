@@ -421,7 +421,6 @@ class ProcessRequest(BaseModel):
     end_ms: int = 0
     num_stems: int = 6
     output_format: str = "mp3"
-    model_type: str = "auto"
 
 
 class YoutubeRequest(BaseModel):
