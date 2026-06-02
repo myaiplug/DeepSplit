@@ -576,7 +576,7 @@ async def get_progress(file_id: str):
 async def list_files(file_id: str, request: Request):
     """Return all processed stem files for a job."""
     safe_id = _sanitize_file_id(file_id)
-    stems_path = _stems_dir(safe_id)
+    stems_path = JOBS_DIR / safe_id / "stems"
     if not stems_path.exists():
         raise HTTPException(status_code=404, detail="Job not found.")
     base_url = str(request.base_url).rstrip("/")
