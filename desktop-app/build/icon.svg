@@ -1,0 +1,28 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#grad)"/>
+
+  <!-- Waveform visualization -->
+  <g stroke="white" stroke-width="8" fill="none" stroke-linecap="round">
+    <!-- Multiple stem waveforms -->
+    <path d="M 100 256 Q 150 180 200 256 T 300 256" opacity="0.9"/>
+    <path d="M 100 256 Q 150 200 200 256 T 300 256" opacity="0.7"/>
+    <path d="M 100 256 Q 150 280 200 256 T 300 256" opacity="0.7"/>
+    <path d="M 100 256 Q 150 320 200 256 T 300 256" opacity="0.9"/>
+
+    <path d="M 300 256 Q 350 200 400 256" opacity="0.9"/>
+    <path d="M 300 256 Q 350 220 400 256" opacity="0.7"/>
+    <path d="M 300 256 Q 350 280 400 256" opacity="0.7"/>
+    <path d="M 300 256 Q 350 300 400 256" opacity="0.9"/>
+  </g>
+
+  <!-- Center split indicator -->
+  <line x1="256" y1="150" x2="256" y2="362" stroke="white" stroke-width="4" opacity="0.6"/>
+  <circle cx="256" cy="256" r="12" fill="white"/>
+</svg>
