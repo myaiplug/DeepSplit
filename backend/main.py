@@ -65,7 +65,8 @@ if WAV_SAMPLE_RATE not in (44100, 48000):
 
 
 def _safe_job_id(job_id: str) -> str:
-    if not re.fullmatch(r"[a-fA-F0-9-]{16,64}", job_id):
+    job_id = job_id.strip().lower()
+    if not re.fullmatch(r"[a-f0-9-]{16,64}", job_id):
         raise HTTPException(status_code=400, detail="Invalid job id")
     return job_id
 
@@ -85,8 +86,10 @@ class JobPaths:
 
 
 def _job_paths(job_id: str) -> JobPaths:
-    job_root = (JOBS_DIR / job_id).resolve()
-    if not job_root.is_relative_to(JOBS_DIR):
+    safe_job_id = _safe_job_id(job_id)
+    jobs_root = JOBS_DIR.resolve()
+    job_root = (jobs_root / safe_job_id).resolve()
+    if not job_root.is_relative_to(jobs_root):
         raise HTTPException(status_code=400, detail="Invalid job path")
     paths = JobPaths(
         root=job_root,
