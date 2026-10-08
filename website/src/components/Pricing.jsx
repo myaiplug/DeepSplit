@@ -26,14 +26,14 @@ const Pricing = () => {
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-400 to-purple-500" />
             <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-cyan-500/20 text-[10px] font-black text-cyan-400 tracking-widest uppercase border border-cyan-500/30">Best Value</div>
             <h3 className="text-lg font-black mb-2 text-white italic">Creator Pro</h3>
-            <div className="text-4xl font-black mb-6 text-white">$49 <span className="text-sm text-gray-500 font-normal">/one-time</span></div>
+            <div className="text-4xl font-black mb-6 text-white">$29 <span className="text-sm text-gray-500 font-normal">/one-time</span></div>
             <ul className="space-y-4 mb-10 flex-1">
               <li className="flex items-center gap-3 text-sm text-gray-200 font-bold"><Check size={16} className="text-cyan-400" /> 6-Stem Hybrid Pipeline</li>
               <li className="flex items-center gap-3 text-sm text-gray-200 font-bold"><Check size={16} className="text-cyan-400" /> Advanced DrumSep Module</li>
               <li className="flex items-center gap-3 text-sm text-gray-200 font-bold"><Check size={16} className="text-cyan-400" /> Desktop App (.exe) Included</li>
               <li className="flex items-center gap-3 text-sm text-gray-200 font-bold"><Check size={16} className="text-cyan-400" /> Early Access to Model V3</li>
             </ul>
-            <button className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] font-black text-xs uppercase tracking-widest hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:scale-[1.03] transition-all duration-500">Buy Once, Own Forever</button>
+            <a href="https://nodaw.gumroad.com/l/LiminalPro" target="_blank" rel="noopener noreferrer" className="block text-center w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 text-[#0a0f1d] font-black text-xs uppercase tracking-widest hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:scale-[1.03] transition-all duration-500">Buy Once, Own Forever</a>
           </div>
         </div>
       </div>
