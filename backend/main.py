@@ -66,9 +66,22 @@ if WAV_SAMPLE_RATE not in (44100, 48000):
 
 def _safe_job_id(job_id: str) -> str:
     job_id = job_id.strip().lower()
-    if not re.fullmatch(r"[a-f0-9-]{16,64}", job_id):
+    if not re.fullmatch(r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", job_id):
         raise HTTPException(status_code=400, detail="Invalid job id")
     return job_id
+
+
+def _safe_child_path(base_dir: Path, user_name: str) -> Path:
+    candidate = user_name.strip()
+    if not candidate or candidate in {".", ".."}:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    if Path(candidate).name != candidate:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    base_resolved = base_dir.resolve()
+    child = (base_resolved / candidate).resolve()
+    if not child.is_relative_to(base_resolved):
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    return child
 
 
 def _ensure_dirs(*dirs: Path):
@@ -437,7 +450,7 @@ async def get_upload(file_token: str):
         raise HTTPException(status_code=404, detail="Not found")
     file_id, filename = file_token.split("_", 1)
     paths = _job_paths(_safe_job_id(file_id))
-    src = (paths.input_dir / filename).resolve()
+    src = _safe_child_path(paths.input_dir, filename)
     if not src.exists():
         raise HTTPException(status_code=404, detail="Not found")
     return FileResponse(src)
@@ -446,7 +459,7 @@ async def get_upload(file_token: str):
 @app.api_route("/processed/{file_id}/{filename}", methods=["GET", "HEAD"])
 async def get_processed(file_id: str, filename: str):
     paths = _job_paths(_safe_job_id(file_id))
-    p = (paths.output_dir / filename).resolve()
+    p = _safe_child_path(paths.output_dir, filename)
     if not p.exists():
         raise HTTPException(status_code=404, detail="Not found")
     return FileResponse(p)
@@ -456,7 +469,7 @@ async def get_processed(file_id: str, filename: str):
 async def download_file(file_id: str, filename: str):
     paths = _job_paths(_safe_job_id(file_id))
     for base in (paths.package_dir, paths.output_dir, paths.input_dir):
-        p = (base / filename).resolve()
+        p = _safe_child_path(base, filename)
         if p.exists():
             return FileResponse(p, filename=filename)
     raise HTTPException(status_code=404, detail="Not found")
@@ -553,7 +566,7 @@ async def process_youtube(req: YouTubeRequest):
 async def _run_local_process(req: ProcessRequest):
     file_id = _safe_job_id(req.file_id)
     paths = _job_paths(file_id)
-    src = (paths.input_dir / req.filename).resolve()
+    src = _safe_child_path(paths.input_dir, req.filename)
     if not src.exists():
         logger.error("Missing input for job %s: %s", file_id, src)
         return
