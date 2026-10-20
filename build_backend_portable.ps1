@@ -64,6 +64,7 @@ Write-Host "[4/5] Installing DeepSplit dependencies (this takes 5-15 min)..." -F
 & $PIP install `
     fastapi uvicorn[standard] pydantic `
     python-multipart aiofiles `
+    yt-dlp `
     audio-separator `
     demucs `
     soundfile librosa numpy scipy `

@@ -185,6 +185,10 @@ pnpm-debug.log*
 
 # Custom for this project
 backend/portable_python/
+backend/temp/
+backend/uploads/
+backend/processed/
+temp/
 frontend/node_modules/
 frontend/release/
 frontend/dist/
