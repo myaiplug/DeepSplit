@@ -197,6 +197,15 @@ website/build/
 website/dist/
 website/out/
 python_embed.zip
+# Downloaded audio / model weights / smoke-test output (never commit)
+*.webm
+*.m4a
+*.opus
+*.th
+*.ckpt
+*.onnx
+backend/pretrained_models/
+deepsplit-smoke-*/
 *.wav
 *.mp3
 *.flac

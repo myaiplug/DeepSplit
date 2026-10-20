@@ -5,7 +5,13 @@ python-multipart>=0.0.6
 
 # Audio processing
 audio-separator>=0.16.0
-yt-dlp>=2023.12.0
+yt-dlp>=2024.12.0
+# YouTube stem splitting runs Demucs directly (htdemucs / htdemucs_6s; weights are
+# downloaded on first use to the user cache, never into the repo).
+demucs>=4.0.1
+# Optional: enables the quantized `mdx_q` model (DEEPSPLIT_CPU_CONSTRAINED=1 and as a
+# fallback if htdemucs fails). Needs a C compiler on some platforms.
+# diffq>=0.2.4
 pydub>=0.25.1
 pedalboard>=0.9.0
 
