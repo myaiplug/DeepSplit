@@ -67,11 +67,6 @@ const YoutubeSplitter = () => {
 
   const handleSplit = async () => {
     if (!url.trim()) return;
-    if (!HAS_API_BASE) {
-      setStep('failed');
-      setError('YouTube split backend is not configured. Set VITE_API_BASE_URL or use the desktop app.');
-      return;
-    }
 
     if (!HAS_CONFIGURED_BACKEND) {
       setStep('failed');
@@ -223,7 +218,7 @@ const YoutubeSplitter = () => {
                       </div>
                     </div>
 
-                    {!HAS_API_BASE && (
+                    {!HAS_CONFIGURED_BACKEND && (
                       <div className="p-6 bg-amber-500/10 border border-amber-500/20 rounded-2xl text-amber-300 text-sm font-bold">
                         YouTube splitting requires a configured backend. Set <span className="font-mono text-amber-200">VITE_API_BASE_URL</span> or use the desktop app download below.
                       </div>
@@ -275,13 +270,6 @@ const YoutubeSplitter = () => {
                       >
                         Error: {error}
                       </motion.div>
-                    )}
-
-                    {!HAS_CONFIGURED_BACKEND && (
-                      <div className="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl text-yellow-300 text-xs font-semibold">
-                        Web YouTube processing is disabled here because VITE_API_BASE_URL is not set.
-                        Use the desktop app download options below.
-                      </div>
                     )}
                   </motion.div>
                 )}
