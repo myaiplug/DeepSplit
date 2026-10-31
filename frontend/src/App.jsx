@@ -10,6 +10,10 @@ import StudioView from './components/Studio/StudioView'
 import Background from './components/Background'
 import TitleBar from './components/TitleBar'
 
+// Backend origin. Desktop builds talk to the bundled local backend; web/staging builds
+// can point elsewhere with VITE_API_BASE_URL. File URLs come from the backend itself.
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000').replace(/\/$/, '')
+
 const STEM_POLL_MAP = {
     2: ['vocals', 'instrumental'],
     4: ['vocals', 'drums', 'bass', 'other'],
@@ -79,7 +83,7 @@ function App() {
 
     // Fetch device info on mount
     useEffect(() => {
-        fetch('http://localhost:8000/system/info', { signal: AbortSignal.timeout(5000) })
+        fetch(`${API_BASE}/system/info`, { signal: AbortSignal.timeout(5000) })
             .then(r => r.json())
             .then(data => { setDeviceInfo(data); setDeviceLoading(false); })
             .catch(() => {
@@ -109,7 +113,7 @@ function App() {
 
                 intervalId = setInterval(async () => {
                     try {
-                        const r = await fetch(`http://localhost:8000/progress/${fileId}`);
+                        const r = await fetch(`${API_BASE}/progress/${fileId}`);
                         const data = await r.json();
 
                         const label = YT_STATUS_LABELS[data.status] || data.status;
@@ -120,7 +124,7 @@ function App() {
                             clearInterval(dotIntervalId);
                             // Fetch file list
                             try {
-                                const filesRes = await fetch(`http://localhost:8000/files/${fileId}`);
+                                const filesRes = await fetch(`${API_BASE}/files/${fileId}`);
                                 const filesData = await filesRes.json();
                                 const STEM_SUFFIXES = [
                                     'vocals', 'drums', 'bass', 'guitar', 'piano', 'other',
@@ -129,14 +133,16 @@ function App() {
                                 const newStems = filesData.files
                                     .filter(f => !f.filename.endsWith('.zip'))
                                     .map(f => {
-                                        const stem = STEM_SUFFIXES.find(s => f.filename.includes(`_${s}.`));
+                                        const stem = (f.stem && STEM_SUFFIXES.includes(f.stem))
+                                            ? f.stem
+                                            : STEM_SUFFIXES.find(s => f.filename.endsWith(`_${s}.${f.filename.split('.').pop()}`));
                                         return {
                                             name: stem
                                                 ? stem.charAt(0).toUpperCase() + stem.slice(1)
                                                 : f.filename.replace(/\.[^/.]+$/, ''),
                                             src: f.url,
                                             color: STEM_COLORS[stem] || '#6b7280',
-                                            downloadUrl: `http://localhost:8000/download/${fileId}/${f.filename}`,
+                                            downloadUrl: f.download_url || `${API_BASE}/download/${fileId}/${encodeURIComponent(f.filename)}`,
                                         };
                                     });
                                 setStems(newStems);
@@ -180,7 +186,7 @@ function App() {
                 try {
                     // Poll for the first expected stem to know separation is done
                     const vocalRes = await fetch(
-                        `http://localhost:8000/processed/${fileId}/${safeFilename}_${expectedSuffixes[0]}.mp3`,
+                        `${API_BASE}/processed/${fileId}/${safeFilename}_${expectedSuffixes[0]}.mp3`,
                         { method: 'HEAD' }
                     );
                     if (!vocalRes.ok) return;
@@ -188,14 +194,14 @@ function App() {
                     // Build stems list from whatever files are available
                     const newStems = [];
                     for (const suffix of expectedSuffixes) {
-                        const url = `http://localhost:8000/processed/${fileId}/${safeFilename}_${suffix}.mp3`;
+                        const url = `${API_BASE}/processed/${fileId}/${safeFilename}_${suffix}.mp3`;
                         const r = await fetch(url, { method: 'HEAD' });
                         if (r.ok) {
                             newStems.push({
                                 name: suffix.charAt(0).toUpperCase() + suffix.slice(1),
                                 src: url,
                                 color: STEM_COLORS[suffix] || '#6b7280',
-                                downloadUrl: `http://localhost:8000/download/${fileId}/${safeFilename}_${suffix}.mp3`,
+                                downloadUrl: `${API_BASE}/download/${fileId}/${safeFilename}_${suffix}.mp3`,
                             });
                         }
                     }
@@ -231,7 +237,7 @@ function App() {
         setStep('processing');
         setYtStatusMsg('Sending request…');
         try {
-            const res = await fetch('http://localhost:8000/process_youtube/', {
+            const res = await fetch(`${API_BASE}/process_youtube/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url, format, num_stems: stems }),
@@ -260,7 +266,7 @@ function App() {
     const handleSelectionConfirmed = async (times) => {
         setStep('processing');
         try {
-            await fetch('http://localhost:8000/process/', {
+            await fetch(`${API_BASE}/process/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -295,7 +301,7 @@ function App() {
     const handleApplyFX = async (stemName, presetId, passes, mix = 1.0, preview = false) => {
         setProcessingFx(true); setFxProgress(0);
         try {
-            const res = await fetch('http://localhost:8000/process_fx/', {
+            const res = await fetch(`${API_BASE}/process_fx/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ file_id: fileData.file_id, stem_name: stemName, preset_id: presetId, passes, mix, preview }),
@@ -307,7 +313,7 @@ function App() {
     const pollFxProgress = (taskKey, isPreview = false) => {
         const interval = setInterval(async () => {
             try {
-                const res = await fetch(`http://localhost:8000/fx_progress/${taskKey}`);
+                const res = await fetch(`${API_BASE}/fx_progress/${taskKey}`);
                 const data = await res.json();
                 if (!isPreview) setFxProgress(data.progress);
                 if (data.progress >= 100) {
@@ -427,7 +433,7 @@ function App() {
                 {step === 'select' && fileData && (
                     <motion.div key="select" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                         <WaveformSelector
-                            url={`http://localhost:8000/uploads/${fileData.file_id}_${fileData.filename}`}
+                            url={`${API_BASE}/uploads/${fileData.file_id}_${fileData.filename}`}
                             onConfirmSelection={handleSelectionConfirmed}
                         />
                     </motion.div>
@@ -512,7 +518,7 @@ function App() {
                             </button>
                             {fileData?.file_id && (
                                 <a
-                                    href={`http://localhost:8000/download/${fileData.file_id}/stems.zip`}
+                                    href={`${API_BASE}/download/${fileData.file_id}/stems.zip`}
                                     className="flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-white transition-all hover:scale-105 shadow-lg"
                                     style={{ background: 'linear-gradient(135deg, #0891b2, #7c3aed)' }}
                                 >

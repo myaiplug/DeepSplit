@@ -33,7 +33,11 @@ const normalizeStems = (incoming = [], files = []) => {
   files.forEach((file, idx) => {
     const lower = (file.filename || '').toLowerCase();
     if (lower.endsWith('.zip')) return;
-    const key = Object.keys(STEM_META).find((k) => lower.includes(k)) || 'other';
+    // Prefer the backend-provided stem key; otherwise match the `_<stem>.<ext>` suffix
+    // so titles containing words like "bass" or "drums" don't mislabel stems.
+    const key = (file.stem && STEM_META[file.stem] ? file.stem : null)
+      || Object.keys(STEM_META).find((k) => new RegExp(`(^|[_\\-. ])${k}\\.[a-z0-9]+$`).test(lower))
+      || 'other';
     const meta = STEM_META[key] || {};
     stems.push({
       id: file.filename || `stem-${idx}`,

@@ -121,12 +121,52 @@ The website will be available at http://localhost:5173 (or the port shown in the
 
 ## API Endpoints
 
-- `POST /process_youtube/` - Start YouTube video processing
-  - Body: `{ "url": "youtube_url", "format": "wav", "num_stems": 6 }`
-- `GET /progress/{file_id}` - Check processing progress
+- `POST /process_youtube/` - Start YouTube video processing (background job)
+  - Body: `{ "url": "youtube_url", "format": "wav", "num_stems": 4 }`
+- `POST /api/youtube-split` - Same pipeline, synchronous; returns the result payload directly
+- `GET /progress/{file_id}` - `{status, progress, error}`; when `status == "done"` it also
+  contains `result` with `stems` (`{vocals: url, ...}`), `files`, `zip`, `notes`
 - `GET /files/{file_id}` - Get list of processed files
 - `POST /process_fx/` - Apply audio effects to stems
 - `GET /presets/{stem_name}` - Get available FX presets for a stem type
+
+## YouTube Split Pipeline (yt-dlp + Demucs)
+
+`backend/youtube_pipeline.py` implements: URL validation -> yt-dlp best-audio download
+(original kept as `uploads/yt_<uuid>/source.<ext>`) -> ffmpeg 44.1 kHz stereo WAV ->
+Demucs -> `processed/<uuid>/<Sanitized_Title>_<stem>.<ext>` + `stems.zip`.
+
+- **Stems**: 4 = vocals/drums/bass/other (`htdemucs`, default), 6 = + guitar/piano
+  (`htdemucs_6s`), 5 = 6-stem with piano merged into other, 2 = vocals/instrumental.
+  Stems are identified by filename pattern. If Demucs returns only some stems, the job
+  fails with a message listing the missing stems.
+- **Model / device**: GPU -> `htdemucs` with default settings. CPU -> `htdemucs` with
+  `--segment 7 -j 1`. `DEEPSPLIT_CPU_CONSTRAINED=1` uses `mdx_q` instead (needs `diffq`).
+  `DEEPSPLIT_DEMUCS_MODEL` overrides the 4-stem model. If `htdemucs` fails and `diffq`
+  is installed, the job retries once with `mdx_q`.
+- **URLs accepted**: `watch?v=`, `youtu.be/`, `shorts/`, `live/`, `embed/`, `m.`/`music.`
+  hosts. Extra query params (`t=`, `si=`, `index=`...) are stripped. Non-YouTube URLs -> 400.
+- **Playlists**: one track per request. `watch?v=X&list=Y` processes video X only; a
+  playlist-only URL (`/playlist?list=Y`) processes the first entry.
+- **Safety**: per-job UUID folders, ASCII-only sanitized/length-capped filenames (emoji,
+  punctuation and long titles are safe), no overwrites (`name_2.ext`), traversal blocked.
+- **Returned URLs** never hardcode localhost. Priority: `DEEPSPLIT_PUBLIC_BASE_URL`
+  (or `API_BASE_URL` / `BACKEND_BASE_URL`) -> `X-Forwarded-Proto` / `X-Forwarded-Host` /
+  `X-Forwarded-Prefix` from your reverse proxy (`DEEPSPLIT_TRUST_FORWARDED_HEADERS=0` to
+  disable) -> the request's own base URL. The web frontend reads `VITE_API_BASE_URL`.
+- **Other env vars**: `DEEPSPLIT_YT_MAX_DURATION_SECONDS` (default 1800, 0 = unlimited),
+  `DEEPSPLIT_DEMUCS_TIMEOUT` (default 3600), `DEEPSPLIT_YTDLP_COOKIES` (path to a
+  cookies.txt if YouTube shows "Sign in to confirm you're not a bot" on your server),
+  `FFMPEG_PATH`.
+
+### Verify
+
+```bash
+cd backend
+python -m pytest tests -q                        # unit + API tests (no network, Demucs mocked)
+python smoke_youtube_split.py --url "https://www.youtube.com/watch?v=jNQXAC9IVRw" --seconds 20
+python smoke_youtube_split.py --wav ../test_wav.wav --seconds 10   # offline Demucs check
+```
 
 ## Troubleshooting
 
@@ -171,7 +211,7 @@ Models are cached in `/tmp/audio-separator-models/` (or the configured directory
 1. **Use GPU acceleration** for 10-20x faster processing
 2. **WAV format** provides the highest quality but larger file sizes
 3. **6-stem mode** provides the best balance of quality and separation
-4. **Playlists** are processed sequentially; consider processing videos individually for faster results
+4. **Playlists**: only one track (the linked video or the first entry) is processed per request
 
 ## License
 

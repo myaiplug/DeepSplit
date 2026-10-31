@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertCircle } from 'lucide-react';
 
-const YT_REGEX = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)[\w-]+/;
+// Single videos (watch, youtu.be, shorts, live, embed; www/m/music hosts) and playlists.
+// Extra query params are fine - the backend normalises the URL. Playlists: first track only.
+const YT_REGEX = /^(https?:\/\/)?((www|m|music)\.)?(youtube\.com\/(watch\?(.*&)?v=|shorts\/|live\/|embed\/|playlist\?(.*&)?list=)|youtu\.be\/)[\w-]+/;
 
 function YoutubeIcon() {
     return (
